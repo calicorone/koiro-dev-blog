@@ -1,0 +1,13 @@
+title: koiro dev blog
+description: 개인 로드맵 기반 개발 블로그
+url: "https://blog.koiro.me"
+baseurl: ""
+
+theme: minima   # free built-in Jekyll theme
+
+# Optional: your details
+author:
+  name: koiro
+
+# Show posts on front page
+paginate: 5
