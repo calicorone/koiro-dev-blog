@@ -54,11 +54,11 @@ body {
   }
 }
 
-/* Site header — compact one-line bar */
+/* Site header — 배경 본문과 동일, 구분선만 */
 header,
 .site-header {
   border-bottom: 1px solid var(--koiro-border) !important;
-  background: var(--koiro-surface) !important;
+  background: var(--koiro-bg) !important;
 }
 
 .site-header--compact {
@@ -272,10 +272,10 @@ h1, .page-heading {
 }
 
 
-/* Footer — 한 줄 */
+/* Footer — 배경 본문과 동일, 구분선만 */
 .site-footer {
   border-top: 1px solid var(--koiro-border) !important;
-  background: var(--koiro-surface) !important;
+  background: var(--koiro-bg) !important;
   padding: 1rem 0;
   margin-top: 2.5rem;
 }
@@ -314,12 +314,12 @@ h1, .page-heading {
 }
 
 .post-content {
-  background: var(--koiro-surface);
-  border: 1px solid var(--koiro-border);
-  border-radius: var(--koiro-radius-lg);
-  box-shadow: var(--koiro-shadow);
-  padding: 2rem 1.75rem;
-  margin-top: 1rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  margin-top: 0.5rem;
 }
 
 .post-content h1,
