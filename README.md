@@ -1,113 +1,58 @@
 # koiro-dev-blog
 
-> **Stack:** Jekyll, GitHub Pages, Cloudflare (blog.koiro.me)  
-> **Cost:** 100% free — GitHub builds Jekyll natively.
+**Stack:** Hugo, GitHub Actions, GitHub Pages (blog.koiro.me)
 
 개인 로드맵 기반 개발 블로그.
 
 ---
 
-## blog.koiro.me에서 GitHub 404만 나올 때 (DNS는 이미 됨)
+## 구조
 
-blog.koiro.me가 GitHub 404를 보여주면 **DNS는 정상**입니다. GitHub 쪽만 설정하면 됩니다.
+- **content/posts/** — 마크다운 글. 파일명: `YYYY-MM-DD-slug.md` 또는 `slug.md`
+- **layouts/** — Hugo 템플릿 (baseof, index, single, index.json)
+- **static/** — CSS, CNAME, 이미지 등
+- **config.yaml** — Hugo 설정
 
-1. **Repo가 있고 Jekyll 파일이 이미 push되어 있다면**
-   - [github.com/calicorone/koiro-dev-blog](https://github.com/calicorone/koiro-dev-blog) → **Settings → Pages**
-   - **Source:** Branch `master`, Folder **/ (root)** → **Save**
-   - **Custom domain:** `blog.koiro.me` 입력 → **Save**
-   - 1–2분 후 빌드되면 사이트가 뜹니다. 인증되면 **Enforce HTTPS** 체크.
+## 배포
 
-2. **Repo가 비어 있거나 아직 없다면** 아래 "로컬에서 만든 뒤 GitHub에 올리기" 순서대로 진행.
-
----
-
-## 로컬에서 만든 뒤 GitHub에 올리기
-
-1. **GitHub에서 빈 저장소 만들기**
-   - [github.com/new](https://github.com/new)
-   - Repository name: `koiro-dev-blog`
-   - Public, "Add a README file" 선택 후 Create
-
-2. **이 폴더를 새 repo로 push**
-   ```bash
-   cd koiro-dev-blog
-   git init
-   git add .
-   git commit -m "Initial Jekyll site for blog.koiro.me"
-   git branch -M master
-   git remote add origin https://github.com/<your-username>/koiro-dev-blog.git
-   git push -u origin master
-   ```
-
-3. **GitHub Pages 켜기**
-   - Repo **Settings → Pages**
-   - Source: Branch `master`, Folder `/ (root)` → Save
-
-4. **커스텀 도메인 (GitHub Pages 설정)**
-   - Repo 루트에 `CNAME` 파일 있음 (내용: `blog.koiro.me`)
-   - Settings → Pages → Custom domain: `blog.koiro.me` 입력 후 Save
-   - 도메인 인증 후 **Enforce HTTPS** 체크
-
-5. **Cloudflare: DNS만 사용 (Cloudflare Pages 아님)**
-   - **Cloudflare Pages는 사용하지 않습니다.** 호스팅은 GitHub Pages가 하고, Cloudflare는 DNS만 씁니다.
-   - 경로: [dash.cloudflare.com](https://dash.cloudflare.com) → **koiro.me** 클릭 → 왼쪽 **DNS** → **Records** → **Add record**
-   - `blog` 서브도메인용 **A 레코드 4개** 추가 (Proxy: **DNS only** — 회색 구름):
-     - 185.199.108.153  
-     - 185.199.109.153  
-     - 185.199.110.153  
-     - 185.199.111.153  
-   - 이렇게 하면 blog.koiro.me가 GitHub 서버를 가리키고, GitHub Pages가 빌드한 사이트가 보입니다.
-
----
+- `master`에 push하면 GitHub Action이 Hugo로 빌드 후 **gh-pages** 브랜치에 배포합니다.
+- Repo **Settings → Pages**: Source를 **Deploy from a branch**로 두고, Branch **gh-pages** / (root) 로 설정.
+- Custom domain: `blog.koiro.me` (Actions 워크플로에 cname 설정됨)
 
 ## 새 글 쓰기
 
-`_posts/` 안에 파일 추가. 파일명 형식: `YYYY-MM-DD-제목.md`
+1. **포트폴리오에서:** koiro.me → Dev Blog → blog.koiro.me에 글쓰기 → GitHub로 게시 (OAuth)
+2. **수동:** `content/posts/`에 마크다운 추가 후 push
 
-```markdown
----
-layout: post
-title: "Your Post Title"
-date: YYYY-MM-DD
-categories: [roadmap, til, project]
-tags: [react, typescript]
----
+Front matter 예시:
 
-본문은 마크다운으로.
+```yaml
+---
+title: "제목"
+date: 2026-03-15
+slug: my-post
+categories: [roadmap]
+tags: [tag1, tag2]
+---
 ```
 
----
+## Hugo 설치 (로컬에서 미리보기/빌드할 때)
 
-## posts.json (koiro.me 연동)
+**방법 1 — Homebrew (권장)**  
+권한 오류가 나면 한 번만 아래 실행 후 `brew install hugo`:
 
-Jekyll 빌드 시 루트에 **posts.json**이 생성됩니다. (최근 포스트 5개: title, url, date)
-
-- **URL:** https://blog.koiro.me/posts.json  
-- **용도:** koiro.me 홈의 "Koiro Dev Blog" 섹션에서 이 JSON을 fetch해 "최근 글" 목록을 표시합니다.  
-- GitHub Pages는 CORS를 허용하므로 koiro.me에서 그대로 fetch 가능합니다. (RSS/프록시 불필요)
-
-수정하려면 repo 루트의 `posts.json` Liquid 템플릿을 편집한 뒤 push하면 됩니다.
-
----
-
-## 폴더 구조
-
-```
-koiro-dev-blog/
-├── _config.yml      # 사이트 설정
-├── CNAME            # blog.koiro.me
-├── posts.json       # Jekyll 빌드 시 생성 (최근 5글, koiro.me에서 fetch)
-├── index.md         # 홈
-├── README.md
-├── assets/
-│   └── koiro-blog.css
-├── _includes/
-│   ├── custom-head.html
-│   └── footer.html
-├── _layouts/
-│   └── home.html
-└── _posts/
-    └── YYYY-MM-DD-제목.md
+```bash
+sudo chown -R $(whoami) /opt/homebrew /Users/$(whoami)/Library/Logs/Homebrew
+brew install hugo
 ```
 
-완료 후 라이브 주소: **https://blog.koiro.me**
+**방법 2 — 설치 스크립트**  
+`./scripts/install-hugo.sh` 실행 후 안내에 따르거나, [Hugo Releases](https://github.com/gohugoio/hugo/releases)에서 macOS용 `.pkg` 다운로드 후 설치.
+
+## 로컬 빌드
+
+```bash
+hugo server -D
+```
+
+빌드만: `hugo --minify` → `public/` 생성.

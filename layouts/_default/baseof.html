@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang | default "ko" }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+  <link rel="stylesheet" href="{{ "css/koiro-blog.css" | relURL }}">
+</head>
+<body>
+  <header class="site-header site-header--compact">
+    <div class="wrapper site-header-inner">
+      <a class="site-title" rel="author" href="{{ "/" | relURL }}">{{ .Site.Title }}</a>
+      <nav class="site-nav" aria-label="Main">
+        <a class="site-nav-link" href="{{ "/" | relURL }}">Home</a>
+      </nav>
+    </div>
+  </header>
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper">
+      {{ block "main" . }}{{ end }}
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrapper">
+      <p class="footer-line"><a href="{{ "/" | relURL }}">{{ .Site.Title }}</a> · <a href="https://blog.koiro.me">blog.koiro.me</a></p>
+    </div>
+  </footer>
+</body>
+</html>

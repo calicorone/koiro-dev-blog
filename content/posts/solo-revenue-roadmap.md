@@ -1,12 +1,11 @@
 ---
-layout: post
 title: "Solo revenue roadmap — what to touch now"
 date: 2026-03-16
 categories: [roadmap, sideseat, quant]
 tags: [roadmap, sideseat, quant, cursor, mac-mini, agents]
 ---
 
-A realistic solo revenue roadmap based on what’s actually in progress: SideSeat + Quant, 3–4 hrs/day after work, Cursor and agents in the loop.
+A realistic solo revenue roadmap based on what's actually in progress: SideSeat + Quant, 3–4 hrs/day after work, Cursor and agents in the loop.
 
 ![Solo revenue roadmap diagram — Phase 1–4, targets, agents](/assets/solo-revenue-roadmap.svg)
 
@@ -20,7 +19,7 @@ A realistic solo revenue roadmap based on what’s actually in progress: SideSea
 
 ## Mac mini timing: wait until Phase 3
 
-You don’t need a Mac mini for SideSeat at all — **Cloudflare + Supabase** handle everything. Buy it when you’re ready to run a **24hr local trading pipeline**. That way the purchase has immediate purpose (Quant data + backtest runner), not “someday.”
+You don't need a Mac mini for SideSeat at all — **Cloudflare + Supabase** handle everything. Buy it when you're ready to run a **24hr local trading pipeline**. That way the purchase has immediate purpose (Quant data + backtest runner), not "someday."
 
 ---
 
@@ -33,7 +32,7 @@ You don’t need a Mac mini for SideSeat at all — **Cloudflare + Supabase** ha
 
 ## Agents throughout: add one small agent per phase
 
-You don’t build a big “agent system” upfront. Each phase adds **one small agent** — moderation bot, backtest runner, alert sender. They compound over time.
+You don't build a big "agent system" upfront. Each phase adds **one small agent** — moderation bot, backtest runner, alert sender. They compound over time.
 
 **Agents running in background (all phases):**
 
@@ -47,6 +46,6 @@ You don’t build a big “agent system” upfront. Each phase adds **one small 
 ## What to tackle first?
 
 - **Option A:** Knock out the Phase 1 SideSeat APIs in Cursor (participation, notifications, reviews).  
-- **Option B:** Sketch the quant data pipeline structure (KRX / yfinance → Postgres) so it’s ready when you hit Phase 3.
+- **Option B:** Sketch the quant data pipeline structure (KRX / yfinance → Postgres) so it's ready when you hit Phase 3.
 
 Which one do you want to start with?

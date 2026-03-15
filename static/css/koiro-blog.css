@@ -1,26 +1,25 @@
-/* koiro dev blog — match koiro.me portfolio feel, force light theme */
+/* koiro dev blog — light, readable */
 :root {
-  --koiro-brand: #0f2e1d;
-  --koiro-brand-light: #2d5a3d;
-  --koiro-bg: #f9f9f7;
-  --koiro-bg-secondary: #f0f0eb;
-  --koiro-surface: #ffffff;
+  --koiro-brand: #1a1a1a;
+  --koiro-brand-light: #333;
+  --koiro-bg: #fafafa;
+  --koiro-bg-secondary: #f0f0f0;
+  --koiro-surface: #fff;
   --koiro-text: #1a1a1a;
-  --koiro-text-sub: #666666;
-  --koiro-text-muted: #999999;
-  --koiro-accent: #d4a373;
-  --koiro-border: rgba(15, 46, 29, 0.08);
-  --koiro-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  --koiro-shadow-md: 0 12px 32px rgba(15, 46, 29, 0.08);
-  --koiro-radius: 12px;
-  --koiro-radius-lg: 24px;
+  --koiro-text-sub: #555;
+  --koiro-text-muted: #888;
+  --koiro-accent: #2563eb;
+  --koiro-border: rgba(0, 0, 0, 0.08);
+  --koiro-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --koiro-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --koiro-radius: 8px;
+  --koiro-radius-lg: 12px;
 }
 
-/* Force light scheme so theme never shows dark */
 html {
   color-scheme: light;
-  background: #f9f9f7 !important;
-  color: #1a1a1a !important;
+  background: var(--koiro-bg) !important;
+  color: var(--koiro-text) !important;
 }
 
 * {
@@ -31,9 +30,8 @@ body,
 main,
 .page-content,
 .wrapper {
-  background-color: #f9f9f7 !important;
-  background: #f9f9f7 !important;
-  color: #1a1a1a !important;
+  background: var(--koiro-bg) !important;
+  color: var(--koiro-text) !important;
 }
 
 body {
@@ -271,36 +269,33 @@ h1, .page-heading {
 }
 
 
-/* Footer — minimal, not a second header */
+/* Footer — 한 줄 */
 .site-footer {
   border-top: 1px solid var(--koiro-border) !important;
-  background: transparent !important;
-  padding: 1.25rem 0;
-  margin-top: 2rem;
+  background: var(--koiro-surface) !important;
+  padding: 1rem 0;
+  margin-top: 2.5rem;
 }
 
 .site-footer .wrapper {
   padding: 0;
 }
 
-.footer-col-wrapper {
-  color: var(--koiro-text-muted) !important;
-  font-size: 0.8125rem;
-}
-
-.footer-col .p-name,
-.footer-col a {
-  color: var(--koiro-brand) !important;
-}
-
-.footer-col .contact-list {
-  list-style: none;
-  padding: 0;
+.footer-line {
   margin: 0;
+  font-size: 0.8125rem;
+  color: var(--koiro-text-muted) !important;
+  text-align: center;
 }
 
-.footer-col .contact-list li {
-  margin-bottom: 0.35rem;
+.footer-line a {
+  color: var(--koiro-text-sub) !important;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.footer-line a:hover {
+  color: var(--koiro-accent) !important;
 }
 
 /* Post page (single post) */

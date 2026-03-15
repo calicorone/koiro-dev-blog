@@ -1,0 +1,29 @@
+# Hugo config — GitHub Pages with Actions
+baseURL: "https://blog.koiro.me"
+title: "koiro dev blog"
+description: "개인 로드맵 기반 개발 블로그"
+languageCode: "ko-kr"
+defaultContentLanguage: "ko"
+
+# 미래 날짜 글도 표시 (로드맵·예정 글용)
+buildFuture: true
+
+permalinks:
+  posts: "/:year/:month/:day/:slug/"
+
+outputFormats:
+  JSON:
+    name: "json"
+    mediaType: "application/json"
+    baseName: "posts"
+
+outputs:
+  home: ["HTML", "JSON"]
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+params:
+  author: koiro

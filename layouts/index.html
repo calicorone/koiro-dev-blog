@@ -1,0 +1,28 @@
+{{ define "main" }}
+<header class="home-masthead">
+  <h1 class="home-title">{{ .Site.Title }}</h1>
+  {{ with .Site.Params.description }}
+  <p class="home-description">{{ . }}</p>
+  {{ end }}
+</header>
+
+<div class="post-list-section">
+  <span class="post-list-label">Posts</span>
+  {{ $posts := where .Site.RegularPages "Section" "posts" }}
+  {{ if $posts }}
+  <ul class="post-list">
+    {{ range $posts }}
+    <li class="post-list-item">
+      <span class="post-meta">{{ .Date.Format "Jan 2, 2006" }}</span>
+      <h3 class="post-list-title">
+        <a class="post-link" href="{{ .Permalink }}">{{ .Title }}</a>
+      </h3>
+    </li>
+    {{ end }}
+  </ul>
+  {{ else }}
+  <p class="post-list-empty">No posts yet.</p>
+  {{ end }}
+  <p class="rss-subscribe">subscribe <a href="{{ "index.xml" | relURL }}">via RSS</a></p>
+</div>
+{{ end }}
