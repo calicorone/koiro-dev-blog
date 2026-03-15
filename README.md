@@ -1,6 +1,6 @@
 # koiro-dev-blog
 
-> **Stack:** Jekyll + GitHub Pages + Cloudflare (blog.koiro.me)  
+> **Stack:** Jekyll, GitHub Pages, Cloudflare (blog.koiro.me)  
 > **Cost:** 100% free — GitHub builds Jekyll natively.
 
 개인 로드맵 기반 개발 블로그.
@@ -78,16 +78,36 @@ tags: [react, typescript]
 
 ---
 
+## posts.json (koiro.me 연동)
+
+Jekyll 빌드 시 루트에 **posts.json**이 생성됩니다. (최근 포스트 5개: title, url, date)
+
+- **URL:** https://blog.koiro.me/posts.json  
+- **용도:** koiro.me 홈의 "Koiro Dev Blog" 섹션에서 이 JSON을 fetch해 "최근 글" 목록을 표시합니다.  
+- GitHub Pages는 CORS를 허용하므로 koiro.me에서 그대로 fetch 가능합니다. (RSS/프록시 불필요)
+
+수정하려면 repo 루트의 `posts.json` Liquid 템플릿을 편집한 뒤 push하면 됩니다.
+
+---
+
 ## 폴더 구조
 
 ```
 koiro-dev-blog/
 ├── _config.yml      # 사이트 설정
 ├── CNAME            # blog.koiro.me
+├── posts.json       # Jekyll 빌드 시 생성 (최근 5글, koiro.me에서 fetch)
 ├── index.md         # 홈
 ├── README.md
+├── assets/
+│   └── koiro-blog.css
+├── _includes/
+│   ├── custom-head.html
+│   └── footer.html
+├── _layouts/
+│   └── home.html
 └── _posts/
-    └── 2026-03-15-hello-world.md
+    └── YYYY-MM-DD-제목.md
 ```
 
 완료 후 라이브 주소: **https://blog.koiro.me**
