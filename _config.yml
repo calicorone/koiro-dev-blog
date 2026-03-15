@@ -3,18 +3,15 @@ description: 개인 로드맵 기반 개발 블로그
 url: "https://blog.koiro.me"
 baseurl: ""
 
-theme: minima   # free built-in Jekyll theme
-
-# Force light skin so the theme never outputs dark styles
-minima:
-  skin: classic
-
-# Optional: your details
+# No theme — we use _layouts/ and assets/koiro-blog.css only
 author:
   name: koiro
 
 # Show posts on front page
 paginate: 5
 
-# Show future-dated posts (e.g. 2026-03-16) so they appear after push
+# Show future-dated posts
 future: true
+
+# Date format for post list
+date_format: "%b %-d, %Y"

@@ -8,8 +8,11 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="wrapper">
+    <div class="wrapper site-header-inner">
       <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+      <nav class="site-nav">
+        <a href="{{ '/' | relative_url }}">Home</a>
+      </nav>
     </div>
   </header>
   <main class="page-content" aria-label="Content">
