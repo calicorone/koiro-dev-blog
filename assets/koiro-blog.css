@@ -151,7 +151,8 @@ h1, .page-heading {
   margin: 0 !important;
 }
 
-.post-list > li {
+.post-list > li,
+.post-list-item {
   background: var(--koiro-surface);
   border: 1px solid var(--koiro-border);
   border-radius: var(--koiro-radius);
@@ -166,8 +167,15 @@ h1, .page-heading {
   box-shadow: var(--koiro-shadow-md);
 }
 
+.post-list-title {
+  margin: 0 !important;
+  font-size: 1.125rem !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+}
+
 .post-link {
-  font-size: 1.2rem !important;
+  font-size: inherit !important;
   font-weight: 700 !important;
   color: var(--koiro-brand) !important;
   text-decoration: none !important;
@@ -175,6 +183,14 @@ h1, .page-heading {
 
 .post-link:hover {
   color: var(--koiro-accent) !important;
+}
+
+.post-list-item .post-meta {
+  display: block;
+  font-size: 0.875rem !important;
+  color: var(--koiro-text-sub) !important;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
 }
 
 .post-meta {

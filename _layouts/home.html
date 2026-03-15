@@ -19,17 +19,17 @@ layout: default
 <ul class="post-list">
 {%- assign date_format = site.date_format | default: "%b %-d, %Y" -%}
   {%- for post in posts -%}
-  <li>
+  <li class="post-list-item">
     <span class="post-meta">{{ post.date | date: date_format }}</span>
-    <h3>
+    <h3 class="post-list-title">
       <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
     </h3>
   </li>
   {%- endfor -%}
 </ul>
 
-{% if site.paginate %}
-<nav class="pager">
+{% if site.paginate and paginator.total_pages > 1 %}
+<nav class="pager" aria-label="Posts pagination">
   <ul>
     {%- if paginator.previous_page %}
     <li><a href="{{ paginator.previous_page_path | relative_url }}" class="previous-page">{{ paginator.previous_page }}</a></li>
