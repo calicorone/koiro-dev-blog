@@ -2,9 +2,12 @@
 layout: default
 ---
 
-{%- if page.title -%}
-<h1 class="page-heading">{{ page.title }}</h1>
-{%- endif -%}
+<header class="home-masthead">
+  <h1 class="home-title">{{ page.title | default: site.title }}</h1>
+  {% if site.description %}
+  <p class="home-description">{{ site.description }}</p>
+  {% endif %}
+</header>
 
 {{ content }}
 
@@ -14,9 +17,10 @@ layout: default
   {% assign posts = site.posts %}
 {% endif %}
 
-<h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+<div class="post-list-section">
+  <span class="post-list-label">{{ page.list_title | default: "Posts" }}</span>
 {%- if posts.size > 0 -%}
-<ul class="post-list">
+  <ul class="post-list">
 {%- assign date_format = site.date_format | default: "%b %-d, %Y" -%}
   {%- for post in posts -%}
   <li class="post-list-item">
@@ -46,7 +50,7 @@ layout: default
 </nav>
 {%- endif %}
 {%- else -%}
-<p class="post-list-empty">No posts yet.</p>
+  <p class="post-list-empty">No posts yet.</p>
 {%- endif -%}
-
-<p class="rss-subscribe">subscribe <a href="{{ 'feed.xml' | relative_url }}">via RSS</a></p>
+  <p class="rss-subscribe">subscribe <a href="{{ 'feed.xml' | relative_url }}">via RSS</a></p>
+</div>
