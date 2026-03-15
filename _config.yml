@@ -5,6 +5,10 @@ baseurl: ""
 
 theme: minima   # free built-in Jekyll theme
 
+# Force light skin so the theme never outputs dark styles
+minima:
+  skin: classic
+
 # Optional: your details
 author:
   name: koiro

@@ -1,4 +1,4 @@
-/* koiro dev blog — match koiro.me portfolio feel */
+/* koiro dev blog — match koiro.me portfolio feel, force light theme */
 :root {
   --koiro-brand: #0f2e1d;
   --koiro-brand-light: #2d5a3d;
@@ -16,13 +16,27 @@
   --koiro-radius-lg: 24px;
 }
 
+/* Force light scheme so theme never shows dark */
+html {
+  color-scheme: light;
+  background: #f9f9f7 !important;
+  color: #1a1a1a !important;
+}
+
 * {
   box-sizing: border-box;
 }
 
+body,
+main,
+.page-content,
+.wrapper {
+  background-color: #f9f9f7 !important;
+  background: #f9f9f7 !important;
+  color: #1a1a1a !important;
+}
+
 body {
-  background-color: var(--koiro-bg) !important;
-  color: var(--koiro-text) !important;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
   margin: 0;
@@ -84,9 +98,8 @@ header a:first-of-type:hover {
   color: var(--koiro-brand) !important;
 }
 
-/* Page content */
+/* Page content — keep light, no transparent */
 .page-content {
-  background: transparent !important;
   padding: 0 !important;
 }
 
@@ -147,15 +160,26 @@ h1, .page-heading {
   margin-top: 0.25rem;
 }
 
-/* RSS link */
+/* RSS link — ensure visible on light bg */
 .rss-subscribe {
   margin-top: 2rem;
   font-size: 0.95rem;
+  color: var(--koiro-text-sub) !important;
 }
 
 .rss-subscribe a {
   color: var(--koiro-accent) !important;
   font-weight: 600;
+}
+
+/* Ensure main content text is visible (override theme dark colors) */
+.page-heading,
+.post-list-heading {
+  color: var(--koiro-brand) !important;
+}
+
+.post-list li {
+  color: var(--koiro-text) !important;
 }
 
 .rss-subscribe a:hover {
