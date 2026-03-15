@@ -149,7 +149,7 @@ response = anthropic.messages.create(
     tools=tools,
     messages=[{"role": "user", "content": "최근 AI Agent 관련 뉴스를 요약해줘"}]
 )
-# LLM이 web_search 호출 여부와 query를 스스로 결정합니다</pre>
+# LLM이 위 툴의 호출 여부와 query를 스스로 결정합니다</pre>
 
 <h2>5. Agent의 종류</h2>
 <p>구조와 목적에 따라 여러 유형으로 나뉩니다.</p>
