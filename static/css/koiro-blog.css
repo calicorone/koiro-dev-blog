@@ -1,19 +1,19 @@
-/* koiro dev blog — light, readable */
+/* koiro dev blog — koiro-portfolio와 동일 톤 (다크 그린 + 골드 악센트) */
 :root {
-  --koiro-brand: #1a1a1a;
-  --koiro-brand-light: #333;
-  --koiro-bg: #fafafa;
-  --koiro-bg-secondary: #f0f0f0;
-  --koiro-surface: #fff;
+  --koiro-brand: #0f2e1d;
+  --koiro-brand-light: #2d5a3d;
+  --koiro-bg: #f9f9f7;
+  --koiro-bg-secondary: #f0f0eb;
+  --koiro-surface: #ffffff;
   --koiro-text: #1a1a1a;
-  --koiro-text-sub: #555;
-  --koiro-text-muted: #888;
-  --koiro-accent: #2563eb;
-  --koiro-border: rgba(0, 0, 0, 0.08);
-  --koiro-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-  --koiro-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --koiro-radius: 8px;
-  --koiro-radius-lg: 12px;
+  --koiro-text-sub: #666666;
+  --koiro-text-muted: #999999;
+  --koiro-accent: #d4a373;
+  --koiro-border: rgba(15, 46, 29, 0.08);
+  --koiro-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --koiro-shadow-md: 0 12px 32px rgba(15, 46, 29, 0.08);
+  --koiro-radius: 12px;
+  --koiro-radius-lg: 24px;
 }
 
 html {
@@ -132,9 +132,12 @@ header a:first-of-type:hover {
   padding: 0 !important;
 }
 
-/* Home masthead — one clear title + description */
+/* Home masthead — title + description (not the site header bar) */
 .home-masthead {
   margin-bottom: 1.75rem;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
 }
 
 .home-title {
@@ -204,8 +207,8 @@ h1, .page-heading {
 
 .post-list > li:hover,
 .post-list-item:hover {
-  border-color: rgba(15, 46, 29, 0.15);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-color: var(--koiro-accent);
+  box-shadow: var(--koiro-shadow-md);
 }
 
 .post-list-title {
@@ -248,13 +251,13 @@ h1, .page-heading {
 }
 
 .rss-subscribe a {
-  color: var(--koiro-brand-light) !important;
+  color: var(--koiro-brand) !important;
   font-weight: 500;
   text-decoration: none;
 }
 
 .rss-subscribe a:hover {
-  color: var(--koiro-brand) !important;
+  color: var(--koiro-accent) !important;
   text-decoration: underline;
 }
 
@@ -352,5 +355,5 @@ h1, .page-heading {
 }
 
 .post-back a:hover {
-  color: var(--koiro-brand) !important;
+  color: var(--koiro-accent) !important;
 }

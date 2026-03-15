@@ -18,7 +18,7 @@ outputFormats:
     baseName: "posts"
 
 outputs:
-  home: ["HTML", "JSON"]
+  home: ["HTML", "JSON", "RSS"]
 
 markup:
   goldmark:
