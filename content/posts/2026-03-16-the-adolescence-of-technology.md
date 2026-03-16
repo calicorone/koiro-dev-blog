@@ -80,16 +80,12 @@ tags: ["AI", "safety", "Dario Amodei", "essay"]
    AI와 기술 가속이 2·3차로 불러오는 변화 중 예측 어려운 **급격한 불안정**이 있을 수 있다.  
    예: 생명 연장·지능 증강·업로드가 빠르게 실현될 때의 윤리·정체성 문제, AI가 인간 생활을 병리적으로 바꾸는 경우(선전·중독·“인형처럼 조종”), **일과 의미**의 재정의.
 
----
-
 ### 결론
 
 에세이는 이 상황을 “한 세기 내지 역대 최대의 국가안보 위협”에 비기면서도, **결정적으로·신중하게** 대응하면 리스크를 이겨낼 수 있고 그 뒤엔 훨씬 나은 세계가 있다고 본다.  
 
 기술을 멈추거나 크게 늦추는 건 비현실적이지만, **독재국에 칩·장비를 주지 않고** 민주국이 더 신중하게 강력 AI를 만드는 동안 **몇 년 버퍼**를 확보하는 길은 있다고 한다.  
 마지막에는 **인류가 이 시험을 통과할 정신과 결의가 있다**는 메시지로 끝난다.
-
----
 
 *원문은 아래에서 읽을 수 있습니다.*
 
@@ -441,8 +437,6 @@ But we will need to step up our efforts if we want to succeed. The first step is
 
 The years in front of us will be impossibly hard, asking more of us than we think we can give. But in my time as a researcher, leader, and citizen, I have seen enough courage and nobility to believe that we can win—that when put in the darkest circumstances, humanity has a way of gathering, seemingly at the last minute, the strength and wisdom needed to prevail. We have no time to lose.
 
----
-
 I would like to thank Erik Brynjolfsson, Ben Buchanan, Mariano-Florentino Cuéllar, Allan Dafoe, Kevin Esvelt, Nick Beckstead, Richard Fontaine, Jim McClave, and very many of the staff at Anthropic for their helpful comments on drafts of this essay.
 
 ## Footnotes
@@ -493,5 +487,3 @@ I would like to thank Erik Brynjolfsson, Ben Buchanan, Mariano-Florentino Cuéll
 44. Over time, I have gained increasing confidence in the trajectory of AI and the likelihood that it will surpass human ability across the board, but some uncertainty still remains.
 45. Anthropic’s goal is to remain consistent through such changes. When talking about AI risks was politically popular, Anthropic cautiously advocated for a judicious and evidence-based approach to these risks. Now that talking about AI risks is politically unpopular, Anthropic continues to cautiously advocate for a judicious and evidence-based approach to these risks.
 46. This is symmetric to a point I made in Machines of Loving Grace, where I started by saying that AI’s upsides shouldn’t be thought of in terms of a prophecy of salvation, and that it’s important to be concrete and grounded and to avoid grandiosity. Ultimately, prophecies of salvation and prophecies of doom are unhelpful for confronting the real world, for basically the same reasons.
-
-Back to top
