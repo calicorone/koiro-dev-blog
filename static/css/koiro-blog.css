@@ -344,6 +344,72 @@ h1, .page-heading {
   border-radius: var(--koiro-radius);
 }
 
+/* Post content — headings, lists, paragraphs (정돈) */
+.post-content h1 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--koiro-border);
+}
+.post-content h1:first-child {
+  margin-top: 0;
+}
+.post-content h2 {
+  margin-top: 2.25rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+.post-content h2:first-child {
+  margin-top: 0;
+}
+.post-content h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.0625rem;
+  color: var(--koiro-text) !important;
+}
+.post-content p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+.post-content ul,
+.post-content ol {
+  margin: 0.75rem 0 1.25rem;
+  padding-left: 1.5rem;
+}
+.post-content li {
+  margin-bottom: 0.4rem;
+  line-height: 1.65;
+}
+.post-content li > ul,
+.post-content li > ol {
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+.post-content hr {
+  margin: 2rem 0;
+  border: none;
+  border-top: 1px solid var(--koiro-border);
+}
+/* Link bookmark block (출처 카드) */
+.post-content .link-bookmark {
+  border: 1px solid var(--koiro-border);
+  border-radius: var(--koiro-radius);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  background: var(--koiro-surface);
+  box-shadow: var(--koiro-shadow);
+}
+.post-content .link-bookmark a {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+/* 강조: 대응, 결론 등 */
+.post-content strong {
+  color: var(--koiro-text);
+}
+
 /* Back link */
 .post-back {
   margin-bottom: 1rem;
