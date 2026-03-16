@@ -1,6 +1,6 @@
 # Hugo config — GitHub Pages with Actions
 baseURL: "https://blog.koiro.me"
-title: "koiro dev blog"
+title: "KOIRO Dev Blog"
 description: "개인 로드맵 기반 개발 블로그"
 languageCode: "ko-kr"
 defaultContentLanguage: "ko"
@@ -26,4 +26,4 @@ markup:
       unsafe: true
 
 params:
-  author: koiro
+  author: KOIRO
