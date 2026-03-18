@@ -190,8 +190,8 @@ We also attempted finetuning the Qwen model using sycophancy training data from 
 
 We demonstrate our fixes generalize to established benchmarks targeting sycophancy and political neutrality. For sycophancy we use **Sharma et al.**'s evaluation; for political neutrality we use **Shen et al.**'s evaluation. We also show our model performance does not degrade significantly on capability benchmarks such as **MMLU-Pro** and **GPQA**.
 
-| | Sycophancy Eval ↓ | MMLU-Pro | GPQA | Political Eval ↑ | MMLU-Pro | GPQA |
-|--|--|--|--|--|--|--|
+| Model | Sycophancy Eval ↓ | MMLU-Pro | GPQA | Political Eval ↑ | MMLU-Pro | GPQA |
+|-------|-------------------|----------|------|------------------|----------|------|
 | Base Model | 68.0%±2.3% | 52.9%±2.5% | 31.5%±2.3% | 45.7%±2.5% | 52.9%±2.5% | 31.5%±2.3% |
 | A3 Finetuned | 42.0%±2.5% | 52.4%±2.5% | 33.5%±2.3% | 70.4%±2.3% | 52.4%±2.5% | 31.2%±2.3% |
 
