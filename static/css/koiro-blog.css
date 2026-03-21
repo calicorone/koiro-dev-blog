@@ -586,6 +586,14 @@ h1, .page-heading {
   color: var(--essay-accent2) !important;
 }
 
+/* Custom lead block (tags only) — no duplicate title vs theme header */
+.post-content .post-lead {
+  margin-bottom: 1.5rem;
+}
+.post-content .post-lead .tags {
+  margin-bottom: 1.25rem;
+}
+
 /* nav row inside essay */
 .post-content .essay-agent-ontology .essay-nav {
   display: flex;
@@ -622,7 +630,7 @@ h1, .page-heading {
   border-radius: 2px;
 }
 
-/* hero */
+/* hero — align with site .post-title (sans, brand) */
 .post-content .essay-agent-ontology .hero {
   margin-bottom: 2.5rem;
 }
@@ -630,24 +638,25 @@ h1, .page-heading {
   font-family: var(--essay-mono);
   font-size: 11px;
   letter-spacing: 0.12em;
-  color: var(--essay-accent);
+  color: var(--koiro-text-muted);
   text-transform: uppercase;
   margin-bottom: 12px;
 }
 .post-content .essay-agent-ontology .hero h1 {
-  font-family: var(--essay-serif);
-  font-size: clamp(1.75rem, 4.5vw, 2.5rem);
-  font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
   margin: 0 0 16px;
-  color: var(--essay-ink) !important;
+  color: var(--koiro-brand) !important;
   border: none;
   padding: 0;
 }
 .post-content .essay-agent-ontology .hero h1 em {
-  font-style: italic;
-  color: var(--essay-accent);
+  font-style: normal;
+  font-weight: 800;
+  color: var(--koiro-brand);
 }
 .post-content .essay-agent-ontology .hero-sub {
   font-size: 0.875rem;
@@ -683,13 +692,13 @@ h1, .page-heading {
 }
 
 .post-content .essay-agent-ontology h2 {
-  font-family: var(--essay-serif);
-  font-size: 1.45rem;
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 1.25;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
   margin: 0 0 16px;
-  color: var(--essay-ink) !important;
+  color: var(--koiro-brand) !important;
 }
 .post-content .essay-agent-ontology h3 {
   font-family: var(--essay-sans);

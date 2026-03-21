@@ -1,39 +1,54 @@
 ---
+layout: post
 title: "AI Agent 스캐폴딩과 온톨로지 구조"
 date: 2026-03-21
 slug: ai-agent-scaffolding-ontology
+author: Ahhyun Kim
 tags: ["AI Agent", "Ontology", "Architecture", "RAG"]
-essay: true
-hide_title: true
-read_time: "~8 min read"
 ---
 
-{{< essay >}}
+<style>
+  .post-content * { box-sizing: border-box; }
+  .post-content .meta { color: #888; font-size: 0.88rem; margin-bottom: 44px; }
+  .post-content .meta span { margin-right: 14px; }
+  .post-content h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 14px; }
+  .post-content h2 { font-size: 1.25rem; font-weight: 700; margin-top: 56px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid #e5e5e5; }
+  .post-content h2:first-of-type { margin-top: 0; }
+  .post-content h3 { font-size: 1rem; font-weight: 700; margin-top: 32px; margin-bottom: 10px; color: #3C3489; }
+  .post-content p { margin-bottom: 18px; color: #333; }
+  .post-content ul, .post-content ol { padding-left: 22px; margin-bottom: 18px; }
+  .post-content li { margin-bottom: 8px; color: #444; font-size: 0.95rem; line-height: 1.7; }
+  .post-content strong { color: #2C2C2A; }
+  .post-content .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
+  .post-content .tag { font-size: 0.78rem; padding: 4px 12px; border-radius: 20px; font-weight: 600; }
+  .post-content .tag.purple { background: #EEEDFE; color: #3C3489; }
+  .post-content .tag.teal { background: #E1F5EE; color: #085041; }
+  .post-content .tag.coral { background: #FAECE7; color: #712B13; }
+  .post-content .tag.amber { background: #FAEEDA; color: #633806; }
+  .post-content .intro { font-size: 1.05rem; line-height: 1.95; color: #444; border-left: 3px solid #7F77DD; padding-left: 20px; margin-bottom: 48px; }
+  .post-content .back-koiro { font-size: 0.82rem; margin-bottom: 1rem; }
+  .post-content .back-koiro a { color: #888; text-decoration: none; font-weight: 500; }
+  .post-content .back-koiro a:hover { color: #0f2e1d; }
+  .post-content .s-label { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: #999; margin-bottom: 0.35rem; }
+  .post-content pre { background: #F8F8F5; border: 1px solid #e5e5e5; border-radius: 8px; padding: 20px; overflow-x: auto; font-family: "JetBrains Mono", "Fira Code", monospace; font-size: 0.84rem; line-height: 1.75; margin: 16px 0 28px; color: #2C2C2A; white-space: pre-wrap; }
+  .post-content code { font-family: "JetBrains Mono", "Fira Code", monospace; font-size: 0.87em; background: #F8F8F5; padding: 2px 6px; border-radius: 4px; border: 1px solid #e5e5e5; color: #3C3489; }
+  .post-content hr { border: none; border-top: 1px solid #e5e5e5; margin: 52px 0; }
+  .post-content footer { margin-top: 80px; padding-top: 24px; border-top: 1px solid #e5e5e5; color: #888; font-size: 0.84rem; }
+</style>
+
+<div class="post-lead">
+<p class="back-koiro"><a href="https://koiro.me">← koiro.me</a></p>
+<div class="tags">
+  <span class="tag purple">AI Agent</span>
+  <span class="tag teal">Ontology</span>
+  <span class="tag coral">Architecture</span>
+  <span class="tag amber">RAG</span>
+</div>
+<p class="intro">에이전트가 "생각"하는 환경 자체를 어떻게 설계하는가.
+실행 루프, 도구 연결, 메모리 레이어부터
+지식 표현의 뼈대인 온톨로지까지.</p>
+
 <div class="essay-agent-ontology">
-
-  <div class="essay-nav">
-    <a class="nav-home" href="https://koiro.me">← koiro.me</a>
-    <div class="nav-tags">
-      <span class="pill">AI Agent</span>
-      <span class="pill">Ontology</span>
-      <span class="pill">Architecture</span>
-    </div>
-  </div>
-
-  <header class="hero">
-    <p class="hero-kicker">Engineering → Modeling → Agents</p>
-    <h1>AI Agent <em>스캐폴딩</em>과<br>온톨로지 구조</h1>
-    <p class="hero-sub">
-      에이전트가 "생각"하는 환경 자체를 어떻게 설계하는가.
-      실행 루프, 도구 연결, 메모리 레이어부터
-      지식 표현의 뼈대인 온톨로지까지.
-    </p>
-    <div class="hero-meta">
-      <span>Ahhyun Kim</span>
-      <span>2025</span>
-      <span>~8 min read</span>
-    </div>
-  </header>
 
   <div class="section">
     <p class="s-label">Part 1</p>
@@ -153,7 +168,7 @@ read_time: "~8 min read"
     </p>
   </div>
 
-  <hr class="essay-divider">
+  <hr>
 
   <div class="section">
     <p class="s-label">Part 2</p>
@@ -276,7 +291,7 @@ read_time: "~8 min read"
     </table>
   </div>
 
-  <hr class="essay-divider">
+  <hr>
 
   <div class="section">
     <p class="s-label">Part 3</p>
@@ -319,10 +334,7 @@ read_time: "~8 min read"
     </p>
   </div>
 
-  <footer class="essay-footer">
-    <span>Ahhyun Kim — koiro.me</span>
-    <span>2025</span>
-  </footer>
-
 </div>
-{{< /essay >}}
+
+<footer><p>Ahhyun Kim · koiro.me · 2026.03.21</p></footer>
+</div>

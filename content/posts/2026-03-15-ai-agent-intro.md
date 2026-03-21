@@ -3,6 +3,7 @@ layout: post
 title: "AI Agent란 무엇인가 — 구조와 작동 원리"
 date: 2026-03-15
 author: Ahhyun Kim
+tags: ["AI Agent", "LLM", "ReAct", "Architecture"]
 ---
 
 <style>
@@ -74,9 +75,7 @@ author: Ahhyun Kim
   .post-content footer { margin-top: 80px; padding-top: 24px; border-top: 1px solid #e5e5e5; color: #888; font-size: 0.84rem; }
 </style>
 
-<div class="post-content">
-<p class="meta"><span>2026.03.15</span> <span>Ahhyun Kim</span></p>
-<h1>AI Agent란 무엇인가<br>— 구조와 작동 원리</h1>
+<div class="post-lead">
 <div class="tags">
   <span class="tag purple">AI Agent</span>
   <span class="tag teal">LLM</span>
