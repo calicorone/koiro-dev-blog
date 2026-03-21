@@ -13,6 +13,11 @@
   <link rel="apple-touch-icon" sizes="180x180" href="{{ "butterfly-180.png" | relURL }}">
   <meta name="msapplication-TileColor" content="#0f2e1d">
   <meta name="msapplication-TileImage" content="{{ "butterfly-150.png" | relURL }}">
+  {{- if and .IsPage .Params.essay }}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@300;400&family=Noto+Serif+KR:wght@300;400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  {{- end }}
   <link rel="stylesheet" href="{{ "css/koiro-blog.css" | relURL }}">
 </head>
 <body>

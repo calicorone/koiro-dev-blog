@@ -24,17 +24,37 @@
 1. **포트폴리오에서:** koiro.me → Dev Blog → blog.koiro.me에 글쓰기 → GitHub로 게시 (OAuth)
 2. **수동:** `content/posts/`에 마크다운 추가 후 push
 
-Front matter 예시:
+- **날짜**: 새 글은 **항상 오늘 날짜**로 둡니다. 파일명과 front matter `date` 모두 같은 `YYYY-MM-DD`여야 합니다.
+- **오늘 날짜 자동으로 넣기** (터미널):
+
+  ```bash
+  date +%Y-%m-%d
+  ```
+
+  출력값을 `date:` 값과 파일명 앞부분에 그대로 쓰면 됩니다.
+
+- **스크립트로 스켈레톤 생성** (날짜·파일명 자동):
+
+  ```bash
+  chmod +x scripts/new-post.sh   # 최초 1회
+  ./scripts/new-post.sh my-post-slug "글 제목"
+  ```
+
+  `content/posts/YYYY-MM-DD-my-post-slug.md`가 만들어지고, front matter의 `date`도 같은 날짜로 들어갑니다.
+
+Front matter 예시 (`date`는 위 방법으로 **오늘** 값으로 채우기):
 
 ```yaml
 ---
 title: "제목"
-date: 2026-03-15
+date: YYYY-MM-DD
 slug: my-post
 categories: [roadmap]
 tags: [tag1, tag2]
 ---
 ```
+
+파일명: `YYYY-MM-DD-slug.md`.
 
 ## Hugo 설치 (로컬에서 미리보기/빌드할 때)
 

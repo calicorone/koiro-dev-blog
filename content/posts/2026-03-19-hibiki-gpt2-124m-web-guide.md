@@ -5,96 +5,120 @@ slug: hibiki-gpt2-124m-web-guide
 tags: ["GPT-2", "ML", "hibiki", "web", "guide"]
 ---
 
-GPT-2 124M을 처음부터 구현하고 학습하는 건 단계가 많고, 설정값도 다양해서 처음엔 부담스러울 수 있다. **hibiki**는 그 과정을 조금이라도 수월하게 하려고 만든 작은 웹 가이드다.
-
-- **빌드 페이지**: 학습에 쓸 명령어와 하이퍼파라미터를 고르면, 터미널에 붙여 넣을 수 있는 `train_gpt2.py` 명령이 생성된다.
-- **학습(Learn) 페이지**: 데이터·토큰화·입력/정답·모델 구조·손실·역전파·옵티마이저까지, 각 단계가 **무엇을 하는지**, **왜 그렇게 설계했는지** 개념서 형태로 정리해 두었다.
-- **시각화 페이지**: 학습 파이프라인(데이터 → 토큰화 → 모델 → 손실 → 옵티마이저)과 GPT-2 124M 아키텍처(임베딩 → 12개 블록 → 출력)를 다이어그램으로 볼 수 있다.
-
-모델 최적화를 처음 해보는 사람도, "이 옵션이 뭔지", "이 페이지는 왜 있는지"를 페이지와 항목마다 짧게 설명해 두었고, **한국어/영어 전환**도 지원한다.
+**hibiki**는 GPT-2 **124M**을 처음부터 구현·학습하는 저장소다. Andrej Karpathy의 GPT 재현·토크나이저 강의([Let’s reproduce GPT-2 (124M)](https://youtu.be/wjZofJX0v4M), [Let’s build the GPT Tokenizer](https://youtu.be/l8pRSuU81PU)) 흐름을 따르며, 학습 스크립트(`train_gpt2.py`)와 함께 **설정·시각화·개념 정리용 웹 UI**(`web/`)를 둔다.
 
 ---
 
-## 주요 기능
+## 홈 화면
 
-### 1. 빌드 (Build model)
+다크 배경에 골드 악센트 버튼, Overview / Build / Visualization / Learn / Attention paper 내비게이션, **KO | EN** 토글이 한 화면에 모여 있다.
 
-- **하는 일**: 학습 모드(overfit / pretrained / train)와 하이퍼파라미터를 선택하면, 그에 맞는 실행 명령과 설정 스니펫을 만들어 준다.
-- **목적**: `train_gpt2.py` 인자를 외우지 않아도 되고, 실험할 때마다 명령어를 조합하는 수고를 줄이기 위함.
-- **초보자용**: 페이지 상단에 "이 페이지는 학습할 때 쓸 명령어와 설정을 만들어 준다"는 설명이 있고, 마이크로 배치 크기, 시퀀스 길이, 학습률, warmup, gradient accumulation 등 **각 설정이 무엇인지, 왜 쓰는지** 한 줄씩 달아 두었다.
+<div class="hibiki-showcase">
+  <img src="/images/hibiki-homepage.png" alt="hibiki 웹 홈 — GPT-2 124M from scratch, Goals, Architecture 요약" width="1200" height="675" loading="lazy" decoding="async">
+  <p class="hibiki-showcase-caption">hibiki 웹 UI — 로컬 <code>npm run dev</code> (Vite 기본 포트 5173)</p>
+</div>
 
-### 2. 학습 (Learn) — 개념서
+---
 
-- **하는 일**: GPT-2 124M 구현·학습에 필요한 개념을 1장(개요)부터 8장(옵티마이저)·부록(용어·수식)까지 정리했다.
-- **목적**: 빌드나 코드에서 나오는 용어(배치, 시퀀스, x/y 분리, Pre-LN, Cross Entropy, 역전파, AdamW 등)를 "무엇인지", "왜 그렇게 쓰는지" 단계별로 이해할 수 있게 하기 위함.
-- **초보자용**: 각 섹션마다 "이 섹션에서 다루는 것"을 한 줄로 적어 두었고, "빌드에서 설정 만든 뒤 여기서 해당 항목만 찾아 읽어도 된다"는 이용 방법도 안내한다.
+## 구성
 
-### 3. 시각화 (Visualization)
+| 경로 | 설명 |
+|------|------|
+| 프로젝트 루트 | `train_gpt2.py`, 모델·데이터·학습 로직 (Python 3.10+) |
+| `web/` | Vite + React — 빌드 명령 생성, 파이프라인/아키텍처 시각화, 학습 가이드, Attention 논문 안내 |
 
-- **하는 일**:
-  - **학습 파이프라인**: 데이터 → 토큰화 → x,y 분리 → GPT forward → Loss → Backward → Optimizer 흐름을 카드로 보여 주고, 클릭 시 상세 설명이 나온다.
-  - **모델 아키텍처**: 한 블록(Pre-LN → Attn → + → LN → MLP → +)과 전체 12블록 구조를 다이어그램으로 보여 준다.
-- **목적**: 전체 흐름과 모델 구조를 그림으로 잡고, 개념서나 코드와 함께 보면서 이해하기 위함.
+---
 
-### 4. 한국어 / 영어 전환
+## Python 환경
 
-- 상단에서 **KO | EN**으로 언어를 바꿀 수 있고, 선택한 언어는 브라우저에 저장되어 다음 방문 시에도 유지된다.
-- 네비게이션, 빌드 폼, 학습 개념서, 시각화 설명까지 모두 선택한 언어로 표시된다.
+```bash
+pip install -e .
+# 선택: Hugging Face 체크포인트 검증 등
+pip install -e ".[pretrained]"
+```
 
-### 5. 토큰화 시각화 (Tokenization)
+학습 예시는 웹 **Build model** 페이지에서 모드·하이퍼파라미터를 고른 뒤 생성되는 명령을 복사하거나, 저장소의 `train_gpt2.py` 도움말을 참고하면 된다.
 
-- **하는 일**: 시각화 페이지에 **토큰화** 탭을 두어, 토크나이저 강의(Let's build the GPT Tokenizer) 내용을 다이어그램과 챕터 목록으로 볼 수 있게 했다.
-  - **인트로**: 토크나이저가 LLM에서 "문자열 ↔ 토큰"을 번역하는 별도 단계이며, 자체 훈련 데이터·BPE·encode/decode를 가진다는 설명(한/영).
-  - **Tokenizer vs LLM 다이어그램**: string → Tokenizer(encode) → token ids → LLM → token ids → decode → string 흐름을 블록으로 표시해 "완전히 분리된 단계"를 보여 준다.
-  - **BPE 요약**: count pairs → most frequent → merge → repeat 네 단계를 박스로 표시.
-  - **encode / decode 흐름**: 문자열→정규식 분리→BPE merge→ids, ids→vocab 조회→merge→문자열을 두 줄로 정리.
-  - **강의 챕터 목록**: 영상 타임스탬프별 챕터를 나열하고, 클릭 시 유튜브 해당 시점으로 이동하는 링크 제공.
-- **목적**: 토큰화가 LLM 파이프라인에서 어떤 위치인지, BPE·encode/decode가 어떻게 이뤄지는지를 그림으로 이해하고, 강의와 함께 보기 위함.
-- **초보자용**: "토크나이저는 별도 단계"라는 문장과 다이어그램으로, 학습 파이프라인의 "토큰화" 단계가 무엇인지 직관적으로 잡을 수 있다.
+---
+
+## 웹 UI (`web/`)
+
+```bash
+cd web
+npm install
+npm run dev
+```
+
+브라우저에서 **http://localhost:5173** — 프로덕션 정적 파일은 `npm run build` 후 `web/dist/`에 생성된다.
+
+### 주요 화면
+
+| 경로 | 내용 |
+|------|------|
+| `/` | 개요, 아키텍처·최적화 요약, 빠른 시작 |
+| `/build` | 학습 모드·하이퍼파라미터 → 터미널에 붙여 넣을 명령 생성 |
+| `/viz` | 학습 파이프라인, GPT-2 블록 다이어그램, 핵심 4구성(임베딩·어텐션·MLP·언임베딩), 토큰화(인터랙티브 BPE·YouTube 참고) |
+| `/learn` | 구현·학습 개념을 단계별로 정리 |
+| `/attention-is-all-you-need` | [Attention Is All You Need](https://arxiv.org/abs/1706.03762) 요약, KaTeX 수식·SVG 도식, 시각화 탭의 어텐션 그리드로 연결 |
+
+언어 전환은 헤더의 **KO / EN** 토글이다.
+
+### 기능 요약 (기존 상세)
+
+- **Build**: overfit / pretrained / train 모드와 하이퍼파라미터 → `train_gpt2.py`용 명령·설명 한 줄씩.
+- **Learn**: 1장~8장·부록 형태로 배치, 시퀀스, Pre-LN, 손실, 역전파, AdamW 등.
+- **Visualization**: 파이프라인 카드, 12블록 구조, **토큰화** 탭(BPE·encode/decode 다이어그램, 강의 챕터 링크).
 
 ---
 
 ## 기술 스택
 
-- **프론트**: React 18, TypeScript, Vite, React Router
-- **스타일**: CSS (테마 변수, 다크 톤)
-- **언어**: 자체 i18n (Context + ko/en 번역 객체), localStorage에 언어 저장
+- **프론트**: React 18, TypeScript, Vite, React Router  
+- **스타일**: CSS 변수, 다크 톤(홈·전역 테마)  
+- **언어**: 자체 i18n(ko/en), `localStorage`에 언어 저장  
 
-백엔드는 없고, `train_gpt2.py` 등 학습 코드는 사용자가 로컬에서 실행하는 구조다.
+백엔드는 없고 학습은 로컬에서 `train_gpt2.py`로 실행한다.
 
 ---
 
-## 실행 방법
+## 개발 메모
 
-```bash
-# 저장소 클론 후
-cd hibiki/web
-npm install
-npm run dev
-```
-
-브라우저에서 http://localhost:5173 열면 된다.
-
-- **배포**: `npm run build` 후 `web/dist`를 정적 호스팅(Netlify, Vercel, GitHub Pages 등)에 올리면 된다.
+- `web/node_modules`는 저장소에 포함하지 않는다. 클론 후 `cd web && npm install` 필요.
+- `.cursorrules`에 Pre-LN, weight tying, Flash Attention 등 모델·코딩 가이드가 정리되어 있다.
 
 ---
 
 ## 대상 독자
 
-- GPT-2 124M을 처음부터 구현·학습해 보고 싶은 사람
-- 모델 최적화(학습률, 배치, gradient accumulation 등)를 막 시작한 사람
-- "빌드"에서 나오는 옵션이나 "학습" 개념서의 용어가 낯선 사람
-
-즉, **처음 해보는 사람도 빌드·학습·시각화가 각각 무엇을 하고, 왜 쓰는지** 설명을 읽고 따라 할 수 있게 맞춰 두었다.
+- GPT-2 124M을 처음부터 구현·학습해 보고 싶은 사람  
+- 학습률·배치·gradient accumulation을 막 쓰기 시작한 사람  
+- 빌드 옵션이나 Learn 용어가 낯선 사람  
 
 ---
 
-## 저장소
+## 저장소·참고
 
-- **GitHub**: [github.com/calicorone/hibiki](https://github.com/calicorone/hibiki)
-
-프로젝트는 Andrej Karpathy의 "Let's reproduce GPT-2 (124M)" 흐름을 참고했고, 실제 학습 스크립트(`train_gpt2.py`)는 별도로 구현하면 된다. hibiki 웹은 그때 쓰일 **명령 생성·개념 설명·시각화**를 담당한다.
+- **GitHub**: [github.com/calicorone/hibiki](https://github.com/calicorone/hibiki)  
+- [nanoGPT](https://github.com/karpathy/nanoGPT)  
 
 ---
 
-GPT-2 124M을 처음부터 다뤄보고 싶은데, 명령어나 개념이 부담된다면 hibiki 웹에서 빌드·학습·시각화부터 차근차근 따라 해 보시면 좋겠다. 모든 설명은 한국어/영어로 전환할 수 있으니, 팀원이나 독자에게 링크만 공유해서 같이 보기에도 편하다.
+## 참고 영상
+
+Karpathy 강의와 hibiki 흐름을 같이 보면 이해가 빠르다.
+
+<div class="video-embed">
+<iframe src="https://www.youtube.com/embed/wjZofJX0v4M" title="YouTube — Let’s reproduce GPT-2 (124M)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+</div>
+
+<p class="video-caption"><a href="https://youtu.be/wjZofJX0v4M" target="_blank" rel="noopener noreferrer">Let’s reproduce GPT-2 (124M)</a> — YouTube</p>
+
+<div class="video-embed">
+<iframe src="https://www.youtube.com/embed/l8pRSuU81PU" title="YouTube — Let’s build the GPT Tokenizer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+</div>
+
+<p class="video-caption"><a href="https://youtu.be/l8pRSuU81PU" target="_blank" rel="noopener noreferrer">Let’s build the GPT Tokenizer</a> — YouTube</p>
+
+---
+
+명령어나 개념이 부담되면 **Build → Learn → Visualization** 순으로 hibiki 웹을 따라가 보길 권한다. 팀과 공유할 때는 한·영 토글로 맞춰 두면 된다.

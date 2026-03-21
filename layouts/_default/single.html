@@ -1,8 +1,10 @@
 {{ define "main" }}
-<article class="post">
+<article class="post{{ if .Params.hide_title }} post--essay{{ end }}">
   <header class="post-header">
+    {{- if not .Params.hide_title }}
     <h1 class="post-title">{{ .Title }}</h1>
-    <p class="post-meta">{{ .Date.Format "Jan 2, 2006" }}</p>
+    {{- end }}
+    <p class="post-meta">{{ .Date.Format "Jan 2, 2006" }}{{ if .Params.read_time }} · {{ .Params.read_time }}{{ end }}</p>
   </header>
   <div class="post-content">
     {{ .Content }}
