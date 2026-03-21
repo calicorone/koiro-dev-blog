@@ -8,6 +8,7 @@ hide_title: true
 read_time: "~8 min read"
 ---
 
+{{< essay >}}
 <div class="essay-agent-ontology">
 
   <div class="essay-nav">
@@ -324,3 +325,4 @@ read_time: "~8 min read"
   </footer>
 
 </div>
+{{< /essay >}}
