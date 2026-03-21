@@ -48,6 +48,7 @@ tags: ["AI Agent", "Ontology", "Architecture", "RAG"]
 실행 루프, 도구 연결, 메모리 레이어부터
 지식 표현의 뼈대인 온톨로지까지.</p>
 
+{{< essay >}}
 <div class="essay-agent-ontology">
 
   <div class="section">
@@ -335,6 +336,7 @@ tags: ["AI Agent", "Ontology", "Architecture", "RAG"]
   </div>
 
 </div>
+{{< /essay >}}
 
 <footer><p>Ahhyun Kim · koiro.me · 2026.03.21</p></footer>
 </div>

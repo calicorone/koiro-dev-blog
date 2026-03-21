@@ -1,5 +1,5 @@
 ---
-title: "GPT-2 124M 빌드·학습을 도와주는 웹 가이드, hibiki"
+title: "GPT-2 124M 빌드·학습을 도와주는 웹 가이드"
 date: 2026-03-19
 slug: hibiki-gpt2-124m-web-guide
 tags: ["GPT-2", "ML", "hibiki", "web", "guide"]
