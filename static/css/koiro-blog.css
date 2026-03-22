@@ -187,28 +187,31 @@ h1, .page-heading {
   margin: 1.5rem 0 0.75rem !important;
 }
 
-/* Post list — compact cards */
+/* Post list — divider rows */
 .post-list {
   list-style: none !important;
   padding: 0 !important;
   margin: 0 !important;
+  border-top: 1px solid var(--koiro-border);
 }
 
 .post-list > li,
 .post-list-item {
-  background: var(--koiro-surface);
-  border: 1px solid var(--koiro-border);
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-  padding: 0.9rem 1.1rem;
-  margin-bottom: 0.5rem;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--koiro-border);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 1.1rem 0.25rem;
+  margin-bottom: 0;
+  transition: background 0.15s ease;
 }
 
 .post-list > li:hover,
 .post-list-item:hover {
-  border-color: var(--koiro-accent);
-  box-shadow: var(--koiro-shadow-md);
+  background: rgba(15, 46, 29, 0.03);
+  border-color: var(--koiro-border);
+  box-shadow: none;
 }
 
 .post-list-title {
