@@ -3,6 +3,7 @@ title: "GPT-2 124M 빌드·학습을 도와주는 웹 가이드"
 date: 2026-03-19
 slug: hibiki-gpt2-124m-web-guide
 tags: ["GPT-2", "ML", "hibiki", "web", "guide"]
+math: true
 ---
 
 **hibiki**는 GPT-2 **124M**을 처음부터 구현·학습하는 저장소다. Andrej Karpathy의 GPT 재현·토크나이저 강의([Let’s reproduce GPT-2 (124M)](https://youtu.be/wjZofJX0v4M), [Let’s build the GPT Tokenizer](https://youtu.be/l8pRSuU81PU)) 흐름을 따르며, 학습 스크립트(`train_gpt2.py`)와 함께 **설정·시각화·개념 정리용 웹 UI**(`web/`)를 둔다.
