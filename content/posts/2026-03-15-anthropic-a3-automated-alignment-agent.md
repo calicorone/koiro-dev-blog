@@ -7,10 +7,10 @@ tags: ["AI", "safety", "Anthropic", "alignment", "A3"]
 
 ## 출처
 
-<div class="link-bookmark" style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; background: #f8fafc;">
-  <a href="https://alignment.anthropic.com/2026/automated-alignment-agent/" target="_blank" rel="noopener noreferrer" style="font-weight: 600; font-size: 1.1rem; color: #0f172a;">Automated Alignment Agent — Anthropic Alignment Science Blog</a>
-  <div style="font-size: 0.875rem; color: #64748b; margin-top: 0.35rem;">https://alignment.anthropic.com/2026/automated-alignment-agent/</div>
-  <p style="margin: 0.75rem 0 0; font-size: 0.9rem; color: #475569; line-height: 1.5;">Jifan Zhang, Henry Sleight, Joe Benton. March 11, 2026.</p>
+<div class="link-bookmark">
+  <a href="https://alignment.anthropic.com/2026/automated-alignment-agent/" target="_blank" rel="noopener noreferrer">Automated Alignment Agent — Anthropic Alignment Science Blog</a>
+  <div class="link-bookmark-url">https://alignment.anthropic.com/2026/automated-alignment-agent/</div>
+  <p class="link-bookmark-meta">Jifan Zhang, Henry Sleight, Joe Benton. March 11, 2026.</p>
 </div>
 
 ## 한글 정리본

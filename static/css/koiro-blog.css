@@ -517,18 +517,41 @@ h1, .page-heading {
     padding: 0.4rem 0.5rem;
   }
 }
-/* Link bookmark block (출처 카드) */
+/* Link bookmark block (출처·저장소 카드 — Anthropic / hibiki / agent 가이드 공통) */
 .post-content .link-bookmark {
   border: 1px solid var(--koiro-border);
-  border-radius: var(--koiro-radius);
+  border-radius: 12px;
   padding: 1.25rem 1.5rem;
   margin: 1.5rem 0;
   background: var(--koiro-surface);
   box-shadow: var(--koiro-shadow);
 }
-.post-content .link-bookmark a {
+.post-content .link-bookmark > a:first-of-type {
   font-weight: 600;
   font-size: 1.1rem;
+  color: var(--koiro-text);
+  text-decoration: none;
+  display: inline-block;
+}
+.post-content .link-bookmark > a:first-of-type:hover {
+  text-decoration: underline;
+}
+.post-content .link-bookmark .link-bookmark-url {
+  font-size: 0.875rem;
+  color: var(--koiro-text-muted);
+  margin-top: 0.35rem;
+  line-height: 1.45;
+  word-break: break-all;
+}
+.post-content .link-bookmark .link-bookmark-meta {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  color: var(--koiro-text-sub);
+  line-height: 1.5;
+}
+.post-content .link-bookmark a:not(:first-of-type) {
+  font-weight: inherit;
+  font-size: inherit;
 }
 /* 강조: 대응, 결론 등 */
 .post-content strong {

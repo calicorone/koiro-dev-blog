@@ -48,6 +48,12 @@ tags: ["AI Agent", "Ontology", "Architecture", "RAG"]
 실행 루프, 도구 연결, 메모리 레이어부터
 지식 표현의 뼈대인 온톨로지까지.</p>
 
+<p style="font-size:0.98rem;line-height:1.75;color:#555;margin:-28px 0 40px;padding-left:20px;border-left:3px solid #c9c4f0;">
+  구현·UI 측면에서는 SideSeat용 저장소 <strong>agent-platform-scaffolding</strong>의 <strong>Studio</strong>(Vite+React)에서 온톨로지·워크플로를 그래프로 다룬다.
+  스크린샷·로컬 실행·패널 설명은 <a href="/2026/03/28/agent-platform-studio-guide/">SideSeat 에이전트 컨트롤 플레인 — Studio 웹 가이드</a>와
+  <a href="https://github.com/calicorone/agent-platform-scaffolding">GitHub</a>를 참고하면 된다.
+</p>
+
 {{< essay >}}
 <div class="essay-agent-ontology">
 
