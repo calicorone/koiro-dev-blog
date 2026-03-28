@@ -31,14 +31,32 @@ translationKey: agent-platform-studio-guide
 
 ## Studio 화면 {#studio-view}
 
-왼쪽에 **sideseat CONTROL PLANE** 내비게이션, 가운데 **도트 그리드 캔버스**, 오른쪽에 **노드별 프로퍼티 패널**이 붙은 전형적인 “비주얼 IDE” 레이아웃이다. 상단에는 열린 프로젝트(**OPEN**), 이름(**NAME**), **Save / Execute / Demo / Delete**, 보내기(**.export.json**, **.workflow.xml**), API **Bearer** 토큰 입력이 한 줄에 모여 있다.
+<div class="studio-prose">
+
+전형적인 비주얼 IDE 배치다.
+
+- 왼쪽: sideseat CONTROL PLANE 내비게이션  
+- 가운데: 도트 그리드 캔버스  
+- 오른쪽: 노드별 프로퍼티 패널  
+
+상단 바에는 `OPEN`, `NAME`, Save / Execute / Demo / Delete, 보내기(`.export.json`, `.workflow.xml`), API Bearer 토큰 입력이 한 줄에 붙어 있다.
 
 <div class="hibiki-showcase">
   <img src="/images/agnet-homepage.png" alt="sideseat CONTROL PLANE — Studio 뷰: Ontology·Workflow 그래프, Meetup·Space·Link·Action·Agent·Deployed 노드" width="1200" height="800" loading="lazy" decoding="async">
-  <p class="hibiki-showcase-caption">Studio — 온톨로지(Ontology) 객체·링크·액션(Object·Link·Action)과 워크플로(workflow)를 한 캔버스에서 연결한 예시 (로컬 개발 서버 기준 화면)</p>
+  <p class="hibiki-showcase-caption">로컬 개발 서버 기준 화면. Object·Link·Action 온톨로지와 workflow를 한 캔버스에 묶은 예시다.</p>
 </div>
 
-스크린샷 중앙 그래프는 **Meetup** 생성 흐름을 보여 준다. 보라색 **OBJ Meetup**·**OBJ Space**, 파란 **LINK atPlace**(모임이 특정 공간에 열림), 노란 **Action: CreateMeetup**, **Agent** 노드, 마지막으로 녹색 **Deployed: sideseat** 타깃까지 이어진다. 오른쪽 패널은 선택된 **Object**의 타입명·설명·프로퍼티 목록(`id`, 제목, 시각, 정원 등)을 편집하는 형태다.
+캔버스 중앙은 Meetup을 만드는 흐름을 보여 준다.
+
+- 보라색 Object 노드: `Meetup`, `Space`  
+- 파란 Link: `atPlace` (모임이 특정 공간에서 열림)  
+- 노란 Action: `CreateMeetup`  
+- Agent 노드  
+- 녹색 Deployed 타깃: `sideseat`  
+
+오른쪽 패널에서는 선택한 Object의 타입명, 설명, 프로퍼티(`id`, 제목, 시각, 정원 등)를 편집한다.
+
+</div>
 
 ---
 

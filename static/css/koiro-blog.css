@@ -476,6 +476,28 @@ h1, .page-heading {
   margin-bottom: 1rem;
   line-height: 1.7;
 }
+
+/* Studio 가이드 등 — 리스트·짧은 문단으로 읽기 리듬 맞춤 */
+.post-content .studio-prose ul {
+  margin: 0.35rem 0 1rem;
+  padding-left: 1.35rem;
+}
+.post-content .studio-prose li {
+  margin-bottom: 0.35rem;
+  line-height: 1.72;
+  color: var(--koiro-text);
+}
+.post-content .studio-prose .hibiki-showcase {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.post-content .studio-prose .hibiki-showcase-caption {
+  line-height: 1.65;
+  max-width: 38rem;
+  margin-left: auto;
+  margin-right: auto;
+  hyphens: auto;
+}
 .post-content ul,
 .post-content ol {
   margin: 0.75rem 0 1.25rem;

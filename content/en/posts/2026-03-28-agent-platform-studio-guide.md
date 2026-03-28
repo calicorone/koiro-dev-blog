@@ -31,14 +31,32 @@ Conceptual background continues in the Korean essay **[AI Agent Scaffolding & On
 
 ## Studio view {#studio-view}
 
-Typical visual IDE layout: **sideseat CONTROL PLANE** nav on the left, a **dot-grid canvas** in the center, and a **per-node properties** panel on the right. The top bar holds **OPEN**, **NAME**, **Save / Execute / Demo / Delete**, exports (**`.export.json`**, **`.workflow.xml`**), and a **Bearer** token field.
+<div class="studio-prose">
+
+A typical visual IDE layout.
+
+- Left: sideseat CONTROL PLANE navigation  
+- Center: dot-grid canvas  
+- Right: per-node properties panel  
+
+The top bar lines up `OPEN`, `NAME`, Save / Execute / Demo / Delete, export (`.export.json`, `.workflow.xml`), and the API Bearer token field.
 
 <div class="hibiki-showcase">
   <img src="/images/agnet-homepage.png" alt="sideseat CONTROL PLANE — Studio: ontology and workflow graph" width="1200" height="800" loading="lazy" decoding="async">
-  <p class="hibiki-showcase-caption">Studio — wiring ontology (Object·Link·Action) and workflow on one canvas (local dev)</p>
+  <p class="hibiki-showcase-caption">Local dev. Object·Link·Action ontology and workflow on one canvas.</p>
 </div>
 
-The sample graph shows a **Meetup** flow: **OBJ Meetup** / **OBJ Space**, **LINK atPlace**, **Action: CreateMeetup**, an **Agent** node, and **Deployed: sideseat**. The right panel edits the selected **Object** type, description, and properties.
+The center graph is a Meetup-creation example.
+
+- Purple Object nodes: `Meetup`, `Space`  
+- Blue Link: `atPlace` (event at a venue)  
+- Yellow Action: `CreateMeetup`  
+- Agent node  
+- Green Deployed target: `sideseat`  
+
+The right panel edits the selected Object’s type name, description, and properties (`id`, title, time, capacity, etc.).
+
+</div>
 
 ---
 
