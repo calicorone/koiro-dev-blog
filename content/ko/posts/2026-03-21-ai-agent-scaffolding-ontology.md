@@ -49,9 +49,9 @@ tags: ["AI Agent", "Ontology", "Architecture", "RAG"]
 지식 표현의 뼈대인 온톨로지(Ontology)까지.</p>
 
 <p style="font-size:0.98rem;line-height:1.75;color:#555;margin:-28px 0 40px;padding-left:20px;border-left:3px solid #c9c4f0;">
-  구현·UI 측면에서는 <strong>sideseat</strong>용 저장소 <strong>agent-platform-scaffolding</strong>의 <strong>Studio</strong>(Vite+React)에서 온톨로지(Ontology)·워크플로(workflow)를 그래프로 다룬다.
+  구현·UI 측면에서는 <strong>sideseat</strong>용 저장소 <strong>agent-control-plane</strong>의 <strong>Studio</strong>(<code>platform-web</code>, Vite+React)에서 온톨로지(Ontology)·워크플로(workflow)를 그래프로 다룬다.
   스크린샷·로컬 실행·패널 설명은 <a href="/2026/03/28/agent-platform-studio-guide/">sideseat 에이전트 컨트롤 플레인 (Agent Control Plane) — Studio 웹 가이드</a>와
-  <a href="https://github.com/calicorone/agent-platform-scaffolding">GitHub</a>를 참고하면 된다.
+  <a href="https://github.com/calicorone/agent-control-plane">GitHub</a>를 참고하면 된다.
 </p>
 
 {{< essay >}}
