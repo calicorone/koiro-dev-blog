@@ -3,6 +3,7 @@
   {{- if not .Params.hide_title }}
   <header class="post-header">
     <h1 class="post-title">{{ .Title }}</h1>
+    {{ with .Params.title_alt }}<p class="post-title-alt" lang="{{ if eq $.Site.Language.Lang "ko" }}en{{ else }}ko{{ end }}">{{ . }}</p>{{ end }}
     <p class="post-meta">{{ .Date.Format "Jan 2, 2006" }}{{ if .Params.author }} · {{ .Params.author }}{{ end }}{{ if .Params.read_time }} · {{ .Params.read_time }}{{ end }}</p>
   </header>
   {{- end }}

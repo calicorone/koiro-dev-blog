@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "AI Agent 스캐폴딩과 온톨로지 구조"
+title: "AI Agent 스캐폴딩과 온톨로지 구조 (Scaffolding & Ontology)"
 date: 2026-03-21
 slug: ai-agent-scaffolding-ontology
 author: Ahhyun Kim
@@ -46,11 +46,11 @@ tags: ["AI Agent", "Ontology", "Architecture", "RAG"]
 </div>
 <p class="intro">에이전트가 "생각"하는 환경 자체를 어떻게 설계하는가.
 실행 루프, 도구 연결, 메모리 레이어부터
-지식 표현의 뼈대인 온톨로지까지.</p>
+지식 표현의 뼈대인 온톨로지(Ontology)까지.</p>
 
 <p style="font-size:0.98rem;line-height:1.75;color:#555;margin:-28px 0 40px;padding-left:20px;border-left:3px solid #c9c4f0;">
-  구현·UI 측면에서는 SideSeat용 저장소 <strong>agent-platform-scaffolding</strong>의 <strong>Studio</strong>(Vite+React)에서 온톨로지·워크플로를 그래프로 다룬다.
-  스크린샷·로컬 실행·패널 설명은 <a href="/2026/03/28/agent-platform-studio-guide/">SideSeat 에이전트 컨트롤 플레인 — Studio 웹 가이드</a>와
+  구현·UI 측면에서는 <strong>sideseat</strong>용 저장소 <strong>agent-platform-scaffolding</strong>의 <strong>Studio</strong>(Vite+React)에서 온톨로지(Ontology)·워크플로(workflow)를 그래프로 다룬다.
+  스크린샷·로컬 실행·패널 설명은 <a href="/2026/03/28/agent-platform-studio-guide/">sideseat 에이전트 컨트롤 플레인 (Agent Control Plane) — Studio 웹 가이드</a>와
   <a href="https://github.com/calicorone/agent-platform-scaffolding">GitHub</a>를 참고하면 된다.
 </p>
 
@@ -59,7 +59,7 @@ tags: ["AI Agent", "Ontology", "Architecture", "RAG"]
 
   <div class="section">
     <p class="s-label">Part 1</p>
-    <h2>스캐폴딩 — 에이전트의 실행 환경</h2>
+    <h2>스캐폴딩(Scaffolding) — 에이전트의 실행 환경 (Agent Runtime)</h2>
 
     <p>
       스캐폴딩(Scaffolding)은 건축의 비계에서 따온 용어다.
@@ -179,7 +179,7 @@ tags: ["AI Agent", "Ontology", "Architecture", "RAG"]
 
   <div class="section">
     <p class="s-label">Part 2</p>
-    <h2>온톨로지 — 지식의 뼈대</h2>
+    <h2>온톨로지(Ontology) — 지식의 뼈대(Knowledge Backbone)</h2>
 
     <p>
       온톨로지(Ontology)는 원래 철학 용어다.
@@ -302,7 +302,7 @@ tags: ["AI Agent", "Ontology", "Architecture", "RAG"]
 
   <div class="section">
     <p class="s-label">Part 3</p>
-    <h2>둘의 교차점 — 지식 기반 에이전트</h2>
+    <h2>둘의 교차점(Intersection) — 지식 기반 에이전트(Knowledge-Grounded Agents)</h2>
 
     <p>
       스캐폴딩이 에이전트의 <em>행동 구조</em>를 정의한다면,

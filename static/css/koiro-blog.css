@@ -104,6 +104,32 @@ body > header .wrapper {
   color: var(--koiro-brand) !important;
 }
 
+/* Language switcher (Hugo multilingual) */
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+.lang-switcher__sep {
+  color: var(--koiro-text-muted);
+  user-select: none;
+}
+.lang-switcher__current {
+  color: var(--koiro-brand);
+}
+.lang-switcher__link {
+  color: var(--koiro-text-sub) !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+}
+.lang-switcher__link:hover {
+  color: var(--koiro-accent) !important;
+  text-decoration: underline !important;
+}
+
 .site-title,
 header a:first-of-type {
   font-size: 1.25rem !important;
@@ -314,6 +340,15 @@ h1, .page-heading {
   font-weight: 800 !important;
   color: var(--koiro-brand) !important;
   letter-spacing: -0.03em;
+}
+
+.post-title-alt {
+  margin: 0.35rem 0 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--koiro-text-sub);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
 }
 
 .post-content {

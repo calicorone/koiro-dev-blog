@@ -36,7 +36,8 @@
     <div class="wrapper site-header-inner">
       <a class="site-title" rel="author" href="{{ "/" | relURL }}">{{ .Site.Title }}</a>
       <nav class="site-nav" aria-label="Main">
-        <a class="site-nav-link" href="{{ "/" | relURL }}">Home</a>
+        <a class="site-nav-link" href="{{ .Site.Home.RelPermalink }}">{{ if eq .Site.Language.Lang "ko" }}홈{{ else }}Home{{ end }}</a>
+        {{ partial "lang-switcher.html" . }}
       </nav>
     </div>
   </header>

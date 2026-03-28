@@ -1,0 +1,12 @@
+{{- if hugo.IsMultilingual -}}
+<nav class="lang-switcher" aria-label="Language">
+  {{- range $i, $p := sort .AllTranslations ".Language.Weight" -}}
+    {{- if $i -}}<span class="lang-switcher__sep" aria-hidden="true">|</span>{{- end -}}
+    {{- if eq $p.Lang $.Site.Language.Lang -}}
+      <span class="lang-switcher__current" aria-current="true">{{ $p.Language.LanguageName }}</span>
+    {{- else -}}
+      <a class="lang-switcher__link" href="{{ $p.RelPermalink }}" hreflang="{{ $p.Lang }}">{{ $p.Language.LanguageName }}</a>
+    {{- end -}}
+  {{- end -}}
+</nav>
+{{- end -}}
