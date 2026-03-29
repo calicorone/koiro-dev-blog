@@ -5,8 +5,23 @@
   {{- end -}}
 {{- end -}}
 {{- $sorted := sort $posts "Date" "desc" -}}
-{{- $list := slice -}}
+{{- $pick := dict -}}
 {{- range $sorted -}}
+  {{- $k := .Param "translationKey" | default .File.ContentBaseName -}}
+  {{- $ex := index $pick $k -}}
+  {{- if not $ex -}}
+    {{- $pick = merge $pick (dict $k .) -}}
+  {{- else if and (eq .Language.Lang "ko") (ne $ex.Language.Lang "ko") -}}
+    {{- $pick = merge $pick (dict $k .) -}}
+  {{- end -}}
+{{- end -}}
+{{- $chosen := slice -}}
+{{- range $k, $page := $pick -}}
+  {{- $chosen = $chosen | append $page -}}
+{{- end -}}
+{{- $chosen = sort $chosen "Date" "desc" -}}
+{{- $list := slice -}}
+{{- range $chosen -}}
   {{- $list = $list | append (dict "title" .Title "url" .Permalink "date" (.Date.Format "2006-01-02") "lang" .Language.Lang) -}}
 {{- end -}}
 {{- $list | jsonify -}}
