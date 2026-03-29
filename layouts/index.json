@@ -1,6 +1,12 @@
-{{- $posts := where .Site.RegularPages "Section" "posts" -}}
+{{- $posts := slice -}}
+{{- range site.Sites -}}
+  {{- range where .RegularPages "Section" "posts" -}}
+    {{- $posts = $posts | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- $sorted := sort $posts "Date" "desc" -}}
 {{- $list := slice -}}
-{{- range $posts -}}
-  {{- $list = $list | append (dict "title" .Title "url" .Permalink "date" (.Date.Format "2006-01-02")) -}}
+{{- range $sorted -}}
+  {{- $list = $list | append (dict "title" .Title "url" .Permalink "date" (.Date.Format "2006-01-02") "lang" .Language.Lang) -}}
 {{- end -}}
 {{- $list | jsonify -}}
