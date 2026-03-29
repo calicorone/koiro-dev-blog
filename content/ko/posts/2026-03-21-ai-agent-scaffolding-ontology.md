@@ -1,10 +1,13 @@
 ---
 layout: post
 title: "AI Agent 스캐폴딩과 온톨로지 구조 (Scaffolding & Ontology)"
+title_alt: "AI Agent Scaffolding & Ontology"
 date: 2026-03-21
 slug: ai-agent-scaffolding-ontology
 author: Ahhyun Kim
 tags: ["AI Agent", "Ontology", "Architecture", "RAG"]
+essay: true
+translationKey: ai-agent-scaffolding-ontology
 ---
 
 <style>

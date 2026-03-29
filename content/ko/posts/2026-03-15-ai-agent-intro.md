@@ -1,9 +1,11 @@
 ---
 layout: post
 title: "AI Agent란 무엇인가 — 구조와 작동 원리"
+title_alt: "What Is an AI Agent — structure and how it works"
 date: 2026-03-15
 author: Ahhyun Kim
 tags: ["AI Agent", "LLM", "ReAct", "Architecture"]
+translationKey: ai-agent-intro
 ---
 
 <style>

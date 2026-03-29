@@ -8,66 +8,65 @@
 
 ## 구조
 
-- **content/posts/** — 마크다운 글. 파일명: `YYYY-MM-DD-slug.md` 또는 `slug.md`
+- **content/ko/posts/** — 기본 언어(한국어) 마크다운 글
+- **content/en/posts/** — 영어 글 (**파일명은 KO와 동일**해야 `posts.json`·언어 전환이 맞음)
 - **layouts/** — Hugo 템플릿 (baseof, index, single, index.json)
 - **static/** — CSS, CNAME, 이미지 등
-- **config.yaml** — Hugo 설정
+- **config.yaml** — Hugo 다국어 설정 (`languages.ko` / `languages.en`)
 
 ## 배포
 
-- `master`에 push하면 GitHub Action이 Hugo로 빌드 후 **gh-pages** 브랜치에 배포합니다.
-- Repo **Settings → Pages**: Source를 **Deploy from a branch**로 두고, Branch **gh-pages** / (root) 로 설정.
-- Custom domain: `blog.koiro.me` (Actions 워크플로에 cname 설정됨)
+- `master`에 push하면 GitHub Action이 **KO/EN 짝 검사** 후 Hugo로 빌드하고 **gh-pages**에 배포합니다.
+- Repo **Settings → Pages**: Source **Deploy from a branch** → Branch **gh-pages** / (root).
+- Custom domain: `blog.koiro.me`
 
-## 새 글 쓰기
+## 새 글 쓰기 (KO + EN 항상 같이)
 
-1. **포트폴리오에서:** koiro.me → Dev Blog → blog.koiro.me에 글쓰기 → GitHub로 게시 (OAuth)
-2. **수동:** `content/posts/`에 마크다운 추가 후 push
+1. **스크립트 (권장):** KO·EN에 같은 날짜·슬러그 파일을 한 번에 만듭니다.
 
-- **날짜**: 새 글은 **항상 오늘 날짜**로 둡니다. 파일명과 front matter `date` 모두 같은 `YYYY-MM-DD`여야 합니다.
-- **오늘 날짜 자동으로 넣기** (터미널):
+   ```bash
+   chmod +x scripts/new-post.sh   # 최초 1회
+   ./scripts/new-post.sh my-post-slug "한글 제목" "English title"
+   ```
 
-  ```bash
-  date +%Y-%m-%d
-  ```
+   - `content/ko/posts/YYYY-MM-DD-my-post-slug.md`
+   - `content/en/posts/YYYY-MM-DD-my-post-slug.md`
+   - 둘 다 front matter에 `translationKey: my-post-slug`가 들어갑니다.
 
-  출력값을 `date:` 값과 파일명 앞부분에 그대로 쓰면 됩니다.
+2. **수동:** KO에만 추가했다면 EN에 **동일 파일명**으로 글을 추가하거나, 임시 스텁 생성:
 
-- **스크립트로 스켈레톤 생성** (날짜·파일명 자동):
+   ```bash
+   node scripts/sync-en-stubs.js
+   ```
 
-  ```bash
-  chmod +x scripts/new-post.sh   # 최초 1회
-  ./scripts/new-post.sh my-post-slug "글 제목"
-  ```
+3. **검증 (로컬 / CI 동일):**
 
-  `content/posts/YYYY-MM-DD-my-post-slug.md`가 만들어지고, front matter의 `date`도 같은 날짜로 들어갑니다.
+   ```bash
+   node scripts/verify-en-parity.js
+   ```
 
-Front matter 예시 (`date`는 위 방법으로 **오늘** 값으로 채우기):
+   KO `posts`에 있는 모든 `.md`에 대해 `content/en/posts/`에 같은 이름의 파일이 있어야 합니다.
+
+Front matter 예시:
 
 ```yaml
 ---
 title: "제목"
+title_alt: "English title"
 date: YYYY-MM-DD
 slug: my-post
-categories: [roadmap]
 tags: [tag1, tag2]
+translationKey: my-post
 ---
 ```
 
-파일명: `YYYY-MM-DD-slug.md`.
+- **`translationKey`**: Hugo가 번역 쌍으로 묶는 데 사용합니다. 보통 `slug`와 같게 두면 됩니다.
+- 파일명: `YYYY-MM-DD-slug.md` (KO·EN 동일).
 
-## Hugo 설치 (로컬에서 미리보기/빌드할 때)
+## Hugo 설치 (로컬)
 
-**방법 1 — Homebrew (권장)**  
-권한 오류가 나면 한 번만 아래 실행 후 `brew install hugo`:
-
-```bash
-sudo chown -R $(whoami) /opt/homebrew /Users/$(whoami)/Library/Logs/Homebrew
-brew install hugo
-```
-
-**방법 2 — 설치 스크립트**  
-`./scripts/install-hugo.sh` 실행 후 안내에 따르거나, [Hugo Releases](https://github.com/gohugoio/hugo/releases)에서 macOS용 `.pkg` 다운로드 후 설치.
+**Homebrew:** `brew install hugo` (extended 권장)  
+또는 `./scripts/install-hugo.sh` / [Hugo Releases](https://github.com/gohugoio/hugo/releases).
 
 ## 로컬 빌드
 
@@ -75,4 +74,4 @@ brew install hugo
 hugo server -D
 ```
 
-빌드만: `hugo --minify` → `public/` 생성.
+빌드만: `hugo --minify` → `public/`.

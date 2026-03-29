@@ -1,8 +1,10 @@
 ---
 title: "The Adolescence of Technology"
+title_alt: "기술의 사춘기 — 한글 정리"
 date: 2026-03-16
 slug: the-adolescence-of-technology
 tags: ["AI", "safety", "Dario Amodei", "essay"]
+translationKey: the-adolescence-of-technology
 ---
 
 ## 출처

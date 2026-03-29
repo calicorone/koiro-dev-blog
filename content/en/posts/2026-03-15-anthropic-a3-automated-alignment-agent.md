@@ -1,13 +1,13 @@
 ---
-title: "Anthropic A3 (Automated Alignment Agent) — AI가 스스로 자신의 안전 문제를 고친다"
-title_alt: "Anthropic A3 — models that fix their own safety issues"
+title: "Anthropic A3 (Automated Alignment Agent)"
+title_alt: "Anthropic A3 — AI가 스스로 자신의 안전 문제를 고친다"
 date: 2026-03-18
 slug: anthropic-a3-automated-alignment-agent
 tags: ["AI", "safety", "Anthropic", "alignment", "A3"]
 translationKey: anthropic-a3-automated-alignment-agent
 ---
 
-## 출처
+## Source
 
 <div class="link-bookmark">
   <a href="https://alignment.anthropic.com/2026/automated-alignment-agent/" target="_blank" rel="noopener noreferrer">Automated Alignment Agent — Anthropic Alignment Science Blog</a>
@@ -15,58 +15,17 @@ translationKey: anthropic-a3-automated-alignment-agent
   <p class="link-bookmark-meta">Jifan Zhang, Henry Sleight, Joe Benton. March 11, 2026.</p>
 </div>
 
-## 한글 정리본
 
-### Anthropic A3 (Automated Alignment Agent) — AI가 스스로 자신의 안전 문제를 고친다
+## Summary
 
-#### 배경: 왜 A3가 필요했나
+Classic LLM safety work looked like: humans spot a problem → define desired behavior → hand-build datasets → finetune → repeat. That is slow, labor-intensive, and hard to restart when new failures appear after deployment.
 
-기존 LLM 안전 작업의 흐름은 이랬다.
+**A3 (Automated Alignment Agent)** automates that loop. Given an initial failure example, it (1) **generates data**—hypotheses and synthetic user queries that surface similar misbehavior, split into train / val / OOD; (2) **finetunes** with adaptive mixing, LoRA, and hyperparameter search while limiting catastrophic forgetting and false positives; (3) keeps an **experiment log** so later iterations learn from past runs.
 
-> 사람이 문제를 발견 → 원하는 행동 정의 → 데이터셋 수작업 생성 → 모델 파인튜닝 → 다시 반복
+Experiments target **sycophancy**, **political bias**, and **nesting jailbreaks**, using **SFR** (safety failure rate) as a key metric. A3 beats non-adaptive baselines and strong models on several targeted evaluations while generalizing to held-out risks. Code: [github.com/safety-research/A3](https://github.com/safety-research/A3).
 
-인력 집약적이고, 느리고, 배포 이후에 새로운 문제가 발견되면 처음부터 다시 시작해야 한다. A3는 이 전체 사이클을 에이전트가 자동으로 처리하도록 설계된 프레임워크다. 초기 문제와 예시만 주어지면 나머지는 스스로 돌아간다.
 
-#### 구조: 세 가지 에이전트가 맞물려 작동한다
-
-**① 데이터 생성 에이전트**  
-안전 문제의 초기 예시를 받아서, 유사한 위험을 유발할 수 있는 가상의 사용자 쿼리를 적응적으로 생성한다. "어떤 행동이 원하는가"를 정의하는 대신, "어떤 질문이 위험을 불러오는가"를 탐색하는 방향이다. 생성된 데이터는 자동으로 훈련 / 검증 / OOD(분포 외) 평가 세트로 분할된다.
-
-**② 파인튜닝 에이전트**  
-세 가지 목표를 동시에 맞춘다.
-
-- 안전하지 않은 행동 줄이기
-- Catastrophic forgetting(기존 능력 손실) 방지
-- 거짓 양성(false positive, 멀쩡한 응답을 위험으로 잘못 판단) 비율 낮추기
-
-이전 실험 결과를 보고 훈련 데이터 혼합 비율을 반복적으로 조정한다.
-
-**③ 실험 로그**  
-에이전트의 메모리 역할. 과거 데이터 생성 및 파인튜닝 시도를 요약해서 다음 시도가 더 나은 전략을 쓸 수 있도록 한다. 단순한 반복이 아니라 학습하면서 개선되는 구조다.
-
-#### 실험: 무엇을 얼마나 고쳤나
-
-세 가지 안전 문제를 대상으로 검증했다.
-
-- **Sycophancy(아첨)** — 사용자가 틀린 주장을 해도 동의하는 경향
-- **Political bias(정치적 편향)** — 특정 정치적 입장을 선호하는 응답
-- **Nesting jailbreak(중첩 탈옥)** — 복잡한 프롬프트 구조로 안전 정책을 우회하는 시도
-
-평가 기준은 **Safety Failure Rate(SFR)**, 즉 특정 위험을 제대로 처리하지 못한 응답의 비율이다.
-
-결과: A3는 세 항목 모두에서 **비적응형 기준선과 다른 모델들을 능가**했고, 분포 내(ID) 평가뿐 아니라 다른 관련 위험에 대한 OOD 평가에서도 성능을 유지했다.
-
-#### 의미: 무엇이 달라지는가
-
-A3의 핵심 가치는 속도와 확장성이다. 인간이 배포 이후 문제를 발견하면, 기존에는 몇 주가 걸리던 수정 사이클이 에이전트 실행으로 단축될 수 있다. 또한 사람이 미처 생각하지 못한 유형의 위험도 에이전트가 탐색하며 발견할 수 있다.
-
-더 넓게 보면, AI 안전 연구에서 인간의 역할이 "직접 고치는 사람"에서 "방향을 설정하는 사람"으로 이동하는 흐름의 실증 사례다. Anthropic이 앞서 공개한 Petri(자동 감사 에이전트), Bloom(자동 평가 프레임워크)과 연계되며 안전 자동화 생태계를 구성한다.
-
-코드는 오픈소스로 공개됐다. → [github.com/safety-research/A3](https://github.com/safety-research/A3)
-
----
-
-## 원문
+## Full blog post (reprint from Alignment Science)
 
 **Jifan Zhang<sup>1</sup>, Henry Sleight<sup>2</sup>, Joe Benton<sup>3</sup>**  
 March 11, 2026  
@@ -218,3 +177,4 @@ For ICL, we can only put a limited amount of training data into context, so a bi
 **Experiment results:** We evaluate 20-shot ICL agents against random selection and the base model. We observe that allowing the agent to pick the ICL examples often results in better performance than randomly picking 20 examples. The DSPy agent also outperforms the ICL agent in this experiment (reduction of SFR by more than 25%). However, the SFT agent attains much better performance than the ICL agent—e.g. SFT achieves 5.3% SFR and 1.1% FPR on the OOD set, compared to 35% SFR and 2.3% FPR for the ICL agent. We release the code of the ICL agent as a more lightweight solution than the SFT agent.
 
 **[Figure 5: Performance of 20-shot ICL A3 agent and DSPy agent on sycophancy](https://alignment.anthropic.com/2026/automated-alignment-agent/)** — Compared to random example selection, the original Qwen-2.5-7B Instruct model, Claude Sonnet 4.5, and GPT-5. The SFT agent achieves substantially better results under the same experimental setting.
+
