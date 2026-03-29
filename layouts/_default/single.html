@@ -1,5 +1,5 @@
 {{ define "main" }}
-<article class="post{{ if .Params.hide_title }} post--essay{{ end }}">
+<article class="post{{ if .Params.hide_title }} post--essay{{ end }}{{ if .Params.deep_guide }} post--deep-guide{{ end }}">
   {{- if not .Params.hide_title }}
   <header class="post-header">
     <h1 class="post-title">{{ .Title }}</h1>
