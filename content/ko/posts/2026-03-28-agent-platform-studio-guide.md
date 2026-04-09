@@ -32,7 +32,7 @@ deep_guide: true
 <div class="studio-deep-part">
   <span class="studio-deep-part-num" aria-hidden="true">01</span>
   <div class="studio-deep-part-head">
-    <p class="studio-deep-kicker-small">Part 1</p>
+    <div class="studio-deep-kicker-small">Part 1</div>
     <h2 id="repo">저장소와 런타임 스택</h2>
   </div>
 </div>
@@ -90,7 +90,7 @@ deep_guide: true
 <div class="studio-deep-part">
   <span class="studio-deep-part-num" aria-hidden="true">02</span>
   <div class="studio-deep-part-head">
-    <p class="studio-deep-kicker-small">Part 2</p>
+    <div class="studio-deep-kicker-small">Part 2</div>
     <h2 id="studio-view">Studio 화면</h2>
   </div>
 </div>
@@ -125,7 +125,7 @@ deep_guide: true
 <div class="studio-deep-part">
   <span class="studio-deep-part-num" aria-hidden="true">03</span>
   <div class="studio-deep-part-head">
-    <p class="studio-deep-kicker-small">Part 3</p>
+    <div class="studio-deep-kicker-small">Part 3</div>
     <h2 id="layout">구성 · UI 둘러보기</h2>
   </div>
 </div>
@@ -163,7 +163,7 @@ deep_guide: true
 <div class="studio-deep-part">
   <span class="studio-deep-part-num" aria-hidden="true">04</span>
   <div class="studio-deep-part-head">
-    <p class="studio-deep-kicker-small">Part 4</p>
+    <div class="studio-deep-kicker-small">Part 4</div>
     <h2 id="closing">로컬 · 아키텍처 · 마무리</h2>
   </div>
 </div>

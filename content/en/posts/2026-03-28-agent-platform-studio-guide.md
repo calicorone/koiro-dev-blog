@@ -32,7 +32,7 @@ deep_guide: true
 <div class="studio-deep-part">
   <span class="studio-deep-part-num" aria-hidden="true">01</span>
   <div class="studio-deep-part-head">
-    <p class="studio-deep-kicker-small">Part 1</p>
+    <div class="studio-deep-kicker-small">Part 1</div>
     <h2 id="repo">Repository &amp; runtime stack</h2>
   </div>
 </div>
@@ -90,7 +90,7 @@ deep_guide: true
 <div class="studio-deep-part">
   <span class="studio-deep-part-num" aria-hidden="true">02</span>
   <div class="studio-deep-part-head">
-    <p class="studio-deep-kicker-small">Part 2</p>
+    <div class="studio-deep-kicker-small">Part 2</div>
     <h2 id="studio-view">Studio view</h2>
   </div>
 </div>
@@ -125,7 +125,7 @@ The right panel edits the selected Object’s type, description, and properties 
 <div class="studio-deep-part">
   <span class="studio-deep-part-num" aria-hidden="true">03</span>
   <div class="studio-deep-part-head">
-    <p class="studio-deep-kicker-small">Part 3</p>
+    <div class="studio-deep-kicker-small">Part 3</div>
     <h2 id="layout">Layout · UI tour</h2>
   </div>
 </div>
@@ -163,7 +163,7 @@ Connect nodes with **edges**. The properties panel edits metadata for the select
 <div class="studio-deep-part">
   <span class="studio-deep-part-num" aria-hidden="true">04</span>
   <div class="studio-deep-part-head">
-    <p class="studio-deep-kicker-small">Part 4</p>
+    <div class="studio-deep-kicker-small">Part 4</div>
     <h2 id="closing">Local run · architecture · wrap-up</h2>
   </div>
 </div>

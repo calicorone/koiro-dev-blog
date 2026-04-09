@@ -1102,7 +1102,10 @@ main.page-content > .wrapper:has(.post--deep-guide) {
   margin-bottom: 1.25rem;
 }
 
-.post-content .studio-deep-guide {
+/* Scope design tokens on the whole article body — Goldmark can leave
+   .studio-deep-part etc. as siblings of .studio-deep-guide, so vars must
+   not live only on the inner wrapper. */
+article.post--deep-guide .post-content {
   --sd-ink: var(--koiro-text);
   --sd-muted: var(--koiro-text-sub);
   --sd-faint: var(--koiro-text-muted);
@@ -1112,6 +1115,10 @@ main.page-content > .wrapper:has(.post--deep-guide) {
   --sd-stack-bg: #0c1812;
   --sd-stack-head: #122218;
   --sd-mono: "JetBrains Mono", ui-monospace, monospace;
+  --sd-rule: var(--koiro-border);
+}
+
+.post-content .studio-deep-guide {
   font-size: 0.9375rem;
   line-height: 1.75;
   color: var(--sd-ink);
@@ -1359,42 +1366,46 @@ main.page-content > .wrapper:has(.post--deep-guide) {
   border: none;
 }
 
-.post-content .studio-deep-part {
+article.post--deep-guide .post-content .studio-deep-part {
   display: flex;
   align-items: flex-end;
   gap: 1.15rem;
   margin: 2.5rem 0 1.25rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid var(--sd-rule);
+  border-bottom: 1px solid var(--sd-rule, rgba(15, 46, 29, 0.08));
 }
 
-.post-content .studio-deep-part:first-of-type {
+article.post--deep-guide .post-content .studio-deep-part:first-of-type {
   margin-top: 0.5rem;
 }
 
-.post-content .studio-deep-part-num {
+article.post--deep-guide .post-content .studio-deep-part-num {
   font-size: clamp(3rem, 8vw, 4rem);
   font-weight: 700;
   line-height: 1;
-  color: rgba(15, 46, 29, 0.1);
+  color: rgba(15, 46, 29, 0.12);
   font-family: Georgia, "Noto Serif KR", serif;
   flex-shrink: 0;
   user-select: none;
 }
 
-.post-content .studio-deep-part-head .studio-deep-kicker-small {
-  font-family: var(--sd-mono);
-  font-size: 0.625rem;
-  letter-spacing: 0.18em;
+/* div or p — beat .post-content p; explicit fallbacks if a var fails */
+article.post--deep-guide .post-content .studio-deep-part-head .studio-deep-kicker-small {
+  display: block;
+  font-family: var(--sd-mono, "JetBrains Mono", ui-monospace, monospace);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--sd-tech);
-  margin: 0 0 0.35rem;
+  color: var(--sd-tech, #3d6b8c);
+  margin: 0 0 0.35rem !important;
+  line-height: 1.35;
 }
 
-.post-content .studio-deep-part-head h2 {
+article.post--deep-guide .post-content .studio-deep-part-head h2 {
   font-size: 1.35rem !important;
   font-weight: 700 !important;
-  color: var(--sd-brand) !important;
+  color: var(--sd-brand, #0f2e1d) !important;
   margin: 0 !important;
   padding: 0 !important;
   border: none !important;
