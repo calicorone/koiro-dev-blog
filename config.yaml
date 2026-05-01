@@ -1,25 +1,26 @@
-# Hugo config — GitHub Pages with Actions
 baseURL: "https://blog.koiro.me"
-title: "KOIRO Dev Blog"
+title: "KOIRO Archive"
 defaultContentLanguage: "ko"
 defaultContentLanguageInSubdir: false
-
-# 미래 날짜 글도 표시 (로드맵·예정 글용)
 buildFuture: true
 
 languages:
   ko:
     languageName: 한국어
+    label: 한국어
     weight: 1
     contentDir: content/ko
     params:
-      description: "개인 로드맵 기반 개발 블로그"
+      description: "기록하고 탐구하고 실험한다"
+      kicker: "Archive"
   en:
     languageName: English
+    label: English
     weight: 2
     contentDir: content/en
     params:
-      description: "Development blog — personal roadmap and build notes"
+      description: "Notes on AI, engineering, and the things in between"
+      kicker: "Archive"
 
 permalinks:
   posts: "/:year/:month/:day/:slug/"

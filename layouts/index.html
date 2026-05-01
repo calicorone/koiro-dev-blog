@@ -1,12 +1,13 @@
 {{ define "main" }}
 <header class="home-masthead">
-  {{ with .Site.Params.description }}
-  <p class="home-description">{{ . }}</p>
-  {{ end }}
+  {{ with .Site.Params.kicker }}<span class="home-kicker">{{ . }}</span>{{ end }}
+  <h1 class="home-title">{{ .Site.Title }}</h1>
+  {{ with .Site.Params.description }}<p class="home-description">{{ . }}</p>{{ end }}
 </header>
 
 <div class="post-list-section">
   <span class="post-list-label">{{ if eq .Site.Language.Lang "ko" }}글 목록{{ else }}Posts{{ end }}</span>
+
   {{ $posts := where .Site.RegularPages "Section" "posts" }}
   {{ if $posts }}
   <ul class="post-list">
@@ -22,6 +23,7 @@
   {{ else }}
   <p class="post-list-empty">{{ if eq .Site.Language.Lang "ko" }}아직 글이 없습니다.{{ else }}No posts yet.{{ end }}</p>
   {{ end }}
-  <p class="rss-subscribe">{{ if eq .Site.Language.Lang "ko" }}구독:{{ else }}Subscribe{{ end }} <a href="{{ "index.xml" | relURL }}">RSS</a></p>
+
+  <p class="rss-subscribe">{{ if eq .Site.Language.Lang "ko" }}구독:{{ else }}Subscribe via{{ end }} <a href="{{ "index.xml" | relURL }}">RSS</a></p>
 </div>
 {{ end }}
