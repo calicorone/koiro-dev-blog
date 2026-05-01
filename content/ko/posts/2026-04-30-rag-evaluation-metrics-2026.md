@@ -55,7 +55,6 @@ translationKey: rag-evaluation-metrics-2026
 <p class="intro">2024년 RAG가 프로덕션에 본격 올라오면서, 2026년 현재는 "어떻게 평가할 것인가"가 구축 못지않게 중요해졌다. 검색-생성 정렬, 컨텍스트 신뢰성, Agentic RAG 평가까지 — 2026년 4월 기준 최신 연구와 실무 기준을 정리한다.</p>
 </div>
 
-{{< essay >}}
 
 ## 2024 → 2026: 무엇이 바뀌었나
 

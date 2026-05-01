@@ -53,7 +53,6 @@ translationKey: rag-evaluation-metrics-2026
 <p class="intro">As RAG moved into production in 2024, the question of <em>how to evaluate it</em> has become just as important as how to build it. Retriever-generator alignment, context trustworthiness, Agentic RAG evaluation — here's where the field stands as of April 2026.</p>
 </div>
 
-{{< essay >}}
 
 ## 2024 → 2026: What Changed
 

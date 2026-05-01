@@ -1,4 +1,4 @@
-/* koiro dev blog — koiro-portfolio와 동일 톤 (다크 그린 + 골드 악센트) */
+/* koiro dev blog — dark green brand · sky blue · purple accents */
 :root {
   --koiro-brand: #0f2e1d;
   --koiro-brand-light: #2d5a3d;
@@ -6,9 +6,13 @@
   --koiro-bg-secondary: #f0f0eb;
   --koiro-surface: #ffffff;
   --koiro-text: #1a1a1a;
-  --koiro-text-sub: #666666;
+  --koiro-text-sub: #555555;
   --koiro-text-muted: #999999;
   --koiro-accent: #d4a373;
+  --koiro-sky: #3d85c8;          /* sky blue */
+  --koiro-sky-light: #e8f2fc;    /* sky tint */
+  --koiro-purple: #6b5fd4;       /* purple */
+  --koiro-purple-light: #eeedfe; /* purple tint */
   --koiro-border: rgba(15, 46, 29, 0.08);
   --koiro-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   --koiro-shadow-md: 0 12px 32px rgba(15, 46, 29, 0.08);
@@ -41,7 +45,7 @@ body {
   padding: 0;
 }
 
-/* Main wrapper — readable width, tighter padding */
+/* Main wrapper */
 .wrapper {
   max-width: 680px;
   margin: 0 auto;
@@ -54,7 +58,7 @@ body {
   }
 }
 
-/* Site header — 배경 본문과 동일, 구분선만 */
+/* ── Site Header ── */
 header,
 .site-header {
   border-bottom: 1px solid var(--koiro-border) !important;
@@ -82,7 +86,7 @@ body > header .wrapper {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  min-height: 2.5rem;
+  min-height: 2.75rem;
 }
 
 .site-nav {
@@ -104,7 +108,7 @@ body > header .wrapper {
   color: var(--koiro-brand) !important;
 }
 
-/* Language switcher (Hugo multilingual) */
+/* Language switcher */
 .lang-switcher {
   display: inline-flex;
   align-items: center;
@@ -118,7 +122,7 @@ body > header .wrapper {
   user-select: none;
 }
 .lang-switcher__current {
-  color: var(--koiro-brand);
+  color: var(--koiro-purple);   /* purple for active lang */
 }
 .lang-switcher__link {
   color: var(--koiro-text-sub) !important;
@@ -126,7 +130,7 @@ body > header .wrapper {
   font-weight: 500 !important;
 }
 .lang-switcher__link:hover {
-  color: var(--koiro-accent) !important;
+  color: var(--koiro-sky) !important;   /* sky on hover */
   text-decoration: underline !important;
 }
 
@@ -153,14 +157,14 @@ header a:first-of-type:hover {
   color: var(--koiro-brand) !important;
 }
 
-/* Page content — keep light, no transparent */
+/* Page content */
 .page-content {
   padding: 0 !important;
 }
 
-/* Home masthead — title + description (not the site header bar) */
+/* ── Home masthead ── */
 .home-masthead {
-  margin-bottom: 1.75rem;
+  margin-bottom: 2rem;
   background: transparent !important;
   border: none !important;
   padding: 0 !important;
@@ -182,27 +186,18 @@ header a:first-of-type:hover {
   font-weight: 400;
 }
 
-/* Legacy / other pages */
-h1, .page-heading {
-  font-size: clamp(1.5rem, 3.5vw, 1.875rem) !important;
-  font-weight: 700 !important;
-  color: var(--koiro-brand) !important;
-  margin-bottom: 0.5rem !important;
-  letter-spacing: -0.03em;
-}
-
-/* Post list section + label */
+/* ── Section label ── */
 .post-list-section {
   margin-top: 0.5rem;
 }
 
 .post-list-label {
   display: block;
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--koiro-text-muted) !important;
+  letter-spacing: 0.12em;
+  color: var(--koiro-purple) !important;   /* purple section label */
   margin-bottom: 0.75rem;
 }
 
@@ -213,7 +208,7 @@ h1, .page-heading {
   margin: 1.5rem 0 0.75rem !important;
 }
 
-/* Post list — divider rows */
+/* ── Post list — divider rows ── */
 .post-list {
   list-style: none !important;
   padding: 0 !important;
@@ -228,16 +223,14 @@ h1, .page-heading {
   border-bottom: 1px solid var(--koiro-border);
   border-radius: 0;
   box-shadow: none;
-  padding: 1.1rem 0.25rem;
+  padding: 1.1rem 0;
   margin-bottom: 0;
   transition: background 0.15s ease;
 }
 
 .post-list > li:hover,
 .post-list-item:hover {
-  background: rgba(15, 46, 29, 0.03);
-  border-color: var(--koiro-border);
-  box-shadow: none;
+  background: rgba(15, 46, 29, 0.025);
 }
 
 .post-list-title {
@@ -247,6 +240,7 @@ h1, .page-heading {
   line-height: 1.4 !important;
 }
 
+/* Post link — sky blue on hover */
 .post-link {
   font-size: inherit !important;
   font-weight: 700 !important;
@@ -255,7 +249,7 @@ h1, .page-heading {
 }
 
 .post-link:hover {
-  color: var(--koiro-accent) !important;
+  color: var(--koiro-sky) !important;
 }
 
 .post-list-item .post-meta {
@@ -272,7 +266,7 @@ h1, .page-heading {
   margin-top: 0.25rem;
 }
 
-/* RSS — subtle */
+/* ── RSS ── */
 .rss-subscribe {
   margin-top: 1.25rem;
   font-size: 0.8125rem;
@@ -280,28 +274,35 @@ h1, .page-heading {
 }
 
 .rss-subscribe a {
-  color: var(--koiro-brand) !important;
+  color: var(--koiro-sky) !important;
   font-weight: 500;
   text-decoration: none;
 }
 
 .rss-subscribe a:hover {
-  color: var(--koiro-accent) !important;
+  color: var(--koiro-brand) !important;
   text-decoration: underline;
 }
 
-/* Ensure main content text is visible (override theme dark colors) */
+/* heading overrides */
 .page-heading,
 .post-list-heading {
   color: var(--koiro-brand) !important;
+}
+
+h1, .page-heading {
+  font-size: clamp(1.5rem, 3.5vw, 1.875rem) !important;
+  font-weight: 700 !important;
+  color: var(--koiro-brand) !important;
+  margin-bottom: 0.5rem !important;
+  letter-spacing: -0.03em;
 }
 
 .post-list li {
   color: var(--koiro-text) !important;
 }
 
-
-/* Footer — 배경 본문과 동일, 구분선만 */
+/* ── Footer ── */
 .site-footer {
   border-top: 1px solid var(--koiro-border) !important;
   background: var(--koiro-bg) !important;
@@ -327,10 +328,10 @@ h1, .page-heading {
 }
 
 .footer-line a:hover {
-  color: var(--koiro-accent) !important;
+  color: var(--koiro-sky) !important;
 }
 
-/* Post page (single post) */
+/* ── Post page (single) ── */
 .post-header {
   margin-bottom: 2rem;
 }
@@ -360,20 +361,66 @@ h1, .page-heading {
   margin-top: 0.5rem;
 }
 
+/* Post content headings — purple for h2, sky for h3 */
 .post-content h1,
 .post-content h2,
 .post-content h3 {
-  color: var(--koiro-brand) !important;
   font-weight: 700;
 }
 
-.post-content a {
+.post-content h1 {
   color: var(--koiro-brand) !important;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--koiro-border);
+}
+
+.post-content h1:first-child {
+  margin-top: 0;
+}
+
+.post-content h2 {
+  color: var(--koiro-purple) !important;   /* purple section headers */
+  margin-top: 2.25rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.post-content h2:first-child {
+  margin-top: 0;
+}
+
+.post-content h3 {
+  color: var(--koiro-sky) !important;      /* sky sub-headers */
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.0625rem;
+}
+
+.post-content h4 {
+  margin-top: 1.25rem;
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--koiro-text) !important;
+}
+
+.post-content p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+/* Links */
+.post-content a {
+  color: var(--koiro-sky) !important;
   font-weight: 500;
+  text-decoration: none;
 }
 
 .post-content a:hover {
-  color: var(--koiro-accent) !important;
+  color: var(--koiro-purple) !important;
 }
 
 .post-content img {
@@ -382,7 +429,143 @@ h1, .page-heading {
   border-radius: var(--koiro-radius);
 }
 
-/* YouTube / responsive embeds */
+/* Lists */
+.post-content ul,
+.post-content ol {
+  margin: 0.75rem 0 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.post-content li {
+  margin-bottom: 0.4rem;
+  line-height: 1.65;
+}
+
+.post-content li > ul,
+.post-content li > ol {
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+  padding-left: 1.25rem;
+}
+
+/* Blockquote — sky blue left border */
+.post-content blockquote {
+  margin: 1rem 0 1.25rem;
+  padding: 0.75rem 1rem 0.75rem 1.25rem;
+  border-left: 3px solid var(--koiro-sky);
+  background: var(--koiro-sky-light);
+  border-radius: 0 var(--koiro-radius) var(--koiro-radius) 0;
+  color: var(--koiro-text);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+.post-content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.post-content hr {
+  margin: 2rem 0;
+  border: none;
+  border-top: 1px solid var(--koiro-border);
+}
+
+/* Tables — purple header */
+.post-content table {
+  width: 100%;
+  max-width: 100%;
+  margin: 1.25rem 0;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.post-content table th,
+.post-content table td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--koiro-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.post-content table th {
+  background: var(--koiro-purple);     /* purple table header */
+  color: #fff !important;
+  font-weight: 600;
+}
+
+.post-content table tr:nth-child(even) td {
+  background: var(--koiro-bg-secondary);
+}
+
+.post-content table tr:hover td {
+  background: var(--koiro-sky-light);  /* sky on row hover */
+}
+
+.post-content table caption,
+.post-content .table-caption {
+  font-size: 0.8125rem;
+  color: var(--koiro-text-muted);
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+@media (max-width: 640px) {
+  .post-content table {
+    font-size: 0.8125rem;
+  }
+
+  .post-content table th,
+  .post-content table td {
+    padding: 0.4rem 0.5rem;
+  }
+}
+
+/* Link bookmark card */
+.post-content .link-bookmark {
+  border: 1px solid var(--koiro-border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  background: var(--koiro-surface);
+  box-shadow: var(--koiro-shadow);
+  border-left: 3px solid var(--koiro-sky);
+}
+
+.post-content .link-bookmark > a:first-of-type {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--koiro-text);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.post-content .link-bookmark > a:first-of-type:hover {
+  text-decoration: underline;
+  color: var(--koiro-sky) !important;
+}
+
+.post-content .link-bookmark .link-bookmark-url {
+  font-size: 0.875rem;
+  color: var(--koiro-text-muted);
+  margin-top: 0.35rem;
+  line-height: 1.45;
+  word-break: break-all;
+}
+
+.post-content .link-bookmark .link-bookmark-meta {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  color: var(--koiro-text-sub);
+  line-height: 1.5;
+}
+
+/* strong */
+.post-content strong {
+  color: var(--koiro-text);
+}
+
+/* YouTube embeds */
 .post-content .video-embed {
   position: relative;
   padding-bottom: 56.25%;
@@ -394,6 +577,7 @@ h1, .page-heading {
   background: var(--koiro-bg-secondary);
   box-shadow: var(--koiro-shadow);
 }
+
 .post-content .video-embed iframe {
   position: absolute;
   top: 0;
@@ -403,17 +587,15 @@ h1, .page-heading {
   border: 0;
   border-radius: var(--koiro-radius);
 }
+
 .post-content .video-caption {
   font-size: 0.8125rem;
   color: var(--koiro-text-muted);
   margin: -0.5rem 0 1.25rem;
   text-align: center;
 }
-.post-content .video-caption a {
-  font-weight: 500;
-}
 
-/* hibiki homepage preview — 다크 UI + 골드 악센트 (앱 톤과 맞춤) */
+/* hibiki showcase */
 .post-content .hibiki-showcase {
   margin: 1.5rem 0;
   padding: 1rem 1rem 1.25rem;
@@ -422,6 +604,7 @@ h1, .page-heading {
   border-radius: var(--koiro-radius);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
 }
+
 .post-content .hibiki-showcase img {
   display: block;
   width: 100%;
@@ -429,6 +612,7 @@ h1, .page-heading {
   border-radius: 8px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
 }
+
 .post-content .hibiki-showcase-caption {
   font-size: 0.8125rem;
   color: var(--koiro-text-muted);
@@ -436,183 +620,28 @@ h1, .page-heading {
   text-align: center;
   line-height: 1.5;
 }
-.post-content .hibiki-showcase-caption code {
-  font-size: 0.85em;
-}
 
-/* Post content — headings, lists, paragraphs (정돈) */
-.post-content h1 {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  padding-bottom: 0.35rem;
-  border-bottom: 1px solid var(--koiro-border);
-}
-.post-content h1:first-child {
-  margin-top: 0;
-}
-.post-content h2 {
-  margin-top: 2.25rem;
-  margin-bottom: 0.75rem;
-  font-size: 1.25rem;
-}
-.post-content h2:first-child {
-  margin-top: 0;
-}
-.post-content h3 {
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
-  font-size: 1.0625rem;
-  color: var(--koiro-text) !important;
-}
-.post-content h4 {
-  margin-top: 1.25rem;
-  margin-bottom: 0.4rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--koiro-text) !important;
-}
-.post-content p {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  line-height: 1.7;
-}
-
-/* Studio 가이드 등 — 리스트·짧은 문단으로 읽기 리듬 맞춤 */
+/* Studio prose */
 .post-content .studio-prose ul {
   margin: 0.35rem 0 1rem;
   padding-left: 1.35rem;
 }
+
 .post-content .studio-prose li {
   margin-bottom: 0.35rem;
   line-height: 1.72;
   color: var(--koiro-text);
 }
-.post-content .studio-prose .hibiki-showcase {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-.post-content .studio-prose .hibiki-showcase-caption {
-  line-height: 1.65;
-  max-width: 38rem;
-  margin-left: auto;
-  margin-right: auto;
-  hyphens: auto;
-}
+
 .post-content ul,
 .post-content ol {
   margin: 0.75rem 0 1.25rem;
   padding-left: 1.5rem;
 }
+
 .post-content li {
   margin-bottom: 0.4rem;
   line-height: 1.65;
-}
-.post-content li > ul,
-.post-content li > ol {
-  margin-top: 0.4rem;
-  margin-bottom: 0.4rem;
-  padding-left: 1.25rem;
-}
-.post-content blockquote {
-  margin: 1rem 0 1.25rem;
-  padding: 0.75rem 1rem 0.75rem 1.25rem;
-  border-left: 3px solid var(--koiro-accent);
-  background: var(--koiro-bg-secondary);
-  border-radius: 0 var(--koiro-radius) var(--koiro-radius) 0;
-  color: var(--koiro-text);
-  font-size: 0.9375rem;
-  line-height: 1.65;
-}
-.post-content blockquote p:last-child {
-  margin-bottom: 0;
-}
-.post-content hr {
-  margin: 2rem 0;
-  border: none;
-  border-top: 1px solid var(--koiro-border);
-}
-/* Tables — 읽기 쉬운 표 디자인 */
-.post-content table {
-  width: 100%;
-  max-width: 100%;
-  margin: 1.25rem 0;
-  border-collapse: collapse;
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
-.post-content table th,
-.post-content table td {
-  padding: 0.5rem 0.75rem;
-  border: 1px solid var(--koiro-border);
-  text-align: left;
-  vertical-align: top;
-}
-.post-content table th {
-  background: var(--koiro-brand);
-  color: #fff !important;
-  font-weight: 600;
-}
-.post-content table tr:nth-child(even) td {
-  background: var(--koiro-bg-secondary);
-}
-.post-content table tr:hover td {
-  background: var(--koiro-surface);
-}
-.post-content table caption,
-.post-content .table-caption {
-  font-size: 0.8125rem;
-  color: var(--koiro-text-muted);
-  margin-top: 0.5rem;
-  text-align: left;
-}
-@media (max-width: 640px) {
-  .post-content table {
-    font-size: 0.8125rem;
-  }
-  .post-content table th,
-  .post-content table td {
-    padding: 0.4rem 0.5rem;
-  }
-}
-/* Link bookmark block (출처·저장소 카드 — Anthropic / hibiki / agent 가이드 공통) */
-.post-content .link-bookmark {
-  border: 1px solid var(--koiro-border);
-  border-radius: 12px;
-  padding: 1.25rem 1.5rem;
-  margin: 1.5rem 0;
-  background: var(--koiro-surface);
-  box-shadow: var(--koiro-shadow);
-}
-.post-content .link-bookmark > a:first-of-type {
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: var(--koiro-text);
-  text-decoration: none;
-  display: inline-block;
-}
-.post-content .link-bookmark > a:first-of-type:hover {
-  text-decoration: underline;
-}
-.post-content .link-bookmark .link-bookmark-url {
-  font-size: 0.875rem;
-  color: var(--koiro-text-muted);
-  margin-top: 0.35rem;
-  line-height: 1.45;
-  word-break: break-all;
-}
-.post-content .link-bookmark .link-bookmark-meta {
-  margin: 0.75rem 0 0;
-  font-size: 0.9rem;
-  color: var(--koiro-text-sub);
-  line-height: 1.5;
-}
-.post-content .link-bookmark a:not(:first-of-type) {
-  font-weight: inherit;
-  font-size: inherit;
-}
-/* 강조: 대응, 결론 등 */
-.post-content strong {
-  color: var(--koiro-text);
 }
 
 /* Back link */
@@ -626,13 +655,14 @@ h1, .page-heading {
 }
 
 .post-back a:hover {
-  color: var(--koiro-accent) !important;
+  color: var(--koiro-sky) !important;
 }
 
-/* ── Essay layout: custom HTML posts (AI Agent / Ontology 등) ── */
+/* ── Essay layout ── */
 .post--essay .post-header {
   margin-bottom: 1rem;
 }
+
 .post--essay .post-meta {
   margin-top: 0;
 }
@@ -643,8 +673,8 @@ h1, .page-heading {
   --essay-faint: var(--koiro-text-muted);
   --essay-rule: var(--koiro-border);
   --essay-accent: var(--koiro-brand);
-  --essay-accent2: var(--koiro-accent);
-  --essay-tag-bg: rgba(15, 46, 29, 0.06);
+  --essay-accent2: var(--koiro-sky);        /* sky as second accent */
+  --essay-tag-bg: rgba(107, 95, 212, 0.06); /* purple tint tags */
   --essay-surface: var(--koiro-surface);
   --essay-serif: "Instrument Serif", "Noto Serif KR", Georgia, serif;
   --essay-sans: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -661,23 +691,25 @@ h1, .page-heading {
 }
 
 .post-content .essay-agent-ontology a {
-  color: var(--essay-accent) !important;
+  color: var(--koiro-sky) !important;
   font-weight: 500;
   text-decoration: none;
 }
+
 .post-content .essay-agent-ontology a:hover {
-  color: var(--essay-accent2) !important;
+  color: var(--koiro-purple) !important;
 }
 
-/* Custom lead block (tags only) — no duplicate title vs theme header */
+/* Custom lead block */
 .post-content .post-lead {
   margin-bottom: 1.5rem;
 }
+
 .post-content .post-lead .tags {
   margin-bottom: 1.25rem;
 }
 
-/* nav row inside essay */
+/* nav row */
 .post-content .essay-agent-ontology .essay-nav {
   display: flex;
   justify-content: space-between;
@@ -688,6 +720,7 @@ h1, .page-heading {
   margin-bottom: 2rem;
   border-bottom: 1px solid var(--essay-rule);
 }
+
 .post-content .essay-agent-ontology .nav-home {
   font-family: var(--essay-mono);
   font-size: 12px;
@@ -695,36 +728,42 @@ h1, .page-heading {
   color: var(--essay-muted) !important;
   letter-spacing: 0.06em;
 }
+
 .post-content .essay-agent-ontology .nav-home:hover {
   color: var(--essay-ink) !important;
 }
+
 .post-content .essay-agent-ontology .nav-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
+
+/* pills — alternating sky/purple */
 .post-content .essay-agent-ontology .pill {
   font-family: var(--essay-mono);
   font-size: 10px;
   letter-spacing: 0.08em;
-  background: var(--essay-tag-bg);
-  color: var(--essay-muted);
+  background: var(--koiro-purple-light);
+  color: var(--koiro-purple);
   padding: 3px 10px;
   border-radius: 2px;
 }
 
-/* hero — align with site .post-title (sans, brand) */
+/* hero */
 .post-content .essay-agent-ontology .hero {
   margin-bottom: 2.5rem;
 }
+
 .post-content .essay-agent-ontology .hero-kicker {
   font-family: var(--essay-mono);
   font-size: 11px;
   letter-spacing: 0.12em;
-  color: var(--koiro-text-muted);
+  color: var(--koiro-sky);       /* sky kicker */
   text-transform: uppercase;
   margin-bottom: 12px;
 }
+
 .post-content .essay-agent-ontology .hero h1 {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: clamp(1.75rem, 4vw, 2.25rem);
@@ -736,11 +775,13 @@ h1, .page-heading {
   border: none;
   padding: 0;
 }
+
 .post-content .essay-agent-ontology .hero h1 em {
   font-style: normal;
   font-weight: 800;
-  color: var(--koiro-brand);
+  color: var(--koiro-purple);    /* purple em in hero */
 }
+
 .post-content .essay-agent-ontology .hero-sub {
   font-size: 0.875rem;
   color: var(--essay-muted);
@@ -748,6 +789,7 @@ h1, .page-heading {
   line-height: 1.75;
   margin: 0;
 }
+
 .post-content .essay-agent-ontology .hero-meta {
   margin-top: 20px;
   font-family: var(--essay-mono);
@@ -770,7 +812,7 @@ h1, .page-heading {
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--essay-faint);
+  color: var(--koiro-purple);    /* purple section labels */
   margin-bottom: 8px;
 }
 
@@ -781,14 +823,15 @@ h1, .page-heading {
   letter-spacing: -0.02em;
   line-height: 1.3;
   margin: 0 0 16px;
-  color: var(--koiro-brand) !important;
+  color: var(--koiro-purple) !important;  /* purple h2 */
 }
+
 .post-content .essay-agent-ontology h3 {
   font-family: var(--essay-sans);
   font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 0.06em;
-  color: var(--essay-muted) !important;
+  color: var(--koiro-sky) !important;     /* sky h3 */
   text-transform: uppercase;
   margin: 28px 0 10px;
 }
@@ -800,13 +843,14 @@ h1, .page-heading {
   margin-bottom: 14px;
 }
 
+/* Note block — sky */
 .post-content .essay-agent-ontology .note {
   font-size: 0.8125rem;
   color: var(--essay-muted);
   line-height: 1.7;
   padding: 12px 14px 12px 16px;
-  border-left: 3px solid var(--koiro-accent);
-  background: var(--koiro-bg-secondary);
+  border-left: 3px solid var(--koiro-sky);
+  background: var(--koiro-sky-light);
   border-radius: 0 var(--koiro-radius) var(--koiro-radius) 0;
   margin: 20px 0;
 }
@@ -814,10 +858,10 @@ h1, .page-heading {
 .post-content .essay-agent-ontology code {
   font-family: var(--essay-mono);
   font-size: 0.85em;
-  background: var(--essay-tag-bg);
+  background: var(--koiro-purple-light);
   padding: 1px 6px;
   border-radius: 3px;
-  color: var(--koiro-brand-light);
+  color: var(--koiro-purple);
 }
 
 /* scaffold diagram */
@@ -827,6 +871,7 @@ h1, .page-heading {
   flex-direction: column;
   gap: 6px;
 }
+
 .post-content .essay-agent-ontology .layer {
   display: flex;
   align-items: center;
@@ -840,6 +885,7 @@ h1, .page-heading {
   overflow: hidden;
   box-shadow: var(--koiro-shadow);
 }
+
 .post-content .essay-agent-ontology .layer::before {
   content: "";
   position: absolute;
@@ -848,32 +894,38 @@ h1, .page-heading {
   bottom: 0;
   width: 3px;
 }
+
 .post-content .essay-agent-ontology .layer:hover {
-  border-color: rgba(15, 46, 29, 0.2);
+  border-color: rgba(107, 95, 212, 0.25);
   transform: translateX(3px);
 }
+
 .post-content .essay-agent-ontology .layer-num {
   font-family: var(--essay-mono);
   font-size: 10px;
   color: var(--essay-faint);
   min-width: 18px;
 }
+
 .post-content .essay-agent-ontology .layer-body {
   flex: 1;
   min-width: 0;
 }
+
 .post-content .essay-agent-ontology .layer-name {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--essay-ink);
   margin-bottom: 2px;
 }
+
 .post-content .essay-agent-ontology .layer-desc {
   font-family: var(--essay-mono);
   font-size: 10px;
   color: var(--essay-muted);
   line-height: 1.45;
 }
+
 .post-content .essay-agent-ontology .layer-badge {
   font-family: var(--essay-mono);
   font-size: 9px;
@@ -882,47 +934,29 @@ h1, .page-heading {
   border-radius: 2px;
   white-space: nowrap;
 }
-.post-content .essay-agent-ontology .layer[data-l="1"]::before {
-  background: #5a4faa;
-}
-.post-content .essay-agent-ontology .layer[data-l="1"] .layer-badge {
-  background: #eeecf9;
-  color: #5a4faa;
-}
-.post-content .essay-agent-ontology .layer[data-l="2"]::before {
-  background: var(--koiro-brand);
-}
-.post-content .essay-agent-ontology .layer[data-l="2"] .layer-badge {
-  background: #e2f2ec;
-  color: var(--koiro-brand);
-}
-.post-content .essay-agent-ontology .layer[data-l="3"]::before {
-  background: #b87d36;
-}
-.post-content .essay-agent-ontology .layer[data-l="3"] .layer-badge {
-  background: #fdf0e0;
-  color: #7a4f1e;
-}
-.post-content .essay-agent-ontology .layer[data-l="4"]::before {
-  background: #235a8f;
-}
-.post-content .essay-agent-ontology .layer[data-l="4"] .layer-badge {
-  background: #e4eff8;
-  color: #235a8f;
-}
-.post-content .essay-agent-ontology .layer[data-l="5"]::before {
-  background: #6b6b66;
-}
-.post-content .essay-agent-ontology .layer[data-l="5"] .layer-badge {
-  background: #efefed;
-  color: #555450;
-}
+
+.post-content .essay-agent-ontology .layer[data-l="1"]::before { background: #6b5fd4; }
+.post-content .essay-agent-ontology .layer[data-l="1"] .layer-badge { background: #eeedfe; color: #6b5fd4; }
+
+.post-content .essay-agent-ontology .layer[data-l="2"]::before { background: var(--koiro-brand); }
+.post-content .essay-agent-ontology .layer[data-l="2"] .layer-badge { background: #e2f2ec; color: var(--koiro-brand); }
+
+.post-content .essay-agent-ontology .layer[data-l="3"]::before { background: #b87d36; }
+.post-content .essay-agent-ontology .layer[data-l="3"] .layer-badge { background: #fdf0e0; color: #7a4f1e; }
+
+.post-content .essay-agent-ontology .layer[data-l="4"]::before { background: var(--koiro-sky); }
+.post-content .essay-agent-ontology .layer[data-l="4"] .layer-badge { background: var(--koiro-sky-light); color: var(--koiro-sky); }
+
+.post-content .essay-agent-ontology .layer[data-l="5"]::before { background: #6b6b66; }
+.post-content .essay-agent-ontology .layer[data-l="5"] .layer-badge { background: #efefed; color: #555450; }
+
 .post-content .essay-agent-ontology .connector {
   display: flex;
   justify-content: center;
   height: 12px;
   align-items: center;
 }
+
 .post-content .essay-agent-ontology .connector::after {
   content: "↓";
   font-size: 11px;
@@ -937,27 +971,31 @@ h1, .page-heading {
   line-height: 1.9;
   overflow-x: auto;
 }
+
 .post-content .essay-agent-ontology .onto-root {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   padding: 10px 16px;
   border-radius: var(--koiro-radius);
-  background: var(--koiro-brand);
+  background: var(--koiro-purple);   /* purple root */
   color: #f9f9f7;
   font-size: 12px;
   margin-bottom: 8px;
 }
+
 .post-content .essay-agent-ontology .onto-level {
   padding-left: 0;
   list-style: none;
   margin: 0;
 }
+
 .post-content .essay-agent-ontology .onto-level li {
   position: relative;
   padding-left: 24px;
   margin: 2px 0;
 }
+
 .post-content .essay-agent-ontology .onto-level li::before {
   content: "";
   position: absolute;
@@ -968,6 +1006,7 @@ h1, .page-heading {
   border-bottom: 1px solid var(--essay-rule);
   width: 8px;
 }
+
 .post-content .essay-agent-ontology .onto-node {
   display: inline-flex;
   align-items: center;
@@ -980,56 +1019,54 @@ h1, .page-heading {
   font-size: 11px;
   transition: border-color 0.15s;
 }
+
 .post-content .essay-agent-ontology .onto-node:hover {
-  border-color: rgba(15, 46, 29, 0.25);
+  border-color: rgba(107, 95, 212, 0.3);
 }
+
 .post-content .essay-agent-ontology .onto-node .dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
   flex-shrink: 0;
 }
+
 .post-content .essay-agent-ontology .onto-node .node-type {
   color: var(--essay-faint);
   font-size: 9px;
   letter-spacing: 0.06em;
 }
-.post-content .essay-agent-ontology .d-class {
-  background: #5a4faa;
-}
-.post-content .essay-agent-ontology .d-prop {
-  background: var(--koiro-brand);
-}
-.post-content .essay-agent-ontology .d-inst {
-  background: #b87d36;
-}
-.post-content .essay-agent-ontology .d-rel {
-  background: #235a8f;
-}
+
+.post-content .essay-agent-ontology .d-class { background: #6b5fd4; }
+.post-content .essay-agent-ontology .d-prop  { background: var(--koiro-brand); }
+.post-content .essay-agent-ontology .d-inst  { background: #b87d36; }
+.post-content .essay-agent-ontology .d-rel   { background: var(--koiro-sky); }
+
 .post-content .essay-agent-ontology .onto-level .onto-level {
   padding-left: 20px;
 }
 
-/* essay compare table — override global post table for softer look */
+/* essay compare table */
 .post-content .essay-agent-ontology .compare-table {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
   font-size: 0.8125rem;
 }
+
 .post-content .essay-agent-ontology .compare-table th {
   font-family: var(--essay-mono);
   font-size: 9px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--essay-muted);
   font-weight: 500;
   text-align: left;
   padding: 10px 12px;
   border-bottom: 1px solid var(--essay-rule);
-  background: var(--koiro-bg-secondary) !important;
-  color: var(--essay-ink) !important;
+  background: var(--koiro-purple-light) !important;
+  color: var(--koiro-purple) !important;
 }
+
 .post-content .essay-agent-ontology .compare-table td {
   padding: 10px 12px;
   border-bottom: 1px solid var(--essay-rule);
@@ -1038,19 +1075,23 @@ h1, .page-heading {
   color: var(--essay-ink);
   background: transparent !important;
 }
+
 .post-content .essay-agent-ontology .compare-table tr:hover td {
-  background: rgba(15, 46, 29, 0.03) !important;
+  background: rgba(61, 133, 200, 0.04) !important;
 }
+
 .post-content .essay-agent-ontology .compare-table tr:last-child td {
   border-bottom: none;
 }
+
 .post-content .essay-agent-ontology .compare-table td:first-child {
   font-family: var(--essay-mono);
   font-size: 11px;
-  color: var(--koiro-brand-light);
+  color: var(--koiro-sky);   /* sky for first col */
   white-space: nowrap;
   width: 22%;
 }
+
 .post-content .essay-agent-ontology .compare-table td:nth-child(3) {
   font-style: italic;
   color: var(--essay-muted);
@@ -1072,28 +1113,17 @@ h1, .page-heading {
 }
 
 @media (max-width: 560px) {
-  .post-content .essay-agent-ontology .compare-table td:nth-child(3) {
-    display: none;
-  }
-  .post-content .essay-agent-ontology .compare-table th:nth-child(3) {
-    display: none;
-  }
-  .post-content .essay-agent-ontology .hero-meta {
-    flex-direction: column;
-    gap: 4px;
-  }
+  .post-content .essay-agent-ontology .compare-table td:nth-child(3),
+  .post-content .essay-agent-ontology .compare-table th:nth-child(3) { display: none; }
+  .post-content .essay-agent-ontology .hero-meta { flex-direction: column; gap: 4px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .post-content .essay-agent-ontology .layer {
-    transition: none;
-  }
-  .post-content .essay-agent-ontology .layer:hover {
-    transform: none;
-  }
+  .post-content .essay-agent-ontology .layer { transition: none; }
+  .post-content .essay-agent-ontology .layer:hover { transform: none; }
 }
 
-/* ── Studio deep guide (Tistory-style rhythm, koiro palette) ── */
+/* ── Studio deep guide ── */
 main.page-content > .wrapper:has(.post--deep-guide) {
   max-width: 760px;
 }
@@ -1102,16 +1132,13 @@ main.page-content > .wrapper:has(.post--deep-guide) {
   margin-bottom: 1.25rem;
 }
 
-/* Scope design tokens on the whole article body — Goldmark can leave
-   .studio-deep-part etc. as siblings of .studio-deep-guide, so vars must
-   not live only on the inner wrapper. */
 article.post--deep-guide .post-content {
   --sd-ink: var(--koiro-text);
   --sd-muted: var(--koiro-text-sub);
   --sd-faint: var(--koiro-text-muted);
   --sd-brand: var(--koiro-brand);
-  --sd-accent: var(--koiro-accent);
-  --sd-tech: #3d6b8c;
+  --sd-accent: var(--koiro-sky);          /* sky as accent */
+  --sd-tech: var(--koiro-purple);         /* purple for tech labels */
   --sd-stack-bg: #0c1812;
   --sd-stack-head: #122218;
   --sd-mono: "JetBrains Mono", ui-monospace, monospace;
@@ -1129,12 +1156,12 @@ article.post--deep-guide .post-content {
 }
 
 .post-content .studio-deep-guide a {
-  color: var(--sd-brand) !important;
+  color: var(--koiro-sky) !important;
   font-weight: 500;
 }
 
 .post-content .studio-deep-guide a:hover {
-  color: var(--sd-accent) !important;
+  color: var(--koiro-purple) !important;
 }
 
 .post-content .studio-deep-banner {
@@ -1153,7 +1180,7 @@ article.post--deep-guide .post-content {
   right: -10%;
   width: 280px;
   height: 280px;
-  background: radial-gradient(circle, rgba(212, 163, 115, 0.14) 0%, transparent 68%);
+  background: radial-gradient(circle, rgba(61, 133, 200, 0.18) 0%, transparent 68%);
   pointer-events: none;
 }
 
@@ -1162,7 +1189,7 @@ article.post--deep-guide .post-content {
   font-size: 0.6875rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--sd-accent);
+  color: var(--koiro-sky);       /* sky kicker in banner */
   margin: 0 0 0.75rem;
   position: relative;
   z-index: 1;
@@ -1191,10 +1218,10 @@ article.post--deep-guide .post-content {
   font-size: 0.625rem;
   letter-spacing: 0.06em;
   padding: 0.25rem 0.65rem;
-  border: 1px solid rgba(212, 163, 115, 0.45);
+  border: 1px solid rgba(61, 133, 200, 0.5);
   border-radius: 999px;
-  color: #f5e6d4;
-  background: rgba(212, 163, 115, 0.1);
+  color: #c8dff5;
+  background: rgba(61, 133, 200, 0.12);
 }
 
 .post-content .studio-deep-lead {
@@ -1217,7 +1244,7 @@ article.post--deep-guide .post-content {
   gap: 0.4rem;
   padding: 0.5rem 1rem;
   background: var(--sd-stack-head);
-  border-bottom: 1px solid rgba(212, 163, 115, 0.12);
+  border-bottom: 1px solid rgba(61, 133, 200, 0.15);
 }
 
 .post-content .studio-deep-stack-titlebar .dot {
@@ -1227,15 +1254,9 @@ article.post--deep-guide .post-content {
   flex-shrink: 0;
 }
 
-.post-content .studio-deep-stack-titlebar .dot--r {
-  background: #e85d4c;
-}
-.post-content .studio-deep-stack-titlebar .dot--y {
-  background: #e6b84d;
-}
-.post-content .studio-deep-stack-titlebar .dot--g {
-  background: #3ecf8e;
-}
+.post-content .studio-deep-stack-titlebar .dot--r { background: #e85d4c; }
+.post-content .studio-deep-stack-titlebar .dot--y { background: #e6b84d; }
+.post-content .studio-deep-stack-titlebar .dot--g { background: #3ecf8e; }
 
 .post-content .studio-deep-stack-titlebar .studio-deep-stack-label {
   font-family: var(--sd-mono);
@@ -1278,39 +1299,31 @@ article.post--deep-guide .post-content {
   background: rgba(212, 163, 115, 0.12);
   border: 1px solid rgba(212, 163, 115, 0.35);
 }
-.post-content .studio-deep-layer--products .layer-label {
-  color: #e8c9a0;
-}
+.post-content .studio-deep-layer--products .layer-label { color: #e8c9a0; }
 
 .post-content .studio-deep-layer--studio {
-  background: rgba(61, 107, 140, 0.2);
-  border: 2px solid rgba(61, 107, 140, 0.55);
+  background: rgba(61, 133, 200, 0.18);
+  border: 2px solid rgba(61, 133, 200, 0.5);
 }
-.post-content .studio-deep-layer--studio .layer-label {
-  color: #8eb8d4;
-}
+.post-content .studio-deep-layer--studio .layer-label { color: #8ec8f0; }
 
 .post-content .studio-deep-layer--worker {
   background: rgba(45, 90, 61, 0.35);
   border: 1px solid rgba(74, 140, 98, 0.4);
 }
-.post-content .studio-deep-layer--worker .layer-label {
-  color: #8fd4a8;
-}
+.post-content .studio-deep-layer--worker .layer-label { color: #8fd4a8; }
 
 .post-content .studio-deep-layer--gov {
-  background: rgba(212, 163, 115, 0.06);
-  border: 1px solid rgba(212, 163, 115, 0.22);
+  background: rgba(107, 95, 212, 0.1);
+  border: 1px solid rgba(107, 95, 212, 0.25);
 }
-.post-content .studio-deep-layer--gov .layer-label {
-  color: #c49a6c;
-}
+.post-content .studio-deep-layer--gov .layer-label { color: #b8b0f0; }
 
 .post-content .studio-deep-flow {
   text-align: center;
   font-family: var(--sd-mono);
   font-size: 1.1rem;
-  color: rgba(212, 163, 115, 0.45);
+  color: rgba(61, 133, 200, 0.45);
   padding: 0.2rem 0;
   line-height: 1;
 }
@@ -1332,8 +1345,8 @@ article.post--deep-guide .post-content {
 }
 
 .post-content .studio-deep-callout {
-  border-left: 3px solid var(--sd-tech);
-  background: rgba(61, 107, 140, 0.08);
+  border-left: 3px solid var(--koiro-purple);
+  background: var(--koiro-purple-light);
   padding: 0.85rem 1.1rem;
   border-radius: 0 8px 8px 0;
   font-size: 0.875rem;
@@ -1383,13 +1396,12 @@ article.post--deep-guide .post-content .studio-deep-part-num {
   font-size: clamp(3rem, 8vw, 4rem);
   font-weight: 700;
   line-height: 1;
-  color: rgba(15, 46, 29, 0.12);
+  color: rgba(107, 95, 212, 0.15);   /* purple ghost number */
   font-family: Georgia, "Noto Serif KR", serif;
   flex-shrink: 0;
   user-select: none;
 }
 
-/* div or p — beat .post-content p; explicit fallbacks if a var fails */
 article.post--deep-guide .post-content .studio-deep-part-head .studio-deep-kicker-small {
   display: block;
   font-family: var(--sd-mono, "JetBrains Mono", ui-monospace, monospace);
@@ -1397,7 +1409,7 @@ article.post--deep-guide .post-content .studio-deep-part-head .studio-deep-kicke
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--sd-tech, #3d6b8c);
+  color: var(--koiro-purple);    /* purple part kicker */
   margin: 0 0 0.35rem !important;
   line-height: 1.35;
 }
@@ -1414,7 +1426,7 @@ article.post--deep-guide .post-content .studio-deep-part-head h2 {
 }
 
 .post-content .studio-deep-guide .studio-deep-outro {
-  background: linear-gradient(135deg, var(--sd-brand) 0%, #1a3d2a 100%);
+  background: linear-gradient(135deg, #1a1530 0%, #0f2e1d 100%);
   border-radius: var(--koiro-radius);
   padding: 2rem 1.5rem;
   text-align: center;
@@ -1426,7 +1438,7 @@ article.post--deep-guide .post-content .studio-deep-part-head h2 {
   font-size: 0.625rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--sd-accent);
+  color: var(--koiro-sky);
   margin: 0 0 1rem;
 }
 
