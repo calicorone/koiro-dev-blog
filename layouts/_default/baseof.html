@@ -4,51 +4,50 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ "butterfly-16.png" | relURL }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ "butterfly-32.png" | relURL }}">
-  <link rel="icon" type="image/png" sizes="48x48" href="{{ "butterfly-48.png" | relURL }}">
-  <meta name="theme-color" content="#0f2e1d">
-  <link rel="apple-touch-icon" sizes="120x120" href="{{ "butterfly-120.png" | relURL }}">
-  <link rel="apple-touch-icon" sizes="152x152" href="{{ "butterfly-152.png" | relURL }}">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ "butterfly-180.png" | relURL }}">
-  <meta name="msapplication-TileColor" content="#0f2e1d">
-  <meta name="msapplication-TileImage" content="{{ "butterfly-150.png" | relURL }}">
-  {{- if and .IsPage (or .Params.essay .Params.deep_guide) }}
+  <meta name="theme-color" content="#111111">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@300;400&family=Noto+Serif+KR:wght@300;400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;700&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  {{- if and .IsPage (or .Params.essay .Params.deep_guide) }}
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@300;400&display=swap" rel="stylesheet">
   {{- end }}
   <link rel="stylesheet" href="{{ "css/koiro-blog.css" | relURL }}">
   {{- if .Params.math }}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
-    onload="renderMathInElement(document.body, {
-      delimiters: [
-        {left: '$$', right: '$$', display: true},
-        {left: '$', right: '$', display: false}
-      ]
-    });"></script>
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
   {{- end }}
 </head>
 <body>
   <header class="site-header site-header--compact">
     <div class="wrapper site-header-inner">
-      <a class="site-title" rel="author" href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+
+      <div class="site-logo-group">
+        <div class="site-logo-meta">Vol. 01 · 2026</div>
+        <a class="site-title" rel="author" href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+        <span class="site-logo-rule"></span>
+      </div>
+
       <nav class="site-nav" aria-label="Main">
         <a class="site-nav-link" href="{{ .Site.Home.RelPermalink }}">{{ if eq .Site.Language.Lang "ko" }}홈{{ else }}Home{{ end }}</a>
         {{ partial "lang-switcher.html" . }}
+        <a class="site-nav-link site-nav-koiro" href="https://koiro.me" target="_blank" rel="noopener">koiro.me ↗</a>
       </nav>
+
     </div>
   </header>
+
   <main class="page-content" aria-label="Content">
     <div class="wrapper">
       {{ block "main" . }}{{ end }}
     </div>
   </main>
+
   <footer class="site-footer">
     <div class="wrapper">
-      <p class="footer-line">© {{ now.Year }} KOIRO. All rights reserved. · <a href="https://koiro.me">koiro.me</a></p>
+      <p class="footer-line">© {{ now.Year }} KOIRO · <a href="https://koiro.me">koiro.me</a></p>
     </div>
   </footer>
 </body>
