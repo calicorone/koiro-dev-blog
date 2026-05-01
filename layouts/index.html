@@ -1,8 +1,9 @@
 {{ define "main" }}
 <header class="home-masthead">
-  {{ with .Site.Params.kicker }}<span class="home-kicker">{{ . }}</span>{{ end }}
-  <h1 class="home-title">{{ .Site.Title }}</h1>
-  {{ with .Site.Params.description }}<p class="home-description">{{ . }}</p>{{ end }}
+  <span class="home-kicker">Vol. 01 · 2026</span>
+  {{ with .Site.Params.description }}
+  <p class="home-tagline">{{ . }}</p>
+  {{ end }}
 </header>
 
 <div class="post-list-section">
