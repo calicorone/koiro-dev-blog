@@ -1,30 +1,21 @@
 {{ define "main" }}
 <header class="home-masthead">
-  <span class="home-kicker">Vol. 01 · 2026</span>
-  {{ with .Site.Params.description }}
-  <p class="home-tagline">{{ . }}</p>
-  {{ end }}
+  <p class="home-tagline">{{ .Site.Params.description }}</p>
 </header>
 
 <div class="post-list-section">
-  <span class="post-list-label">{{ if eq .Site.Language.Lang "ko" }}글 목록{{ else }}Posts{{ end }}</span>
-
   {{ $posts := where .Site.RegularPages "Section" "posts" }}
   {{ if $posts }}
   <ul class="post-list">
     {{ range $posts }}
     <li class="post-list-item">
-      <span class="post-meta">{{ .Date.Format "Jan 2, 2006" }}</span>
+      <time class="post-date">{{ .Date.Format "Jan 02" }}</time>
       <h3 class="post-list-title">
         <a class="post-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
       </h3>
     </li>
     {{ end }}
   </ul>
-  {{ else }}
-  <p class="post-list-empty">{{ if eq .Site.Language.Lang "ko" }}아직 글이 없습니다.{{ else }}No posts yet.{{ end }}</p>
   {{ end }}
-
-  <p class="rss-subscribe">{{ if eq .Site.Language.Lang "ko" }}구독:{{ else }}Subscribe via{{ end }} <a href="{{ "index.xml" | relURL }}">RSS</a></p>
 </div>
 {{ end }}
