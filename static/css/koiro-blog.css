@@ -90,23 +90,26 @@ body > header .wrapper { max-width: 680px; margin: 0 auto; padding: 0 1.25rem; }
 }
 .site-nav a:hover, .site-nav-link:hover { color: var(--koiro-brand) !important; font-weight: 600; }
 .lang-switcher {
-  display: inline-flex; align-items: center; gap: 4px;
-  background: rgba(0,0,0,0.05); border-radius: 20px;
-  padding: 3px 4px;
+  display: inline-flex; align-items: center; gap: 3px;
+  background: rgba(0,0,0,0.05); border-radius: 99px;
+  padding: 3px;
 }
 .lang-switcher__current {
-  display: inline-block; font-size: 0.7rem; font-weight: 600;
-  letter-spacing: 0.06em; color: var(--koiro-surface);
-  background: var(--koiro-brand); border-radius: 14px;
-  padding: 2px 9px; line-height: 1.6;
+  display: inline-block; font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.08em; color: #ffffff;
+  background: var(--koiro-brand); border-radius: 99px;
+  padding: 3px 11px; line-height: 1.6;
 }
 .lang-switcher__link {
-  display: inline-block; font-size: 0.7rem; font-weight: 400 !important;
-  letter-spacing: 0.06em; color: var(--koiro-text-muted) !important;
-  border-radius: 14px; padding: 2px 9px; line-height: 1.6;
-  text-decoration: none !important; transition: color 0.15s;
+  display: inline-block; font-size: 0.68rem; font-weight: 400 !important;
+  letter-spacing: 0.08em; color: var(--koiro-text-muted) !important;
+  border-radius: 99px; padding: 3px 11px; line-height: 1.6;
+  text-decoration: none !important; transition: background 0.15s, color 0.15s;
 }
-.lang-switcher__link:hover { color: var(--koiro-brand) !important; }
+.lang-switcher__link:hover {
+  background: rgba(0,0,0,0.06);
+  color: var(--koiro-brand) !important;
+}
 .site-title, header a:first-of-type {
   font-family: 'Noto Serif KR', Georgia, serif !important;
   font-size: 1.05rem !important; font-weight: 700 !important;
