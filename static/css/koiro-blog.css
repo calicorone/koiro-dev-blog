@@ -135,6 +135,7 @@ body > header .wrapper { max-width: 680px; margin: 0 auto; padding: 0 1.25rem; }
   margin: 0;
   word-break: keep-all;
 }
+.home-tagline-accent { color: var(--koiro-accent, #4a7a3a); }
 .home-kicker { display: none; }
 .home-title { display: none; }
 .home-description { display: none; }

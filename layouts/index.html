@@ -1,6 +1,10 @@
 {{ define "main" }}
 <header class="home-masthead">
+  {{ if eq .Site.Language.Lang "ko" }}
+  <p class="home-tagline">기록하고<br>탐구하고<br><span class="home-tagline-accent">실험한다.</span></p>
+  {{ else }}
   <p class="home-tagline">{{ .Site.Params.description }}</p>
+  {{ end }}
 </header>
 
 <div class="post-list-section">
