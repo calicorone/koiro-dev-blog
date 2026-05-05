@@ -1,6 +1,6 @@
 ---
-title: "Discord Multi-Agent Automation Platform: From Chat Interface to Operational AI Stack"
-title_alt: "Building a Discord-Centric Multi-Agent Automation Infrastructure"
+title: "A Discord Multi-Agent System: Notes on the Build"
+title_alt: "Discord-Centered Multi-Agent Setup on a Mac"
 date: 2026-05-05
 slug: discord-multi-agent-automation-platform
 tags: ["AI Agent", "Automation", "Discord", "FastAPI", "Redis", "Ollama", "Observability"]
@@ -8,118 +8,89 @@ math: false
 translationKey: discord-multi-agent-automation-platform
 ---
 
-Most AI demos stop at "a model that answers questions."  
-I wanted something operational: a system that can **route work, execute specialized agents, monitor itself, and deliver alerts through multiple channels**.
+I wanted something a step beyond a chatbot demo - a small system that could route work to a few specialized agents, watch itself, and push alerts to the channels I actually use.
 
-This project is that system: a Discord-centered multi-agent platform running on local infrastructure with a FastAPI orchestrator, Redis event backbone, and Ollama-based local LLM routing.
+What I ended up with is a Discord-fronted multi-agent setup running on a Mac. A FastAPI orchestrator handles routing, Redis carries events, and Ollama serves the models locally.
 
-![Discord Multi-Agent System Architecture (Abstracted)](/images/ARCHITECTURE-ABSTRACT.png)
+![Architecture (abstract)](/images/ARCHITECTURE-ABSTRACT.png)
 
-## Why I Built This
+## Why I Built It
 
-I kept running into the same bottlenecks:
+A few things kept getting in the way:
 
-- fragmented workflows across chat, scripts, and dashboards
-- no unified execution layer for different agent roles
-- weak reliability around alerts and background automation
-- hard-to-track operational health during continuous runtime
+- workflows scattered across chat, scripts, and dashboards
+- no single place to invoke different agent roles
+- alert delivery dropped messages when I left things running overnight
+- hard to tell, mid-run, whether anything was actually healthy
 
-So I built one platform that combines:
+So I pulled it into one stack:
 
-- conversational control surface (Discord)
-- agent orchestration (FastAPI + routing logic)
-- event-driven backbone (Redis pub/sub)
-- local model execution (Ollama)
-- operational visibility (Prometheus + Grafana)
+- Discord as the control surface
+- FastAPI as the orchestrator
+- Redis pub/sub for events
+- Ollama for local model serving
+- Prometheus + Grafana for visibility
 
-## System at a Glance
+## What's In It
 
-The architecture is intentionally modular:
+The pieces are deliberately small:
 
-- **Discord Bot**: user-facing interface (commands, channel-based routing, status UX)
-- **Orchestrator (FastAPI)**: executes and coordinates agent workloads
-- **Agent Layer**: specialized roles (orchestrator, stock, research, code, scheduler, system monitor)
-- **Redis**: pub/sub events + lightweight runtime state/history
-- **Observability**: Prometheus metrics + Grafana dashboards
-- **Local LLM Runtime**: Ollama with model-per-agent mapping
+- **Discord Bot** - channel-based routing, slash commands, status UX
+- **Orchestrator (FastAPI)** - picks an agent, runs it, keeps history
+- **Agents** - orchestrator, stock, research, code, scheduler, system monitor
+- **Redis** - pub/sub plus a bit of session state
+- **Observability** - Prometheus metrics, Grafana dashboards
+- **Ollama** - one model per agent role via `MODEL_*` env mapping
 
-This turns Discord from "chat app" into an operational console for AI workflows.
+The effect is that Discord behaves more like a console for the running stack than a chat app.
 
-## Execution Flow (Core Pattern)
+## How a Request Flows
 
-Most workloads follow a shared pattern:
+The pattern is the same across most agents:
 
-1. User request enters through Discord channel or slash command.
-2. Bot maps context to an agent type.
-3. Orchestrator runs single-agent or multi-agent workflow.
-4. Agent emits outputs and, when needed, alert events.
-5. Redis pub/sub broadcasts events to listeners.
-6. Notifications are delivered to Discord and optional external channels (Kakao).
-7. Metrics and health data are continuously collected.
+1. A message lands in a Discord channel or slash command.
+2. The bot picks the agent type from the channel/command.
+3. The orchestrator runs that agent, or fans out to several in parallel.
+4. Each agent returns a result and, if something deserves attention, emits an event.
+5. Redis broadcasts the event.
+6. Listeners deliver it to Discord (and optionally Kakao for personal channels).
+7. Prometheus collects request and timing metrics throughout.
 
-This pattern scales across use cases without changing the platform core.
+## Local Models, On Purpose
 
-## Local LLM-First Design
+Inference stays local for a handful of practical reasons:
 
-A major design decision was going local-first for inference.
+- Ollama runs natively on the Mac so it can use the Metal GPU.
+- Each agent has its own model in `.env` (`MODEL_ORCHESTRATOR`, `MODEL_CODE`, etc.), so heavier roles can pick a bigger model and faster roles a lighter one.
+- Prompts and context never leave the box.
+- No surprise API bills.
 
-- Ollama serves models inside local infrastructure.
-- Orchestrator routes tasks by agent role (`MODEL_*` mapping).
-- Different tasks can use different models (quality/speed tradeoff).
-- Sensitive prompt/context data stays in your environment.
-- Cost and availability are more predictable than cloud-only setups.
+That's the main reason this is "the stack" rather than "a Discord bot" - and, as I'll get to in a moment, the reason it stays mostly local.
 
-So this is not just "bot automation."  
-It is a **self-hosted AI operations stack** with controllable model runtime.
+## Recent Changes
 
-## What Changed Recently
+**Structured schemas instead of free-text notes.** I rewrote a chunk of the domain notes as code-level data structures with formatters, so analysis, summaries, and notifications all read from the same source.
 
-### 1) Structured Knowledge Instead of Free-Text Notes
+**Kakao notifications, ported in.** I lifted the Kakao notification flow from an earlier project - personal vs. workspace delivery, long-message chunking, token refresh - and slotted it next to the existing Discord path. Discord behavior didn't change.
 
-I converted unstructured domain notes into reusable code-level schemas and formatters.  
-Result: same data can power analysis, summaries, and notifications consistently.
+**Code agent model bumped to the current Gemma.** Env defaults, the pull script, and the architecture diagram are all back in sync.
 
-### 2) Multi-Channel Notification Standardization
+## What It Actually Is
 
-I ported a proven Kakao notification pattern from another project into this system:
+The stock agent is one route through the plumbing, not the point of the project. What I'm really after is a small, reusable base for this kind of work: agent routing, an event backbone, local models, basic monitoring, and pluggable notifications. New use cases drop in as another agent rather than another standalone script.
 
-- personal vs workspace delivery modes
-- long-message chunking
-- token refresh handling
-- additive integration (Discord flow remains intact)
+## Why the Real Version Stays Local
 
-Now alert delivery is channel-agnostic rather than hardcoded to one endpoint.
+One thing kept surfacing while I was writing this up. With AI in the loop, any published configuration gets copied in very little time. An architecture posted on GitHub or in a blog is, by the time you read it, probably already a step behind whatever I'm actually running locally. That isn't an exaggeration - it's close to the default in an era when an LLM can reconstruct a public structure in half a day.
 
-### 3) Model Layer Refresh (Gemma Update)
+So I've split what I publish into two tiers. The structure and the repeatable scaffolding go out. Domain logic, parameter choices, and prompt scaffolding stay local. From that angle, choosing local models stops being a preference and becomes the sensible default: the real edge lives in the running version, and keeping that iteration loop inside my own environment is the better deal on cost, speed, and control.
 
-I updated model defaults to include the latest Gemma configuration for code-oriented tasks and reflected that across environment defaults, pull scripts, and architecture artifacts.
+## What I'd Tell Future Me
 
-## What This Project Is Really About
+- Reliability work took more time than the model work, by a lot.
+- Structured data formats paid off the moment a second consumer showed up.
+- Pub/sub kept new features from tangling into existing ones.
+- Two notification paths feel a lot less risky than one.
+- Adding metrics up front is cheap; bolting them on later is not.
 
-This project is not a "stock bot."  
-Stock monitoring is just one agent path.
-
-The real deliverable is a reusable automation platform with:
-
-- agent specialization and routing
-- event-driven system design
-- local model operations
-- reliability and observability primitives
-- extensible notification and scheduling infrastructure
-
-## Lessons Learned
-
-- Reliability beats intelligence in production workflows.
-- Structured schemas outperform ad-hoc text over time.
-- Event backbones (pub/sub) reduce coupling across features.
-- Multi-channel alerting is operationally safer than single-channel.
-- Observability should be built in early, not bolted on later.
-
-## Next Steps
-
-- add explicit test endpoints for notification channels
-- add retry/backoff and dead-letter handling for failed alerts
-- enrich agent-level telemetry and SLO-style dashboards
-- package reusable workflow templates for non-investing use cases
-
-In one line: this build was about securing a **deliverable, extensible AI automation infrastructure** first; domain strategies come second.
+The build itself was about getting the platform stable and extensible first - the part that's worth publishing. The actual investment logic lives on top, and stays where it runs.
