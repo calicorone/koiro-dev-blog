@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "양자 컴퓨팅 완전 가이드 — 큐비트부터 NISQ 시대까지"
-title_alt: "Quantum Computing Complete Guide — Qubits to the NISQ Era"
+title_alt: "Quantum Computing Complete Guide — From Qubits to the NISQ Era"
 date: 2026-05-15
 slug: quantum-computing-guide
 author: Ahhyun Kim
@@ -53,10 +53,10 @@ translationKey: quantum-computing-guide
 <div class="post-lead">
 <p class="back-koiro"><a href="https://koiro.me">← koiro.me</a></p>
 <div class="tags">
-  <span class="tag purple">Quantum Computing</span>
-  <span class="tag teal">Qubit</span>
+  <span class="tag purple">양자 컴퓨팅</span>
+  <span class="tag teal">큐비트</span>
   <span class="tag coral">NISQ</span>
-  <span class="tag amber">Post-Quantum</span>
+  <span class="tag amber">양자 내성 암호</span>
 </div>
 <p class="intro">고전 비트는 0 또는 1만 가집니다. 큐비트는 측정 전까지 두 상태의 중첩으로 존재하고, 얽힘·간섭을 통해 알고리즘이 오답 경로를 상쇄하고 정답을 증폭합니다. 이 글은 양자 컴퓨팅의 핵심 개념을 한 장의 인포그래픽과 함께, 게이트·알고리즘·응용·현재 한계까지 정리한 레퍼런스 가이드입니다.</p>
 </div>

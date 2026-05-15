@@ -62,7 +62,7 @@ translationKey: quantum-computing-guide
 </div>
 
 <figure class="figure">
-  <img src="/images/quantum-computing-guide.png" alt="Quantum computing key concepts — classical bit vs qubit, superposition, entanglement, interference, workflow, applications, NISQ limitations" width="1200" height="auto" loading="lazy" decoding="async">
+  <img src="/images/quantum-computing-guide-en.png" alt="Quantum computing key concepts — classical bit vs qubit, superposition, entanglement, interference, workflow, applications, NISQ limitations" width="1200" height="auto" loading="lazy" decoding="async">
   <figcaption>Quantum computing key concepts at a glance</figcaption>
 </figure>
 
