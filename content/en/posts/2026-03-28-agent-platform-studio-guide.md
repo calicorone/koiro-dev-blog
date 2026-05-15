@@ -106,7 +106,7 @@ A typical visual IDE layout.
 The top bar lines up `OPEN`, `NAME`, Save / Execute / Demo / Delete, export (`.export.json`, `.workflow.xml`), and the API Bearer token field.
 
 <div class="hibiki-showcase">
-  <img src="/images/agnet-homepage.png" alt="sideseat CONTROL PLANE — Studio: ontology and workflow graph" width="1200" height="800" loading="lazy" decoding="async">
+  <img src="/images/agent-homepage.png" alt="sideseat CONTROL PLANE — Studio: ontology and workflow graph" width="1200" height="800" loading="lazy" decoding="async">
   <p class="hibiki-showcase-caption">Local dev. Object·Link·Action and workflow on one canvas.</p>
 </div>
 
@@ -200,7 +200,7 @@ Shared language → Object · Link · Action (see ontology essay)</pre>
 - Run `npm install` after clone.  
 - JSON / workflow XML exports help move graphs across environments.  
 - Bearer token: remote Worker or protected APIs only.  
-- Screenshot: `static/images/agnet-homepage.png` (legacy filename).  
+- Screenshot: `static/images/agent-homepage.png` (legacy filename).  
 
 ### References {#refs}
 

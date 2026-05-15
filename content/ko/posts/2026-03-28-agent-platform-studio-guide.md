@@ -106,7 +106,7 @@ deep_guide: true
 상단 바에는 `OPEN`, `NAME`, Save / Execute / Demo / Delete, 보내기(`.export.json`, `.workflow.xml`), API Bearer 토큰 입력이 한 줄에 붙어 있다.
 
 <div class="hibiki-showcase">
-  <img src="/images/agnet-homepage.png" alt="sideseat CONTROL PLANE — Studio 뷰: Ontology·Workflow 그래프, Meetup·Space·Link·Action·Agent·Deployed 노드" width="1200" height="800" loading="lazy" decoding="async">
+  <img src="/images/agent-homepage.png" alt="sideseat CONTROL PLANE — Studio 뷰: Ontology·Workflow 그래프, Meetup·Space·Link·Action·Agent·Deployed 노드" width="1200" height="800" loading="lazy" decoding="async">
   <p class="hibiki-showcase-caption">로컬 개발 서버 기준. Object·Link·Action과 workflow를 한 캔버스에 묶은 예시.</p>
 </div>
 
@@ -200,7 +200,7 @@ Worker / 모델    → Think → Act → Observe <strong>실행</strong>
 - 클론 후 `npm install` 필요.
 - Execute·보내기(json / workflow.xml)는 환경 간 그래프 이전에 유용.
 - Bearer 토큰은 원격 Worker·보호 엔드포인트용.
-- 스크린샷: `static/images/agnet-homepage.png`(기존 파일명).
+- 스크린샷: `static/images/agent-homepage.png`(기존 파일명).
 
 ### 참고 {#refs}
 
