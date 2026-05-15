@@ -25,15 +25,15 @@ translationKey: ma-s2-mission-assurance-security-standard
   .post-content .tag.purple { background: #EEEDFE; color: #3C3489; }
   .post-content .tag.teal { background: #E1F5EE; color: #085041; }
   .post-content .tag.orange { background: #FAEEDA; color: #633806; }
-  .post-content .intro { font-size: 1.05rem; line-height: 1.95; color: #444; border-left: 3px solid #4f9cf0; padding-left: 20px; margin-bottom: 32px; }
+  .post-content .intro { font-size: 1.05rem; line-height: 1.95; color: #444; border-left: 3px solid #7F77DD; padding-left: 20px; margin-bottom: 32px; }
   .post-content .back-koiro { font-size: 0.82rem; margin-bottom: 1rem; }
   .post-content .back-koiro a { color: #888; text-decoration: none; font-weight: 500; }
   .post-content table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 0.88rem; }
   .post-content th { background: #f4f4f0; font-weight: 700; padding: 10px 14px; border: 1px solid #e5e5e5; text-align: left; }
   .post-content td { padding: 9px 14px; border: 1px solid #e5e5e5; color: #444; vertical-align: top; line-height: 1.6; }
   .post-content .callout { background: #E6F1FB; border-left: 4px solid #185FA5; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 28px 0; font-size: 0.93rem; line-height: 1.75; }
-  .post-content .demo-embed { margin: 28px 0 36px; border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: #fafaf8; }
-  .post-content .demo-embed iframe { display: block; width: 100%; height: 7200px; border: 0; }
+  .post-content .demo-embed { margin: 28px 0 36px; border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: #fff; }
+  .post-content .demo-embed iframe { display: block; width: 100%; height: 6800px; border: 0; background: #fff; }
   .post-content .demo-embed .demo-bar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin: 0; padding: 10px 14px; font-size: 0.82rem; color: #888; background: #fafaf8; border-top: 1px solid #e5e5e5; }
   .post-content .demo-embed .demo-bar a { color: #185FA5; font-weight: 500; text-decoration: none; }
   .post-content .demo-embed .demo-bar a:hover { text-decoration: underline; }
@@ -69,7 +69,7 @@ translationKey: ma-s2-mission-assurance-security-standard
 아키텍처 다이어그램, 20개 컨트롤 상세, 실격 조건, 어테스테이션, 조달 평가 질문 7가지까지 포함한 전체 가이드입니다.
 
 <div class="demo-embed">
-  <iframe src="/demos/ma-s2-guide-ko.html" title="MA-S2 미션 보증 보안 표준 전체 가이드" loading="lazy"></iframe>
+  <iframe src="/demos/ma-s2-guide-ko.html?embed=1&amp;v=20260516b" title="MA-S2 미션 보증 보안 표준 전체 가이드" loading="lazy"></iframe>
   <p class="demo-bar">
     <span>스크롤하여 전체 내용을 확인하세요</span>
     <a href="/demos/ma-s2-guide-ko.html" target="_blank" rel="noopener">새 탭에서 전체 화면으로 보기 ↗</a>
