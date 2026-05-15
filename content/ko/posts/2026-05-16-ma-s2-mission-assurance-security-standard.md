@@ -32,7 +32,7 @@ translationKey: ma-s2-mission-assurance-security-standard
   .post-content th { background: #f4f4f0; font-weight: 700; padding: 10px 14px; border: 1px solid #e5e5e5; text-align: left; }
   .post-content td { padding: 9px 14px; border: 1px solid #e5e5e5; color: #444; vertical-align: top; line-height: 1.6; }
   .post-content .callout { background: #E6F1FB; border-left: 4px solid #185FA5; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 28px 0; font-size: 0.93rem; line-height: 1.75; }
-  .post-content .demo-embed { margin: 28px 0 36px; border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: #08090d; }
+  .post-content .demo-embed { margin: 28px 0 36px; border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: #fafaf8; }
   .post-content .demo-embed iframe { display: block; width: 100%; height: 7200px; border: 0; }
   .post-content .demo-embed .demo-bar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin: 0; padding: 10px 14px; font-size: 0.82rem; color: #888; background: #fafaf8; border-top: 1px solid #e5e5e5; }
   .post-content .demo-embed .demo-bar a { color: #185FA5; font-weight: 500; text-decoration: none; }

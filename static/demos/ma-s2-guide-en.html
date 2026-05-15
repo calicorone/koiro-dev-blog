@@ -4,86 +4,81 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MA-S2 — Mission Assurance Security Standard</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #08090d;
-  --surface: #0f1018;
-  --surface2: #161820;
-  --surface3: #1d1f2a;
-  --border: rgba(255,255,255,0.06);
-  --border2: rgba(255,255,255,0.1);
-  --text: #e2e4ed;
-  --muted: #6b6e82;
-  --faint: #3a3d50;
-  --c0: #4f9cf0;   /* CVS blue */
-  --c0d: #1a3a5c;
-  --c0t: #a8ccf8;
-  --c1: #a78bfa;   /* APM purple */
-  --c1d: #2e1f5e;
-  --c1t: #d4c5fd;
-  --c2: #34d399;   /* INV teal */
-  --c2d: #0d3d2a;
-  --c2t: #86efcc;
-  --c3: #f97316;   /* ARO orange */
-  --c3d: #3d1a05;
-  --c3t: #fed7aa;
-  --red: #f43f5e;
-  --red-d: #3d0f1a;
-  --red-t: #fda4af;
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface2: #F8F8F5;
+  --surface3: #f4f4f0;
+  --border: #e5e5e5;
+  --border2: #e5e5e5;
+  --text: #2C2C2A;
+  --muted: #666;
+  --faint: #aaa;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --c0: #185FA5;
+  --c0d: #E6F1FB;
+  --c0t: #185FA5;
+  --c1: #3C3489;
+  --c1d: #EEEDFE;
+  --c1t: #3C3489;
+  --c2: #085041;
+  --c2d: #E1F5EE;
+  --c2t: #085041;
+  --c3: #633806;
+  --c3d: #FAEEDA;
+  --c3t: #633806;
+  --red: #712B13;
+  --red-d: #FAECE7;
+  --red-t: #712B13;
+  --heading: #2C2C2A;
+  --accent: #7F77DD;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: var(--font);
   font-size: 14px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
-}
 .page { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 0 32px 80px; }
 
 .header {
-  padding: 72px 0 56px;
+  padding: 48px 0 40px;
   border-bottom: 1px solid var(--border2);
-  margin-bottom: 56px;
+  margin-bottom: 48px;
 }
 .badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--c0);
+  color: var(--accent);
   margin-bottom: 24px;
 }
-.badge-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--c0); }
+.badge-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
 h1 {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(36px, 6vw, 64px);
-  font-weight: 400;
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: clamp(28px, 5vw, 48px);
   line-height: 1.1;
   letter-spacing: -0.02em;
-  color: #f0f1f6;
+  color: var(--heading);
   margin-bottom: 6px;
 }
 h1 em {
   font-style: italic;
-  color: var(--c0);
+  color: var(--accent);
 }
 .header-sub {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--mono);
   font-size: 11px;
   color: var(--muted);
   letter-spacing: 0.1em;
@@ -92,10 +87,10 @@ h1 em {
 }
 .header-desc {
   font-size: 15px;
-  color: #9ea3b8;
+  color: #444;
   max-width: 640px;
   line-height: 1.75;
-  border-left: 2px solid var(--c0);
+  border-left: 3px solid var(--accent);
   padding-left: 20px;
   font-style: italic;
   margin-bottom: 28px;
@@ -109,7 +104,7 @@ h1 em {
   background: color-mix(in srgb, var(--c0) 14%, transparent);
   border: 1px solid color-mix(in srgb, var(--c0) 35%, transparent);
   color: var(--c0t);
-  font-family: 'DM Mono', monospace;
+  font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -141,13 +136,13 @@ h1 em {
 }
 .ov-cell:hover { background: var(--surface2); }
 .ov-num {
-  font-family: 'DM Serif Display', serif;
+  font-family: var(--font);
   font-size: 32px;
   line-height: 1;
   margin-bottom: 6px;
 }
 .ov-label {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--mono);
   font-size: 9px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -158,14 +153,14 @@ h1 em {
 
 /* ── Architecture SVG block ── */
 .arch-block {
-  background: var(--surface);
+  background: var(--surface2);
   border: 1px solid var(--border2);
   border-radius: 12px;
   padding: 32px 28px 24px;
   margin-bottom: 56px;
 }
 .arch-eyebrow {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -173,15 +168,20 @@ h1 em {
   margin-bottom: 8px;
 }
 .arch-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: 22px;
-  color: #f0f1f6;
+  font-family: var(--font);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--heading);
   margin-bottom: 18px;
 }
 .arch-svg-wrap {
   width: 100%;
   display: flex;
   justify-content: center;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 12px;
 }
 .arch-svg-wrap svg { width: 100%; height: auto; max-width: 820px; }
 .arch-legend {
@@ -196,7 +196,7 @@ h1 em {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -217,24 +217,25 @@ h1 em {
   margin-bottom: 64px;
 }
 .plain-eyebrow {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--c0);
+  color: var(--accent);
   margin-bottom: 10px;
 }
 .plain-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: 24px;
-  color: #f0f1f6;
+  font-family: var(--font);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--heading);
   margin-bottom: 18px;
   line-height: 1.3;
 }
-.plain-title em { color: var(--c0); font-style: italic; }
+.plain-title em { color: var(--accent); font-style: italic; }
 .plain-lead {
   font-size: 14px;
-  color: #b8bccd;
+  color: #555;
   line-height: 1.8;
   margin-bottom: 24px;
   padding: 16px 18px;
@@ -243,7 +244,7 @@ h1 em {
   border-radius: 4px;
 }
 .plain-section-title {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -274,7 +275,7 @@ h1 em {
   margin-bottom: 8px;
 }
 .plain-card-num {
-  font-family: 'DM Serif Display', serif;
+  font-family: var(--font);
   font-size: 22px;
   color: var(--pc);
   line-height: 1;
@@ -282,10 +283,10 @@ h1 em {
 .plain-card-name {
   font-size: 13px;
   font-weight: 500;
-  color: #dde0ec;
+  color: var(--text);
 }
 .plain-card-tag {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--mono);
   font-size: 9px;
   letter-spacing: 0.1em;
   color: var(--pc);
@@ -294,7 +295,7 @@ h1 em {
 }
 .plain-card-quote {
   font-size: 13px;
-  color: #c8ccdb;
+  color: #555;
   font-style: italic;
   margin-bottom: 8px;
 }
@@ -305,7 +306,7 @@ h1 em {
 }
 .plain-conclusion {
   font-size: 13.5px;
-  color: #b8bccd;
+  color: #555;
   line-height: 1.8;
   padding: 16px 18px;
   background: var(--surface2);
@@ -316,7 +317,7 @@ h1 em {
 
 .section { margin-bottom: 72px; }
 .section-eyebrow {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--mono);
   font-size: 9px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -333,7 +334,7 @@ h1 em {
   border-bottom: none;
 }
 .domain-num {
-  font-family: 'DM Serif Display', serif;
+  font-family: var(--font);
   font-size: 48px;
   line-height: 1;
   opacity: 0.4;
@@ -341,23 +342,23 @@ h1 em {
 }
 .domain-info { flex: 1; }
 .domain-id {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   margin-bottom: 6px;
 }
 .domain-name {
-  font-family: 'DM Serif Display', serif;
+  font-family: var(--font);
   font-size: 22px;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.2;
   margin-bottom: 10px;
 }
 .domain-objective {
   font-size: 13px;
   line-height: 1.7;
-  color: #9ea3b8;
+  color: var(--muted);
 }
 
 .controls-wrap {
@@ -378,7 +379,7 @@ h1 em {
 .control:last-child { border-bottom: none; }
 .control:hover { background: var(--surface2); }
 .ctl-id {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.12em;
   font-weight: 500;
@@ -392,11 +393,11 @@ h1 em {
   font-size: 13px;
   font-weight: 500;
   margin-bottom: 6px;
-  color: #dde0ec;
+  color: var(--text);
 }
 .ctl-body {
   font-size: 12.5px;
-  color: #8589a0;
+  color: var(--muted);
   line-height: 1.7;
 }
 .ctl-body ul { padding-left: 0; list-style: none; margin-top: 8px; }
@@ -404,7 +405,7 @@ h1 em {
 .ctl-body li::before { content: '·'; position: absolute; left: 0; color: var(--muted); }
 .ctl-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .tag {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--mono);
   font-size: 9px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -416,11 +417,11 @@ h1 em {
   margin-top: 16px;
   padding: 16px 20px;
   background: var(--red-d);
-  border: 1px solid rgba(244, 63, 94, 0.2);
+  border: 1px solid #e8c4bc;
   border-radius: 8px;
 }
 .disq-title {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--mono);
   font-size: 9px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -433,7 +434,7 @@ h1 em {
   color: var(--red-t);
   padding: 4px 0 4px 18px;
   position: relative;
-  border-bottom: 1px solid rgba(244, 63, 94, 0.1);
+  border-bottom: 1px solid #f0ddd8;
 }
 .disq-list li:last-child { border-bottom: none; }
 .disq-list li::before { content: '✕'; position: absolute; left: 0; color: var(--red); font-size: 10px; top: 5px; }
@@ -461,10 +462,11 @@ h1 em {
   margin-bottom: 40px;
 }
 .attest-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: 20px;
+  font-family: var(--font);
+  font-size: 1.1rem;
+  font-weight: 700;
   margin-bottom: 20px;
-  color: #f0f1f6;
+  color: var(--heading);
 }
 .attest-grid {
   display: grid;
@@ -507,9 +509,10 @@ h1 em {
 .procure-header {
   padding: 20px 24px;
   border-bottom: 1px solid var(--border);
-  font-family: 'DM Serif Display', serif;
-  font-size: 20px;
-  color: #f0f1f6;
+  font-family: var(--font);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--heading);
 }
 .procure-q {
   display: grid;
@@ -523,14 +526,14 @@ h1 em {
 .procure-q:last-child { border-bottom: none; }
 .procure-q:hover { background: var(--surface2); }
 .q-num {
-  font-family: 'DM Serif Display', serif;
+  font-family: var(--font);
   font-size: 20px;
   color: var(--faint);
   line-height: 1.4;
 }
-.q-text { font-size: 13px; line-height: 1.7; color: #9ea3b8; }
+.q-text { font-size: 13px; line-height: 1.7; color: var(--muted); }
 .q-maps {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--mono);
   font-size: 9px;
   letter-spacing: 0.1em;
   margin-top: 6px;
@@ -544,7 +547,7 @@ h1 em {
   margin-bottom: 12px;
 }
 .fw-tag {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.1em;
   padding: 5px 12px;
@@ -566,7 +569,7 @@ h1 em {
   color: var(--dt, var(--c0t));
   padding: 1px 6px;
   border-radius: 3px;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--mono);
   font-size: 11px;
 }
 
@@ -588,7 +591,7 @@ footer {
   gap: 12px;
 }
 .footer-id {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -596,7 +599,7 @@ footer {
 }
 .footer-note { font-size: 11px; color: var(--muted); }
 .footer-link {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.12em;
   color: var(--c0);
@@ -606,6 +609,13 @@ footer {
 }
 .footer-link:hover { color: var(--c0t); border-bottom-color: var(--c0t); }
 
+
+.d0 strong { color: var(--c0); }
+.d1 strong { color: var(--c1); }
+.d2 strong { color: var(--c2); }
+.d3 strong { color: var(--c3); }
+.plain-block strong { color: var(--text); }
+.plain-conclusion strong { color: var(--c0); }
 @media (max-width: 640px) {
   .page { padding: 0 20px 60px; }
   .overview { grid-template-columns: repeat(2, 1fr); }
@@ -663,78 +673,78 @@ footer {
       <svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MA-S2 architecture diagram">
         <defs>
           <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-            <path d="M0,0 L10,5 L0,10 Z" fill="#8589a0"/>
+            <path d="M0,0 L10,5 L0,10 Z" fill="#888"/>
           </marker>
           <marker id="ar-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-            <path d="M0,0 L10,5 L0,10 Z" fill="#f97316" opacity="0.75"/>
+            <path d="M0,0 L10,5 L0,10 Z" fill="#633806" opacity="0.75"/>
           </marker>
         </defs>
 
         <!-- Top: threat context -->
-        <text x="400" y="28" text-anchor="middle" font-family="DM Mono, monospace" font-size="10" fill="#f43f5e" letter-spacing="3" opacity="0.9">ADVERSARY · AI-ARMED THREAT ACTORS</text>
-        <line x1="80" y1="46" x2="720" y2="46" stroke="#f43f5e" stroke-width="0.5" opacity="0.3" stroke-dasharray="3 4"/>
-        <text x="80" y="64" font-family="DM Mono, monospace" font-size="8" fill="#6b6e82" letter-spacing="1.5">↓ EXPANDED ATTACK SURFACE</text>
+        <text x="400" y="28" text-anchor="middle" font-family="var(--mono)" font-size="10" fill="#712B13" letter-spacing="3" opacity="0.9">ADVERSARY · AI-ARMED THREAT ACTORS</text>
+        <line x1="80" y1="46" x2="720" y2="46" stroke="#712B13" stroke-width="0.5" opacity="0.3" stroke-dasharray="3 4"/>
+        <text x="80" y="64" font-family="var(--mono)" font-size="8" fill="#888" letter-spacing="1.5">↓ EXPANDED ATTACK SURFACE</text>
 
         <!-- INV box (teal, left) -->
         <g>
-          <rect x="20" y="90" width="160" height="200" rx="10" fill="#0d3d2a" stroke="rgba(52,211,153,0.4)" stroke-width="1"/>
-          <text x="100" y="130" text-anchor="middle" font-family="DM Serif Display, serif" font-size="34" fill="#34d399">INV</text>
-          <text x="100" y="152" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#34d399" letter-spacing="1.5">D2 · 5 CONTROLS</text>
-          <line x1="40" y1="166" x2="160" y2="166" stroke="rgba(52,211,153,0.25)" stroke-width="1"/>
-          <text x="100" y="190" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="13" fill="#86efcc" font-weight="500">Real-time inventory</text>
-          <text x="100" y="216" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="11" fill="#86efcc" opacity="0.75">SBOM · Runtime</text>
-          <text x="100" y="234" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="11" fill="#86efcc" opacity="0.75">Supply chain · Air-gap</text>
-          <text x="100" y="272" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="10.5" fill="#86efcc" opacity="0.55" font-style="italic">"What is running?"</text>
+          <rect x="20" y="90" width="160" height="200" rx="10" fill="#E1F5EE" stroke="rgba(8,80,65,0.35)" stroke-width="1"/>
+          <text x="100" y="130" text-anchor="middle" font-family="var(--font)" font-size="34" fill="#085041">INV</text>
+          <text x="100" y="152" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="#085041" letter-spacing="1.5">D2 · 5 CONTROLS</text>
+          <line x1="40" y1="166" x2="160" y2="166" stroke="rgba(8,80,65,0.2)" stroke-width="1"/>
+          <text x="100" y="190" text-anchor="middle" font-family="var(--font)" font-size="13" fill="#085041" font-weight="500">Real-time inventory</text>
+          <text x="100" y="216" text-anchor="middle" font-family="var(--font)" font-size="11" fill="#085041" opacity="0.75">SBOM · Runtime</text>
+          <text x="100" y="234" text-anchor="middle" font-family="var(--font)" font-size="11" fill="#085041" opacity="0.75">Supply chain · Air-gap</text>
+          <text x="100" y="272" text-anchor="middle" font-family="var(--font)" font-size="10.5" fill="#085041" opacity="0.55" font-style="italic">"What is running?"</text>
         </g>
 
         <!-- CVS box (blue) -->
         <g>
-          <rect x="220" y="90" width="160" height="200" rx="10" fill="#1a3a5c" stroke="rgba(79,156,240,0.4)" stroke-width="1"/>
-          <text x="300" y="130" text-anchor="middle" font-family="DM Serif Display, serif" font-size="34" fill="#4f9cf0">CVS</text>
-          <text x="300" y="152" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#4f9cf0" letter-spacing="1.5">D0 · 5 CONTROLS</text>
-          <line x1="240" y1="166" x2="360" y2="166" stroke="rgba(79,156,240,0.25)" stroke-width="1"/>
-          <text x="300" y="190" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="13" fill="#a8ccf8" font-weight="500">AI continuous scanning</text>
-          <text x="300" y="216" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="11" fill="#a8ccf8" opacity="0.75">CVE · EPSS · KEV</text>
-          <text x="300" y="234" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="11" fill="#a8ccf8" opacity="0.75">Zero-day discovery</text>
-          <text x="300" y="272" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="10.5" fill="#a8ccf8" opacity="0.55" font-style="italic">"Find holes nonstop"</text>
+          <rect x="220" y="90" width="160" height="200" rx="10" fill="#E6F1FB" stroke="rgba(24,95,165,0.35)" stroke-width="1"/>
+          <text x="300" y="130" text-anchor="middle" font-family="var(--font)" font-size="34" fill="#185FA5">CVS</text>
+          <text x="300" y="152" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="#185FA5" letter-spacing="1.5">D0 · 5 CONTROLS</text>
+          <line x1="240" y1="166" x2="360" y2="166" stroke="rgba(24,95,165,0.2)" stroke-width="1"/>
+          <text x="300" y="190" text-anchor="middle" font-family="var(--font)" font-size="13" fill="#185FA5" font-weight="500">AI continuous scanning</text>
+          <text x="300" y="216" text-anchor="middle" font-family="var(--font)" font-size="11" fill="#185FA5" opacity="0.75">CVE · EPSS · KEV</text>
+          <text x="300" y="234" text-anchor="middle" font-family="var(--font)" font-size="11" fill="#185FA5" opacity="0.75">Zero-day discovery</text>
+          <text x="300" y="272" text-anchor="middle" font-family="var(--font)" font-size="10.5" fill="#185FA5" opacity="0.55" font-style="italic">"Find holes nonstop"</text>
         </g>
 
         <!-- APM box (purple) -->
         <g>
-          <rect x="420" y="90" width="160" height="200" rx="10" fill="#2e1f5e" stroke="rgba(167,139,250,0.4)" stroke-width="1"/>
-          <text x="500" y="130" text-anchor="middle" font-family="DM Serif Display, serif" font-size="34" fill="#a78bfa">APM</text>
-          <text x="500" y="152" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#a78bfa" letter-spacing="1.5">D1 · 4 CONTROLS</text>
-          <line x1="440" y1="166" x2="560" y2="166" stroke="rgba(167,139,250,0.25)" stroke-width="1"/>
-          <text x="500" y="190" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="13" fill="#d4c5fd" font-weight="500">Attack path modeling</text>
-          <text x="500" y="216" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="11" fill="#d4c5fd" opacity="0.75">Adversarial AI</text>
-          <text x="500" y="234" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="11" fill="#d4c5fd" opacity="0.75">MITRE ATT&amp;CK</text>
-          <text x="500" y="272" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="10.5" fill="#d4c5fd" opacity="0.55" font-style="italic">"Think like a hacker"</text>
+          <rect x="420" y="90" width="160" height="200" rx="10" fill="#EEEDFE" stroke="rgba(60,52,137,0.35)" stroke-width="1"/>
+          <text x="500" y="130" text-anchor="middle" font-family="var(--font)" font-size="34" fill="#3C3489">APM</text>
+          <text x="500" y="152" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="#3C3489" letter-spacing="1.5">D1 · 4 CONTROLS</text>
+          <line x1="440" y1="166" x2="560" y2="166" stroke="rgba(60,52,137,0.2)" stroke-width="1"/>
+          <text x="500" y="190" text-anchor="middle" font-family="var(--font)" font-size="13" fill="#3C3489" font-weight="500">Attack path modeling</text>
+          <text x="500" y="216" text-anchor="middle" font-family="var(--font)" font-size="11" fill="#3C3489" opacity="0.75">Adversarial AI</text>
+          <text x="500" y="234" text-anchor="middle" font-family="var(--font)" font-size="11" fill="#3C3489" opacity="0.75">MITRE ATT&amp;CK</text>
+          <text x="500" y="272" text-anchor="middle" font-family="var(--font)" font-size="10.5" fill="#3C3489" opacity="0.55" font-style="italic">"Think like a hacker"</text>
         </g>
 
         <!-- ARO box (orange) -->
         <g>
-          <rect x="620" y="90" width="160" height="200" rx="10" fill="#3d1a05" stroke="rgba(249,115,22,0.4)" stroke-width="1"/>
-          <text x="700" y="130" text-anchor="middle" font-family="DM Serif Display, serif" font-size="34" fill="#f97316">ARO</text>
-          <text x="700" y="152" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#f97316" letter-spacing="1.5">D3 · 6 CONTROLS</text>
-          <line x1="640" y1="166" x2="760" y2="166" stroke="rgba(249,115,22,0.25)" stroke-width="1"/>
-          <text x="700" y="190" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="13" fill="#fed7aa" font-weight="500">Autonomous remediation</text>
-          <text x="700" y="216" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="11" fill="#fed7aa" opacity="0.75">Auto-patch · Fleet</text>
-          <text x="700" y="234" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="11" fill="#fed7aa" opacity="0.75">Rollback · Compliance</text>
-          <text x="700" y="272" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="10.5" fill="#fed7aa" opacity="0.55" font-style="italic">"Block it automatically"</text>
+          <rect x="620" y="90" width="160" height="200" rx="10" fill="#FAEEDA" stroke="rgba(99,56,6,0.35)" stroke-width="1"/>
+          <text x="700" y="130" text-anchor="middle" font-family="var(--font)" font-size="34" fill="#633806">ARO</text>
+          <text x="700" y="152" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="#633806" letter-spacing="1.5">D3 · 6 CONTROLS</text>
+          <line x1="640" y1="166" x2="760" y2="166" stroke="rgba(99,56,6,0.2)" stroke-width="1"/>
+          <text x="700" y="190" text-anchor="middle" font-family="var(--font)" font-size="13" fill="#633806" font-weight="500">Autonomous remediation</text>
+          <text x="700" y="216" text-anchor="middle" font-family="var(--font)" font-size="11" fill="#633806" opacity="0.75">Auto-patch · Fleet</text>
+          <text x="700" y="234" text-anchor="middle" font-family="var(--font)" font-size="11" fill="#633806" opacity="0.75">Rollback · Compliance</text>
+          <text x="700" y="272" text-anchor="middle" font-family="var(--font)" font-size="10.5" fill="#633806" opacity="0.55" font-style="italic">"Block it automatically"</text>
         </g>
 
         <!-- Flow arrows between boxes -->
         <line x1="184" y1="190" x2="214" y2="190" stroke="#8589a0" stroke-width="1.5" marker-end="url(#ar)"/>
-        <text x="199" y="180" text-anchor="middle" font-family="DM Mono, monospace" font-size="8.5" fill="#8589a0" letter-spacing="0.8">SCAN</text>
-        <text x="199" y="206" text-anchor="middle" font-family="DM Mono, monospace" font-size="8.5" fill="#8589a0" letter-spacing="0.8">TARGETS</text>
+        <text x="199" y="180" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="#888" letter-spacing="0.8">SCAN</text>
+        <text x="199" y="206" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="#888" letter-spacing="0.8">TARGETS</text>
 
         <line x1="384" y1="190" x2="414" y2="190" stroke="#8589a0" stroke-width="1.5" marker-end="url(#ar)"/>
-        <text x="399" y="180" text-anchor="middle" font-family="DM Mono, monospace" font-size="8.5" fill="#8589a0" letter-spacing="0.8">RAW</text>
-        <text x="399" y="206" text-anchor="middle" font-family="DM Mono, monospace" font-size="8.5" fill="#8589a0" letter-spacing="0.8">FINDINGS</text>
+        <text x="399" y="180" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="#888" letter-spacing="0.8">RAW</text>
+        <text x="399" y="206" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="#888" letter-spacing="0.8">FINDINGS</text>
 
         <line x1="584" y1="190" x2="614" y2="190" stroke="#8589a0" stroke-width="1.5" marker-end="url(#ar)"/>
-        <text x="599" y="180" text-anchor="middle" font-family="DM Mono, monospace" font-size="8.5" fill="#8589a0" letter-spacing="0.8">PRIORITIZED</text>
-        <text x="599" y="206" text-anchor="middle" font-family="DM Mono, monospace" font-size="8.5" fill="#8589a0" letter-spacing="0.8">RISK</text>
+        <text x="599" y="180" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="#888" letter-spacing="0.8">PRIORITIZED</text>
+        <text x="599" y="206" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="#888" letter-spacing="0.8">RISK</text>
 
         <!-- Feedback loop: ARO bottom → INV bottom -->
         <path d="M 700 290 L 700 335 L 100 335 L 100 290"
@@ -744,12 +754,12 @@ footer {
               opacity="0.5"
               stroke-dasharray="4 3"
               marker-end="url(#ar-fb)"/>
-        <text x="400" y="358" text-anchor="middle" font-family="DM Mono, monospace" font-size="9.5" fill="#f97316" opacity="0.75" letter-spacing="2">STATE UPDATE · REMEDIATED RELEASES BACK INTO INVENTORY</text>
+        <text x="400" y="358" text-anchor="middle" font-family="var(--mono)" font-size="9.5" fill="#633806" opacity="0.75" letter-spacing="2">STATE UPDATE · REMEDIATED RELEASES BACK INTO INVENTORY</text>
 
         <!-- Bottom note -->
         <line x1="80" y1="400" x2="720" y2="400" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
-        <text x="400" y="424" text-anchor="middle" font-family="DM Mono, monospace" font-size="10" fill="#6b6e82" letter-spacing="3">PLATFORM TELEMETRY · CONTINUOUS · AIR-GAP READY</text>
-        <text x="400" y="444" text-anchor="middle" font-family="DM Mono, monospace" font-size="8.5" fill="#3a3d50" letter-spacing="2">Self-attestation alone is not sufficient</text>
+        <text x="400" y="424" text-anchor="middle" font-family="var(--mono)" font-size="10" fill="#888" letter-spacing="3">PLATFORM TELEMETRY · CONTINUOUS · AIR-GAP READY</text>
+        <text x="400" y="444" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="#aaa" letter-spacing="2">Self-attestation alone is not sufficient</text>
       </svg>
     </div>
     <div class="arch-legend">
@@ -766,7 +776,7 @@ footer {
     <h2 class="plain-title">"As AI becomes a hacking tool, <em>software vendors must defend with AI too</em>" — Palantir's new security benchmark</h2>
 
     <div class="plain-lead">
-      <strong style="color:#dde0ec">Why it exists —</strong> Finding vulnerabilities used to be the hardest part. Expert teams spent months on it. Now AI does it automatically, quickly, and at scale. Attackers are already using this AI. Defenders must move faster too.
+      <strong>Why it exists —</strong> Finding vulnerabilities used to be the hardest part. Expert teams spent months on it. Now AI does it automatically, quickly, and at scale. Attackers are already using this AI. Defenders must move faster too.
     </div>
 
     <div class="plain-section-title">The four things MA-S2 requires, in everyday language</div>
@@ -827,9 +837,9 @@ footer {
         <div class="domain-id">CVS — Continuous, AI-Augmented Vulnerability Scanning</div>
         <div class="domain-name">Continuous AI-Augmented Vulnerability Scanning</div>
         <div class="domain-objective">
-          You must perform <strong style="color:#a8ccf8">continuous scanning</strong> combining AI-assisted analysis and deterministic scanning across all software components.
+          You must perform <strong>continuous scanning</strong> combining AI-assisted analysis and deterministic scanning across all software components.
           Regardless of deployment form (containers, VMs, binaries, serverless, firmware), maintain a living record of vulnerability status across the full software footprint.
-          <strong style="color:#f87171">Point-in-time scanning is insufficient.</strong>
+          <strong>Point-in-time scanning is insufficient.</strong>
         </div>
       </div>
     </div>
@@ -855,7 +865,7 @@ footer {
           <div class="ctl-body">
             Classify severity with CVSS v3.x or higher (Critical / High / Medium / Low / Informational). Must cross-reference EPSS scores and the CISA KEV catalog.
             <ul>
-              <li>CVSS alone → <strong style="color:#f87171">explicitly fails this control</strong></li>
+              <li>CVSS alone → <strong>explicitly fails this control</strong></li>
               <li>EPSS: predicted likelihood of real-world exploitation</li>
               <li>CISA KEV: catalog of vulnerabilities with confirmed exploitation</li>
             </ul>
@@ -876,7 +886,7 @@ footer {
             <ul>
               <li>No specific model mandated (tooling agnostic)</li>
               <li>CVE database pattern matching alone is insufficient</li>
-              <li><strong style="color:#a8ccf8">New zero-day-class vulnerabilities without CVE assignment</strong> must be discoverable within the pipeline</li>
+              <li><strong>New zero-day-class vulnerabilities without CVE assignment</strong> must be discoverable within the pipeline</li>
             </ul>
           </div>
           <div class="ctl-tags">
@@ -893,9 +903,9 @@ footer {
           <div class="ctl-body">
             When Critical or High severity has a known exploit, all three must be met simultaneously.
             <ul>
-              <li><strong style="color:#a8ccf8">Automatic detection and escalation:</strong> auto-routed to response workflows without manual intervention</li>
-              <li><strong style="color:#a8ccf8">Automatic interim mitigation:</strong> compensating controls such as network isolation, feature disablement, configuration changes</li>
-              <li><strong style="color:#a8ccf8">One-click fleet-wide recall/isolation:</strong> all environments handled in a single orchestration action. Human approval is allowed; humans must not be the execution bottleneck</li>
+              <li><strong>Automatic detection and escalation:</strong> auto-routed to response workflows without manual intervention</li>
+              <li><strong>Automatic interim mitigation:</strong> compensating controls such as network isolation, feature disablement, configuration changes</li>
+              <li><strong>One-click fleet-wide recall/isolation:</strong> all environments handled in a single orchestration action. Human approval is allowed; humans must not be the execution bottleneck</li>
             </ul>
           </div>
           <div class="ctl-tags">
@@ -912,9 +922,9 @@ footer {
           <div class="ctl-body">
             SLAs must meet both requirements.
             <ul>
-              <li><strong style="color:#a8ccf8">Context-based prioritization:</strong> EPSS/KEV enrichment + source/runtime reachability analysis + asset/data context (blast radius) + attack path context from APM-1.3</li>
+              <li><strong>Context-based prioritization:</strong> EPSS/KEV enrichment + source/runtime reachability analysis + asset/data context (blast radius) + attack path context from APM-1.3</li>
               <li>Unreachable or non-exploitable vulnerabilities may be risk-accepted via ARO-3.4 suppression (documentation required)</li>
-              <li><strong style="color:#a8ccf8">SLA definition and compliance:</strong> published SLAs by severity tier + compliance reporting via platform telemetry (manual reporting not allowed)</li>
+              <li><strong>SLA definition and compliance:</strong> published SLAs by severity tier + compliance reporting via platform telemetry (manual reporting not allowed)</li>
               <li>Vulnerabilities on KEV or with high EPSS require materially shorter SLAs even at the same CVSS score</li>
             </ul>
           </div>
@@ -948,7 +958,7 @@ footer {
         <div class="domain-name">Attack Path Modeling & AI Adversarial Simulation</div>
         <div class="domain-objective">
           Model adversaries using AI to explore multi-stage attack paths.
-          Go beyond <strong style="color:#d4c5fd">individual CVE-level</strong> management—model attack paths across components, microservices, and elements throughout the architecture,
+          Go beyond <strong>individual CVE-level</strong> management—model attack paths across components, microservices, and elements throughout the architecture,
           and handle cases where individually low-severity findings chain into high severity.
         </div>
       </div>
@@ -960,7 +970,7 @@ footer {
           <div class="ctl-title">Attack path modeling capability</div>
           <div class="ctl-body">
             Implement via a dedicated threat modeling platform, AI-assisted attack graph generation, or regularly reviewed manual threat modeling.
-            Attack path modeling outputs must be <strong style="color:#d4c5fd">technically integrated</strong> into vulnerability prioritization tools and decision-making.
+            Attack path modeling outputs must be <strong>technically integrated</strong> into vulnerability prioritization tools and decision-making.
           </div>
           <div class="ctl-tags">
             <span class="tag">Attack graph</span>
@@ -979,7 +989,7 @@ footer {
               <li>Internal red team results using AI tools</li>
               <li>Third-party AI-assisted penetration test reports</li>
               <li>Participation in AI-native bug bounty programs</li>
-              <li><strong style="color:#d4c5fd">Evidence beyond traditional penetration testing required</strong></li>
+              <li><strong>Evidence beyond traditional penetration testing required</strong></li>
             </ul>
           </div>
           <div class="ctl-tags">
@@ -996,8 +1006,8 @@ footer {
           <div class="ctl-body">
             Attack path context must inform remediation prioritization. Key examples from the document:
             <ul>
-              <li><strong style="color:#d4c5fd">Critical CVE on a component unreachable from external attack surface</strong> → may be appropriately deprioritized</li>
-              <li><strong style="color:#d4c5fd">Medium CVE on a component that is the first link in an attack path to a credential store</strong> → urgent treatment required</li>
+              <li><strong>Critical CVE on a component unreachable from external attack surface</strong> → may be appropriately deprioritized</li>
+              <li><strong>Medium CVE on a component that is the first link in an attack path to a credential store</strong> → urgent treatment required</li>
               <li>Must demonstrate triage workflows do not rely on raw CVE severity scores alone</li>
             </ul>
           </div>
@@ -1045,7 +1055,7 @@ footer {
         <div class="domain-name">Real-Time Software Inventory & Domain Awareness</div>
         <div class="domain-objective">
           Maintain a complete, real-time, machine-readable inventory of all software components across every environment where software operates.
-          Must be <strong style="color:#86efcc">continuously updated</strong>, not generated on demand, and cover heterogeneous environments including air-gapped.
+          Must be <strong>continuously updated</strong>, not generated on demand, and cover heterogeneous environments including air-gapped.
         </div>
       </div>
     </div>
@@ -1058,7 +1068,7 @@ footer {
             Every release artifact must ship with a machine-readable SBOM in SPDX or CycloneDX format.
             <ul>
               <li>Include explicit version pins for direct and transitive dependencies</li>
-              <li><strong style="color:#f87171">Range versions (e.g. ≥1.0.0) not allowed</strong> — exact versions required</li>
+              <li><strong>Range versions (e.g. ≥1.0.0) not allowed</strong> — exact versions required</li>
               <li>Must provide SBOMs for current and prior releases</li>
             </ul>
           </div>
@@ -1135,7 +1145,7 @@ footer {
           <div class="ctl-body">
             Inventory and monitoring capabilities must extend to disconnected, air-gapped, and limited-connectivity environments.
             <ul>
-              <li><strong style="color:#f87171">Inventory systems requiring continuous external connectivity → fails this control</strong></li>
+              <li><strong>Inventory systems requiring continuous external connectivity → fails this control</strong></li>
               <li>Sync inventory updates when connectivity is available</li>
               <li>Must define maximum allowed drift between last known and current state</li>
             </ul>
@@ -1171,7 +1181,7 @@ footer {
         <div class="domain-objective">
           Must have capability to autonomously orchestrate remediation actions across the full deployment fleet.
           Includes patch deployment, rollback of vulnerable releases, environment-specific finding suppression, etc.
-          Human approval may be required, but <strong style="color:#fed7aa">humans must not be the bottleneck.</strong>
+          Human approval may be required, but <strong>humans must not be the bottleneck.</strong>
         </div>
       </div>
     </div>
@@ -1183,7 +1193,7 @@ footer {
           <div class="ctl-body">
             Capability to automatically deploy patch releases to affected environments after scan validation and approval workflows.
             <ul>
-              <li><strong style="color:#fed7aa">Zero-downtime</strong> deployment where operationally required</li>
+              <li><strong>Zero-downtime</strong> deployment where operationally required</li>
               <li>Rollback capability tested and documented; recovery time objective (RTO) demonstrated</li>
               <li>Consistent, rapid expected rollback RTO</li>
             </ul>
@@ -1203,7 +1213,7 @@ footer {
             Capability to orchestrate patch deployment across the full fleet from a single control plane.
             <ul>
               <li>Simultaneous or controlled sequential rollout to all customer environments</li>
-              <li><strong style="color:#fed7aa">Fleet-wide orchestration including disconnected and air-gapped environments</strong></li>
+              <li><strong>Fleet-wide orchestration including disconnected and air-gapped environments</strong></li>
               <li>One control plane → N heterogeneous environments</li>
             </ul>
           </div>
@@ -1223,7 +1233,7 @@ footer {
             <ul>
               <li>Model and automate approval requirements, change freeze windows, authorization constraints (FedRAMP, IL5/IL6)</li>
               <li>Compliance with operator-defined deployment policies</li>
-              <li>When per-environment constraints conflict with security remediation actions, orchestration layer must <strong style="color:#fed7aa">automatically resolve conflicts</strong></li>
+              <li>When per-environment constraints conflict with security remediation actions, orchestration layer must <strong>automatically resolve conflicts</strong></li>
             </ul>
           </div>
           <div class="ctl-tags">
@@ -1259,10 +1269,10 @@ footer {
           <div class="ctl-body">
             Where development (patch production) and operations (deployment approval) are organizationally separate, measurable timestamps for three milestones required:
             <ul>
-              <li><strong style="color:#fed7aa">Vulnerability discovery:</strong> identification and developer assignment</li>
-              <li><strong style="color:#fed7aa">Patch available:</strong> when resolved version is available for deployment</li>
-              <li><strong style="color:#fed7aa">Deployment approval:</strong> operator approval per affected environment</li>
-              <li><strong style="color:#f87171">Slack messages, email, code review discussion → out of scope for this control</strong></li>
+              <li><strong>Vulnerability discovery:</strong> identification and developer assignment</li>
+              <li><strong>Patch available:</strong> when resolved version is available for deployment</li>
+              <li><strong>Deployment approval:</strong> operator approval per affected environment</li>
+              <li><strong>Slack messages, email, code review discussion → out of scope for this control</strong></li>
             </ul>
           </div>
           <div class="ctl-tags">
@@ -1339,7 +1349,7 @@ footer {
         </div>
       </div>
     </div>
-    <div style="margin-top:16px; padding:12px 16px; background:var(--red-d); border:1px solid rgba(244,63,94,0.2); border-radius:8px; font-size:12px; color:var(--red-t);">
+    <div style="margin-top:16px; padding:12px 16px; background:var(--red-d); border:1px solid #e8c4bc; border-radius:8px; font-size:12px; color:var(--red-t);">
       <strong>Self-attestation alone is insufficient.</strong> Self-attestation without supporting evidence is not permitted.
     </div>
   </div>
