@@ -616,6 +616,48 @@ footer {
 .d3 strong { color: var(--c3); }
 .plain-block strong { color: var(--text); }
 .plain-conclusion strong { color: var(--c0); }
+
+/* ── Blog embed mode (?embed=1) — match post-content ── */
+html.embed body {
+  background: transparent;
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+html.embed .page { max-width: 100%; padding: 8px 20px 40px; }
+html.embed .header,
+html.embed footer { display: none !important; }
+html.embed .section,
+html.embed .arch-block,
+html.embed .plain-block,
+html.embed .attest-block,
+html.embed .procure-block { animation: none; }
+html.embed .overview { margin-bottom: 40px; }
+html.embed .arch-title,
+html.embed .plain-title,
+html.embed .attest-title,
+html.embed .procure-header {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2C2C2A;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e5e5e5;
+  margin-bottom: 16px;
+}
+html.embed .domain-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #3C3489;
+}
+html.embed .domain-objective { color: #444; font-size: 0.95rem; }
+html.embed .ctl-title { color: #2C2C2A; font-size: 0.95rem; }
+html.embed .ctl-body { color: #444; font-size: 0.9rem; }
+html.embed .plain-lead,
+html.embed .plain-conclusion { color: #444; background: #F8F8F5; border-left: 3px solid #7F77DD; }
+html.embed .plain-card-name { color: #2C2C2A; }
+html.embed .plain-card-quote { color: #555; }
+html.embed .q-text { color: #444; }
+html.embed .header-desc { border-left-color: #7F77DD; }
 @media (max-width: 640px) {
   .page { padding: 0 20px 60px; }
   .overview { grid-template-columns: repeat(2, 1fr); }
@@ -625,6 +667,8 @@ footer {
   .arch-legend { grid-template-columns: repeat(2, 1fr); }
 }
 </style>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<script>(function(){if(/(?:\?|&)embed(?:=1)?(?:&|$)/.test(location.search))document.documentElement.classList.add("embed");})();</script>
 </head>
 <body>
 <div class="page">
